@@ -1,10 +1,17 @@
 
-var LoginPage = require('login-page')
+var LoginPage = require('./pages/login')
+  , View = require('./view')
 
 var App = React.createClass({
   getInitialState: function () {
     return {
-      token: null
+      token: null,
+      userData: {}
+    }
+  },
+  getDefaultProps: function () {
+    return {
+      checkPath: '/auth/check-login'
     }
   },
   authorized: function (token, data) {
@@ -16,13 +23,18 @@ var App = React.createClass({
   render: function () {
     if (!this.state.token) {
       return LoginPage({
-        checkPage: this.props.checkPage,
+        checkPath: this.props.checkPath,
         authorized: this.authorized
       })
     }
-    return View({token: this.state.token})
+    return View({
+      token: this.state.token,
+      userData: this.state.userData
+    })
   }
 })
 
-React.renderComponent(LoginPage({checkPath: '/auth/check-login'})
+module.exports = function (el) {
+  React.renderComponent(App(), el)
+}
 

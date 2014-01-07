@@ -19,7 +19,7 @@ app.use(express.session());
 
 auth.addRoutes(app, '/auth/check-login', '/auth/callback', config.fs_key)
 
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/web'))
 
 // now the sockets will talk
 api(config.mongo, io, app)

@@ -1,1 +1,6 @@
 node_modules
+/components
+/web/bootstrap
+/web/font-awesome
+/web/build.*
+web/react.js

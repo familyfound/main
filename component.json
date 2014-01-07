@@ -1,0 +1,36 @@
+{
+  "name": "main",
+  "repo": "familyfound/main",
+  "description": "The main page",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "jashkenas/backbone": "*",
+    "lodash/lodash": "*",
+    "familyfound/fsauth": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "client/index.js",
+  "scripts": [
+    "client/index.js",
+    "client/view.js",
+    "client/router.js",
+    "client/pages/login.js",
+    "client/pages/person.js",
+    "client/pages/overview.js",
+    "client/components/action-buttons.js",
+    "client/components/fan-box.js",
+    "client/components/footer.js",
+    "client/components/header.js",
+    "client/components/history-box.js",
+    "client/components/research-notes.js",
+    "client/components/todo-list.js",
+    "client/components/todo-people.js",
+    "client/components/vital-info.js"
+  ],
+  "styles": [
+    "main.css"
+  ],
+  "remotes": []
+}
