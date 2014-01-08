@@ -1,6 +1,7 @@
 
 var LoginPage = require('./pages/login')
   , View = require('./view')
+  , Manager = require('person-manager')
 
 var App = React.createClass({
   getInitialState: function () {
@@ -15,9 +16,35 @@ var App = React.createClass({
     }
   },
   authorized: function (token, data) {
+    var sock = io.connect(location.origin)
+    sock.on('person', this.funCounter)
+    sock.on('more_person', this.funCounter)
+    sock.emit('authorize', token, function () {
+      var m = new Manager(sock)
+      this.setState({
+        manager: m,
+        userData: data,
+        token: token,
+        loadingFan: true,
+        loadingTodos: true,
+        funCount: 0
+      })
+      m.load(data.personId, 5, 10, this.loadedFan, this.loadedTodos)
+    }.bind(this))
+  },
+  funCounter: function () {
     this.setState({
-      token: token,
-      userData: data
+      funCount: this.state.funCount + 1
+    })
+  },
+  loadedFan: function (count, depth) {
+    this.setState({
+      loadingFan: false
+    })
+  },
+  loadedTodos: function (count, depth) {
+    this.setState({
+      loadingTodos: false
     })
   },
   render: function () {

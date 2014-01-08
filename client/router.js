@@ -2,6 +2,8 @@
 var Backbone = require('backbone')
   , _ = require('lodash')
 
+Backbone.$ = $
+
 function findall(rx, str) {
   var found = []
   str.replace(rx, function (match) {
@@ -42,10 +44,10 @@ module.exports = {
       routes = routes()
     }
     Object.keys(routes).forEach(function (route) {
-      var rx = Backbone.Router._routeToRegExp(route)
+      var rx = Backbone.Router.prototype._routeToRegExp(route)
         , name = routes[route]
       Backbone.history.route(rx, function (fragment) {
-        var args = Backbone.Router._extractParameters(rx, fragment)
+        var args = Backbone.Router.prototype._extractParameters(rx, fragment)
           , obj = objDictFromRoute(route, args)
         obj.name = name
         that.setState({

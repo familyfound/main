@@ -32,7 +32,7 @@ var View = module.exports = React.createClass({
       })
     } else {
       main = OverviewPage({
-        pid: route.pid || this.props.userData.id,
+        pid: route.pid || this.props.userData.personId,
         overviewPerson: this.overviewPerson,
         viewPerson: this.viewPerson,
         manager: this.manager
