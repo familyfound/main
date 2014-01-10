@@ -22,12 +22,15 @@
     "client/pages/overview.js",
     "client/components/action-buttons.js",
     "client/components/fan-box.js",
+    "client/components/star.js",
+    "client/components/todo.js",
     "client/components/footer.js",
     "client/components/header.js",
     "client/components/history-box.js",
     "client/components/research-notes.js",
     "client/components/todo-list.js",
     "client/components/todo-people.js",
+    "client/components/todo-person.js",
     "client/components/vital-info.js"
   ],
   "styles": [

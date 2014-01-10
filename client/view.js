@@ -28,14 +28,15 @@ var View = module.exports = React.createClass({
         pid: route.pid,
         overviewPerson: this.overviewPerson,
         viewPerson: this.viewPerson,
-        manager: this.manager
+        manager: this.props.manager
       })
     } else {
       main = OverviewPage({
         pid: route.pid || this.props.userData.personId,
         overviewPerson: this.overviewPerson,
+        todoPeople: this.props.todoPeople,
         viewPerson: this.viewPerson,
-        manager: this.manager
+        manager: this.props.manager
       })
     }
 

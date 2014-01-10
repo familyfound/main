@@ -7,6 +7,7 @@ var App = React.createClass({
   getInitialState: function () {
     return {
       token: null,
+      todoPeople: [],
       userData: {}
     }
   },
@@ -18,8 +19,9 @@ var App = React.createClass({
   authorized: function (token, data) {
     var sock = io.connect(location.origin)
     sock.on('person', this.funCounter)
-    sock.on('more_person', this.funCounter)
-    sock.emit('authorize', token, function () {
+    sock.on('more_person', this.morePerson)
+    console.log('h on auth')
+    sock.emit('authorize', data.personId, token, function () {
       var m = new Manager(sock)
       this.setState({
         manager: m,
@@ -29,8 +31,18 @@ var App = React.createClass({
         loadingTodos: true,
         funCount: 0
       })
-      m.load(data.personId, 5, 10, this.loadedFan, this.loadedTodos)
+      m.load(data.personId, 1, 10, this.loadedFan, this.loadedTodos)
     }.bind(this))
+  },
+  morePerson: function (id, person) {
+    var todos = this.state.todoPeople.slice()
+    if (person.data.todos.length) {
+      todos.push(id)
+    }
+    this.setState({
+      todoPeople: todos,
+      funCount: this.state.funCount + 1
+    })
   },
   funCounter: function () {
     this.setState({
@@ -55,8 +67,10 @@ var App = React.createClass({
       })
     }
     return View({
-      token: this.state.token,
-      userData: this.state.userData
+      todoPeople: this.state.todoPeople,
+      userData: this.state.userData,
+      manager: this.state.manager,
+      token: this.state.token
     })
   }
 })

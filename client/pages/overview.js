@@ -23,6 +23,7 @@ var OverviewPage = module.exports = React.createClass({
       d.div(
         {className: 'overview__bottom'},
         TodoPeople({
+          manager: this.props.manager,
           people: this.props.todoPeople,
           overviewPerson: this.props.overviewPerson,
           viewPerson: this.props.viewPerson
