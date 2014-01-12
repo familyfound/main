@@ -23,6 +23,7 @@
     "client/pages/overview.js",
     "client/components/action-buttons.js",
     "client/components/fan-box.js",
+    "client/components/searches.js",
     "client/components/star.js",
     "client/components/todo.js",
     "client/components/footer.js",
