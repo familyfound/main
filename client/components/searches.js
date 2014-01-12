@@ -1,10 +1,24 @@
 
 module.exports = {
-  searchItems: searchItems
+  searchItems: searchItems,
+  fsQuery: fsQuery
 }
 
 function getYear(text) {
   return parseInt((text || '').match(/\d{4}/))
+}
+
+function fsQuery(person) {
+  var display = person.rels.display
+    , parts = display.name.split(' ')
+    , lastName = parts.pop()
+    , firstNames = parts.join(' ')
+  var query = '+givenname:"' + firstNames + '"~+surname:"' + lastName + '"~+birth_place:"' + display.birthPlace + '"~'
+    , birthYear
+  if (display.birthDate && (birthYear = getYear(display.birthDate))) {
+    query += '+birth_year:' + (birthYear - 2) + '-' + (birthYear + 2) + '~'
+  }
+  return query
 }
 
 function familySearch(person) {
@@ -26,63 +40,63 @@ function familySearchAdv(person) {
 
 
 var states = {
-        'AK': 'Alaska',
-        'AL': 'Alabama',
-        'AR': 'Arkansas',
-        'AS': 'American Samoa',
-        'AZ': 'Arizona',
-        'CA': 'California',
-        'CO': 'Colorado',
-        'CT': 'Connecticut',
-        'DC': 'District of Columbia',
-        'DE': 'Delaware',
-        'FL': 'Florida',
-        'GA': 'Georgia',
-        'GU': 'Guam',
-        'HI': 'Hawaii',
-        'IA': 'Iowa',
-        'ID': 'Idaho',
-        'IL': 'Illinois',
-        'IN': 'Indiana',
-        'KS': 'Kansas',
-        'KY': 'Kentucky',
-        'LA': 'Louisiana',
-        'MA': 'Massachusetts',
-        'MD': 'Maryland',
-        'ME': 'Maine',
-        'MI': 'Michigan',
-        'MN': 'Minnesota',
-        'MO': 'Missouri',
-        'MP': 'Northern Mariana Islands',
-        'MS': 'Mississippi',
-        'MT': 'Montana',
-        'NA': 'National',
-        'NC': 'North Carolina',
-        'ND': 'North Dakota',
-        'NE': 'Nebraska',
-        'NH': 'New Hampshire',
-        'NJ': 'New Jersey',
-        'NM': 'New Mexico',
-        'NV': 'Nevada',
-        'NY': 'New York',
-        'OH': 'Ohio',
-        'OK': 'Oklahoma',
-        'OR': 'Oregon',
-        'PA': 'Pennsylvania',
-        'PR': 'Puerto Rico',
-        'RI': 'Rhode Island',
-        'SC': 'South Carolina',
-        'SD': 'South Dakota',
-        'TN': 'Tennessee',
-        'TX': 'Texas',
-        'UT': 'Utah',
-        'VA': 'Virginia',
-        'VI': 'Virgin Islands',
-        'VT': 'Vermont',
-        'WA': 'Washington',
-        'WI': 'Wisconsin',
-        'WV': 'West Virginia',
-        'WY': 'Wyoming'
+  'AK': 'Alaska',
+  'AL': 'Alabama',
+  'AR': 'Arkansas',
+  'AS': 'American Samoa',
+  'AZ': 'Arizona',
+  'CA': 'California',
+  'CO': 'Colorado',
+  'CT': 'Connecticut',
+  'DC': 'District of Columbia',
+  'DE': 'Delaware',
+  'FL': 'Florida',
+  'GA': 'Georgia',
+  'GU': 'Guam',
+  'HI': 'Hawaii',
+  'IA': 'Iowa',
+  'ID': 'Idaho',
+  'IL': 'Illinois',
+  'IN': 'Indiana',
+  'KS': 'Kansas',
+  'KY': 'Kentucky',
+  'LA': 'Louisiana',
+  'MA': 'Massachusetts',
+  'MD': 'Maryland',
+  'ME': 'Maine',
+  'MI': 'Michigan',
+  'MN': 'Minnesota',
+  'MO': 'Missouri',
+  'MP': 'Northern Mariana Islands',
+  'MS': 'Mississippi',
+  'MT': 'Montana',
+  'NA': 'National',
+  'NC': 'North Carolina',
+  'ND': 'North Dakota',
+  'NE': 'Nebraska',
+  'NH': 'New Hampshire',
+  'NJ': 'New Jersey',
+  'NM': 'New Mexico',
+  'NV': 'Nevada',
+  'NY': 'New York',
+  'OH': 'Ohio',
+  'OK': 'Oklahoma',
+  'OR': 'Oregon',
+  'PA': 'Pennsylvania',
+  'PR': 'Puerto Rico',
+  'RI': 'Rhode Island',
+  'SC': 'South Carolina',
+  'SD': 'South Dakota',
+  'TN': 'Tennessee',
+  'TX': 'Texas',
+  'UT': 'Utah',
+  'VA': 'Virginia',
+  'VI': 'Virgin Islands',
+  'VT': 'Vermont',
+  'WA': 'Washington',
+  'WI': 'Wisconsin',
+  'WV': 'West Virginia',
+  'WY': 'Wyoming'
 }
 
 function isUS(birth, death) {

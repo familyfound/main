@@ -31,7 +31,7 @@ var View = module.exports = React.createClass({
 
     if (route.name === 'person') {
       main = PersonPage({
-        pid: route.pid,
+        id: route[':pid'],
         overviewPerson: this.overviewPerson,
         viewPerson: this.viewPerson,
         manager: this.props.manager,
@@ -39,7 +39,7 @@ var View = module.exports = React.createClass({
       })
     } else {
       main = OverviewPage({
-        pid: route.pid || this.props.userData.personId,
+        pid: route[':pid'] || this.props.userData.personId,
         overviewPerson: this.overviewPerson,
         todoPeople: this.props.todoPeople,
         personHref: this.personHref,

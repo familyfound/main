@@ -240,9 +240,9 @@ var TodoPerson = module.exports = React.createClass({
             className='todo-person__star'
             value={person.data.starred}
             onChange={this.onStar}/>
-          <span className='todo-person__name'>
+          <a className='todo-person__name' href={this.props.personHref}>
             {display.name}
-          </span>
+          </a>
           <div className='todo-person__lifespan'>
             {display.lifespan}
           </div>
