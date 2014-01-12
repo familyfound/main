@@ -26,8 +26,12 @@ var OverviewPage = module.exports = React.createClass({
           manager: this.props.manager,
           people: this.props.todoPeople,
           overviewPerson: this.props.overviewPerson,
-          viewPerson: this.props.viewPerson
-        })
+          removePerson: this.props.removeTodoPerson,
+          personHref: this.props.personHref
+/*        }),
+        ResearchJournal({
+          manager: this.props.manager,
+*/        })
       )
     )
   }

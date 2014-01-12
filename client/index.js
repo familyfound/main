@@ -3,6 +3,10 @@ var LoginPage = require('./pages/login')
   , View = require('./view')
   , Manager = require('person-manager')
 
+function isIncompleted(todos) {
+  return todos.any(function (t) {return !t.completed})
+}
+
 var App = React.createClass({
   getInitialState: function () {
     return {
@@ -18,9 +22,8 @@ var App = React.createClass({
   },
   authorized: function (token, data) {
     var sock = io.connect(location.origin)
-    sock.on('person', this.funCounter)
+    // sock.on('person', this.funCounter)
     sock.on('more_person', this.morePerson)
-    console.log('h on auth')
     sock.emit('authorize', data.personId, token, function () {
       var m = new Manager(sock)
       this.setState({
@@ -31,12 +34,13 @@ var App = React.createClass({
         loadingTodos: true,
         funCount: 0
       })
-      m.load(data.personId, 1, 10, this.loadedFan, this.loadedTodos)
+      m.load(data.personId, 1, 5, this.loadedFan, this.loadedTodos)
     }.bind(this))
   },
   morePerson: function (id, person) {
     var todos = this.state.todoPeople.slice()
-    if (person.data.todos.length) {
+      , add = person.data.todos.some(function (t) {return !t.completed})
+    if (add) {
       todos.push(id)
     }
     this.setState({
@@ -59,6 +63,11 @@ var App = React.createClass({
       loadingTodos: false
     })
   },
+  removeTodoPerson: function (id) {
+    var pp = this.state.todoPeople.slice()
+    pp.splice(pp.indexOf(id), 1)
+    this.setState({todoPeople: pp})
+  },
   render: function () {
     if (!this.state.token) {
       return LoginPage({
@@ -66,11 +75,17 @@ var App = React.createClass({
         authorized: this.authorized
       })
     }
+    var loadingText = ''
+    if (this.state.loadingTodos || this.state.loadingFan) {
+      loadingText = 'Looked through ' + this.state.funCount + ' people';
+    }
     return View({
       todoPeople: this.state.todoPeople,
       userData: this.state.userData,
       manager: this.state.manager,
-      token: this.state.token
+      token: this.state.token,
+      loadingText: loadingText,
+      removeTodoPerson: this.removeTodoPerson
     })
   }
 })

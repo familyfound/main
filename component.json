@@ -8,6 +8,7 @@
     "jashkenas/backbone": "*",
     "lodash/lodash": "*",
     "familyfound/fsauth": "*",
+    "familyfound/api": "*",
     "familyfound/person-manager": "*"
   },
   "development": {},

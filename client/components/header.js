@@ -1,9 +1,20 @@
+/** @jsx React.DOM */
 
 var d = React.DOM
 
 var Header = module.exports = React.createClass({
   render: function () {
-    return d.h1(null, 'Head me up! ' + this.props.userData.displayName)
+    return (
+      React.DOM.div( {className:"header"}, 
+        " Welcome, ",
+        React.DOM.span( {className:"header__name"}, 
+          this.props.userData.displayName
+        ),
+        React.DOM.a( {className:"header__logout", href:"/logout"}, "Logout"),
+        React.DOM.span( {className:"header__loading"}, 
+          this.props.loadingText
+        )
+      )
+    )
   }
 })
-

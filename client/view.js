@@ -16,8 +16,14 @@ var View = module.exports = React.createClass({
   overviewPerson: function (pid) {
     this.setRoute('' + pid)
   },
-  viewPerson: function (pid) {
-    this.setRoute('person/' + pid)
+  personHref: function (pid) {
+    return '#person/' + pid
+  },
+  getInitialState: function () {
+    return {loadingText: ''}
+  },
+  setLoadingText: function (text) {
+    this.setState({loadingText: text})
   },
   render: function () {
     var main
@@ -28,23 +34,27 @@ var View = module.exports = React.createClass({
         pid: route.pid,
         overviewPerson: this.overviewPerson,
         viewPerson: this.viewPerson,
-        manager: this.props.manager
+        manager: this.props.manager,
+        loadingText: this.setLoadingText
       })
     } else {
       main = OverviewPage({
         pid: route.pid || this.props.userData.personId,
         overviewPerson: this.overviewPerson,
         todoPeople: this.props.todoPeople,
-        viewPerson: this.viewPerson,
-        manager: this.props.manager
+        personHref: this.personHref,
+        manager: this.props.manager,
+        setLoadingText: this.setLoadingText,
+        removeTodoPerson: this.props.removeTodoPerson
       })
     }
 
     return d.div(
       { className: 'main-view' },
       Header({
-        userData: this.props.userData
-      }), 
+        userData: this.props.userData,
+        loadingText: this.props.loadingText
+      }),
       main,
       Footer()
     )
