@@ -247,8 +247,11 @@ body {
   margin: 0;
   cursor: pointer;
   border-radius: 5px;
-  background-color: #e0f7ff;
   margin-top: 5px;
+}
+
+.todo:hover {
+  background-color: #e0f7ff;
 }
 
 .todo__hard {
@@ -302,6 +305,7 @@ body {
   color: #a55;
 }
 
+.todo--hard:hover,
 .todo--hard {
   background-color: #ffe0e0;
 }
