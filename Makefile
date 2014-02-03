@@ -34,7 +34,13 @@ gh-pages: build
 	mv w/* ./
 	rmdir w
 
-serve:
+web/jquery-2.0.3.js:
+	@cd web && wget http://code.jquery.com/jquery-2.0.3.js
+
+web/react-0.8.0.js:
+	@cd web && wget http://fb.me/react-0.8.0.js
+
+serve: web/jquery-2.0.3.js web/react-0.8.0.js
 	@node index.js
 
 .PHONY: clean
