@@ -234,7 +234,7 @@ var TodoPerson = module.exports = React.createClass({
           React.DOM.button(
             {className:"todo-person__complete",
             onClick:this.onComplete}, 
-            " Complete / Ignore "
+            " Completed "
           ),
           Star(
             {className:"todo-person__star",

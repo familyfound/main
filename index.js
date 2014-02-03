@@ -10,6 +10,7 @@ var express = require('express')
   , config = require('./lib/config')
   , auth = require('fsauth')(config.host)
 
+io.set('log level', 1)
 app.use(cors())
 app.use(express.bodyParser());
 app.use(express.methodOverride());
