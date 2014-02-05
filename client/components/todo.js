@@ -8,6 +8,18 @@ var Todo = module.exports = React.createClass({
     if (e.target !== this.getDOMNode()) return
     this.props.onDone()
   },
+  getTitle: function () {
+    var tpl = todos.titles[this.props.data.type]
+      , items = this.props.data.data
+    if (!Array.isArray(items)) {
+      items = [items];
+    } else {
+      items = items.slice()
+    }
+    return tpl.replace(/\{\}/g, function () {
+      return items.shift()
+    })
+  },
   render: function () {
     var cls = 'todo'
     if (this.props.data.completed) {
@@ -36,7 +48,7 @@ var Todo = module.exports = React.createClass({
       d.span({
         className: 'todo__title',
         onClick: this.props.onDone,
-      }, todos.titles[this.props.data.type])
+      }, this.getTitle())
     )
   }
 })
