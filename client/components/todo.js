@@ -11,6 +11,9 @@ var Todo = module.exports = React.createClass({
   getTitle: function () {
     var tpl = todos.titles[this.props.data.type]
       , items = this.props.data.data
+    if (items && items.args) {
+      items = items.args
+    }
     if (!Array.isArray(items)) {
       items = [items];
     } else {
@@ -19,6 +22,21 @@ var Todo = module.exports = React.createClass({
     return tpl.replace(/\{\}/g, function () {
       return items.shift()
     })
+  },
+  getLinks: function () {
+    if (!this.props.data.data || !this.props.data.data.links) return false
+    var links = this.props.data.data.links
+    return d.ul({className: 'todo__links'},
+      Object.keys(links).map(function (link) {
+        return d.li({className: 'todo__link-item'},
+          d.a({
+            className: 'todo__link',
+            target: '_blank',
+            href: links[link]
+          }, link)
+        )
+      })
+    )
   },
   render: function () {
     var cls = 'todo'
@@ -48,7 +66,8 @@ var Todo = module.exports = React.createClass({
       d.span({
         className: 'todo__title',
         onClick: this.props.onDone,
-      }, this.getTitle())
+      }, this.getTitle()),
+      this.getLinks()
     )
   }
 })
