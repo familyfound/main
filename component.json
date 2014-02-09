@@ -9,6 +9,7 @@
     "lodash/lodash": "*",
     "familyfound/fsauth": "*",
     "familyfound/api": "*",
+    "familyfound/fan": "*",
     "familyfound/person-manager": "*"
   },
   "development": {},

@@ -4,3 +4,4 @@ node_modules
 /web/font-awesome
 /web/build.*
 web/react.js
+*.swp
