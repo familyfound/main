@@ -10,7 +10,9 @@
     "familyfound/fsauth": "*",
     "familyfound/api": "*",
     "familyfound/fan": "*",
-    "familyfound/person-manager": "*"
+    "familyfound/person-manager": "*",
+    "component/tip": "*",
+    "component/aurora-tip": "*"
   },
   "development": {},
   "license": "MIT",

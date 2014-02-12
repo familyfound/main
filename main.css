@@ -150,37 +150,37 @@ body {
   fill: #cccccc;
 }
 .fan-box.show-completion .c-not-evaluated:hover {
-  fill: #e6e6e6;
+  fill: #d9d9d9;
 }
 .fan-box.show-completion .c-completed {
   fill: #aaffaa;
 }
 .fan-box.show-completion .c-completed:hover {
-  fill: #ddffdd;
+  fill: #c3ffc3;
 }
 .fan-box.show-completion .c-has-todos {
   fill: #ffaaaa;
 }
 .fan-box.show-completion .c-has-todos:hover {
-  fill: #ffdddd;
+  fill: #ffc3c3;
 }
 .fan-box.show-children .ch-very-few {
   fill: #ffaaaa;
 }
 .fan-box.show-children .ch-very-few:hover {
-  fill: #ffdddd;
+  fill: #ffc3c3;
 }
 .fan-box.show-children .ch-few {
   fill: #ffdddd;
 }
 .fan-box.show-children .ch-few:hover {
-  fill: #ffffff;
+  fill: #fff7f7;
 }
 .fan-box.show-children .ch-several {
   fill: #ddffdd;
 }
 .fan-box.show-children .ch-several:hover {
-  fill: #ffffff;
+  fill: #f7fff7;
 }
 .todo-people__loading {
   padding: 20px 50px;
