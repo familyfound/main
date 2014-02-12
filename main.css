@@ -1,58 +1,38 @@
-
-
 html,
 body {
   height: 100%;
   background-color: #cae0ff;
 }
-
 .header {
   padding: 10px 15px;
 }
-
 .header__name {
   font-weight: bold;
   margin: 0 10px;
 }
-
 .header__loading {
   margin-left: 10px;
 }
-
 .overview__top {
+  /*
   height: 40px;
-  border: 1px solid #ccc;
   display: none;
+  */
+  border: 1px solid #ccc;
 }
-
 .overview__top--expanded {
   height: 500px;
   border: 1px solid #ccc;
 }
-
-.todo-people__loading {
-  padding: 20px 50px;
-  font-weight: bold;
-}
-
-.todo-people__show-hard {
-  border: 1px solid #ccc;
-  background-color: white;
-  border-radius: 5px;
-  margin: 10px 5px 5px;
-}
-
 .person-page__vitals {
   padding: 10px 20px;
   font-size: 20px;
   font-weight: bold;
 }
-
 /** searcher **/
 .searcher {
   margin: 0 50px 0 10px;
 }
-
 .searcher__title {
   font-size: 18px;
   font-weight: bold;
@@ -62,11 +42,9 @@ body {
   border-radius: 5px;
   margin-bottom: 5px;
 }
-
 .searcher__title:hover {
   background-color: #e0efff;
 }
-
 .searcher__iframe {
   width: 100%;
   border: 0;
@@ -75,13 +53,33 @@ body {
   display: block;
   transition: height .5s ease, opacity .5s ease;
 }
-
 .searcher--open .searcher__iframe {
   box-shadow: 0 0 5px black;
   opacity: 1;
   height: 700px;
 }
-
+/** login page **/
+.login-page {
+  display: flex;
+  height: 100%;
+  background-color: #cae0ff;
+}
+.login-page__left,
+.login-page__right {
+  flex: 1;
+}
+.login-page__middle {
+  padding: 50px 10px;
+}
+.login-page__iframe {
+  width: 320px;
+  height: 750px;
+  border: none;
+  border-radius: 10px;
+}
+#main {
+  height: auto;
+}
 /** drop list **/
 .droplist {
   display: inline-block;
@@ -90,14 +88,12 @@ body {
 .droplist__head {
   cursor: pointer;
 }
-
 .droplist__head:after {
   content: '\e114';
   margin-left: 0;
   cursor: pointer;
   font-family: 'Glyphicons Halflings';
 }
-
 .droplist__list {
   z-index: 100;
   display: none;
@@ -108,54 +104,100 @@ body {
   border-radius: 10px;
   border-top-left-radius: 0;
 }
-
 .droplist--open .droplist__list {
   display: block;
   position: absolute;
 }
-
 .droplist:focus {
   outline: none;
 }
-
 .droplist__item {
   padding: 0px 5px;
   margin-bottom: 5px;
 }
-
 .droplist__item:first-child {
   border-top-right-radius: 10px;
 }
-
 .droplist__item:first-child {
   border-top-right-radius: 10px;
 }
-
 .droplist__link {
   padding: 5px 10px;
   background-color: #07d;
   color: white;
-  box-shadow: 3px 3px 10px #cef inset, -3px -3px 10px #59c inset;
+  box-shadow: 3px 3px 10px #cceeff inset, -3px -3px 10px #5599cc inset;
   border-radius: 10px;
   width: 100%;
   display: inline-block;
   text-align: center;
 }
-
 .droplist__link:hover {
   color: white;
   background-color: #5af;
   text-decoration: none;
 }
-
+.fan-box path.node {
+  fill: #aaa;
+  stroke: white;
+  stroke-weight: 2px;
+}
+.fan-box .not-loaded {
+  display: none;
+  fill: none;
+  stroke: none;
+}
+.fan-box.show-completion .c-not-evaluated {
+  fill: #cccccc;
+}
+.fan-box.show-completion .c-not-evaluated:hover {
+  fill: #e6e6e6;
+}
+.fan-box.show-completion .c-completed {
+  fill: #aaffaa;
+}
+.fan-box.show-completion .c-completed:hover {
+  fill: #ddffdd;
+}
+.fan-box.show-completion .c-has-todos {
+  fill: #ffaaaa;
+}
+.fan-box.show-completion .c-has-todos:hover {
+  fill: #ffdddd;
+}
+.fan-box.show-children .ch-very-few {
+  fill: #ffaaaa;
+}
+.fan-box.show-children .ch-very-few:hover {
+  fill: #ffdddd;
+}
+.fan-box.show-children .ch-few {
+  fill: #ffdddd;
+}
+.fan-box.show-children .ch-few:hover {
+  fill: #ffffff;
+}
+.fan-box.show-children .ch-several {
+  fill: #ddffdd;
+}
+.fan-box.show-children .ch-several:hover {
+  fill: #ffffff;
+}
+.todo-people__loading {
+  padding: 20px 50px;
+  font-weight: bold;
+}
+.todo-people__show-hard {
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px 5px 5px;
+}
 /** todo list **/
-
 .todo-people {
   padding: 0;
   margin: 0;
   width: 500px;
 }
-
 .todo-person {
   border: 1px solid #ccc;
   margin: 5px;
@@ -163,7 +205,6 @@ body {
   border-radius: 5px;
   background-color: white;
 }
-
 .todo-person--no-todos,
 .todo-person--hard-todos,
 .todo-person--completed {
@@ -171,15 +212,12 @@ body {
   font-size: 13px;
   background-color: #f0faff;
 }
-
 .todo-person--hard-todos {
   background-color: #ffeaea;
 }
-
 .todo-person__s-name {
   font-weight: bold;
 }
-
 .todo-person__undo {
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -188,42 +226,34 @@ body {
 .todo-person__undo:hover {
   background-color: #ccc;
 }
-
 .todo-person__name {
   font-size: 17px;
   font-weight: bold;
 }
-
 .todo-person__place,
 .todo-person__lifespan {
   display: inline-block;
   color: #555;
 }
-
 .todo-person__lifespan {
   font-weight: bold;
   margin: 0 15px;
 }
-
 .todo-person__place {
   font-style: italic;
 }
-
 .todo-person__complete {
   float: right;
 }
-
 .todo-person__todos {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 .todo-person__todo {
   margin: 0;
   padding: 0;
 }
-
 .todo-person__complete {
   visibility: hidden;
   border: none;
@@ -231,17 +261,14 @@ body {
   text-transform: lowercase;
   color: #555;
 }
-
 .todo-person:hover .todo-person__complete {
   visibility: visible;
 }
-
 .todo-person__complete:hover {
   background-color: #96EE74;
   border-radius: 5px;
-  color: rgb(0, 71, 9);
+  color: #004709;
 }
-
 .todo {
   padding: 5px 5px 5px 10px;
   margin: 0;
@@ -249,11 +276,9 @@ body {
   border-radius: 5px;
   margin-top: 5px;
 }
-
 .todo:hover {
   background-color: #e0f7ff;
 }
-
 .todo__hard {
   visibility: hidden;
   float: right;
@@ -262,95 +287,51 @@ body {
   text-transform: lowercase;
   color: #777;
 }
-
 .todo:hover .todo__hard {
   visibility: visible;
 }
-
 .todo__hard:hover {
   color: #a55;
   background-color: #ffe0e0;
   border-radius: 5px;
 }
-
 .todo--hard .todo__hard {
   visibility: visible;
 }
-
 .todo--hard .todo__hard:hover {
   background-color: #e0f7ff;
   color: #555;
 }
-
 .todo__hard:focus {
   outline: none;
 }
-
 .todo__box {
   /* TODO: restyle the checkboxes */
   cursor: pointer;
 }
-
 .todo__title {
   padding-left: 10px;
   cursor: pointer;
 }
-
-
 .todo--hard .todo__title {
-    color: #a55;
+  color: #a55;
 }
-
 .todo--hard .todo__hard {
   color: #a55;
 }
-
 .todo--hard:hover,
 .todo--hard {
   background-color: #ffe0e0;
 }
-
 .todo--hard-completed,
 .todo--completed {
   background-color: white;
 }
-
 .todo--completed .todo__title {
   color: #aaa;
   font-style: italic;
 }
-
 .todo--hard-completed .todo__title {
   color: #faa;
   font-style: italic;
 }
-
-/** login page **/
-
-.login-page {
-  display: flex;
-  height: 100%;
-  background-color: #cae0ff;
-}
-
-.login-page__left,
-.login-page__right {
-  flex: 1;
-}
-
-.login-page__middle {
-  padding: 50px 10px;
-}
-
-.login-page__iframe {
-  width: 320px;
-  height: 750px;
-  border: none;
-  border-radius: 10px;
-}
-
-#main {
-  height: auto;
-}
-
-

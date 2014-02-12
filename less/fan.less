@@ -1,0 +1,57 @@
+
+@grey: #ccc;
+@awesome: #afa;
+@todo: #faa;
+
+@todo-minor: #fdd;
+@fine: #dfd;
+
+.hoverable(@bgcolor) {
+  fill: @bgcolor;
+  &:hover {
+    fill: lighten(@bgcolor, 10%);
+  }
+}
+
+.fan-box path.node {
+  fill: #aaa;
+  stroke: white;
+  stroke-weight: 2px;
+}
+
+.fan-box {
+  .not-loaded {
+    display: none;
+    fill: none;
+    stroke: none;
+  }
+
+  &.show-completion {
+    .c-not-evaluated {
+      .hoverable(@grey);
+    }
+
+    .c-completed {
+      .hoverable(@awesome);
+    }
+
+    .c-has-todos {
+      .hoverable(@todo);
+    }
+  }
+
+  &.show-children {
+    .ch-very-few {
+      .hoverable(@todo);
+    }
+
+    .ch-few {
+      .hoverable(@todo-minor);
+    }
+
+    .ch-several {
+      .hoverable(@fine);
+    }
+  }
+}
+

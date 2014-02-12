@@ -2,6 +2,7 @@
 PAGES = $(patsubst %.jsx, %.js, $(wildcard client/pages/*.jsx))
 COMPONENTS = $(patsubst %.jsx, %.js, $(wildcard client/components/*.jsx))
 COMPILED = $(PAGES) $(COMPONENTS)
+LESS = $(wildcard less/*.less)
 
 build: components index.js main.css $(COMPILED)
 	@component build --dev -n build -s main -o web
@@ -12,6 +13,8 @@ client/pages/%.js: client/pages/%.jsx
 client/components/%.js: client/components/%.jsx
 	@jsx $< > $@
 
+main.css: ${LESS}
+	lessc less/index.less main.css
 
 components: component.json
 	@component install --dev

@@ -1,0 +1,190 @@
+
+.todo-people__loading {
+  padding: 20px 50px;
+  font-weight: bold;
+}
+
+.todo-people__show-hard {
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px 5px 5px;
+}
+
+/** todo list **/
+
+.todo-people {
+  padding: 0;
+  margin: 0;
+  width: 500px;
+}
+
+.todo-person {
+  border: 1px solid #ccc;
+  margin: 5px;
+  padding: 7px 10px 10px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.todo-person--no-todos,
+.todo-person--hard-todos,
+.todo-person--completed {
+  border: none;
+  font-size: 13px;
+  background-color: #f0faff;
+}
+
+.todo-person--hard-todos {
+  background-color: #ffeaea;
+}
+
+.todo-person__s-name {
+  font-weight: bold;
+}
+
+.todo-person__undo {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+}
+.todo-person__undo:hover {
+  background-color: #ccc;
+}
+
+.todo-person__name {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.todo-person__place,
+.todo-person__lifespan {
+  display: inline-block;
+  color: #555;
+}
+
+.todo-person__lifespan {
+  font-weight: bold;
+  margin: 0 15px;
+}
+
+.todo-person__place {
+  font-style: italic;
+}
+
+.todo-person__complete {
+  float: right;
+}
+
+.todo-person__todos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-person__todo {
+  margin: 0;
+  padding: 0;
+}
+
+.todo-person__complete {
+  visibility: hidden;
+  border: none;
+  background-color: white;
+  text-transform: lowercase;
+  color: #555;
+}
+
+.todo-person:hover .todo-person__complete {
+  visibility: visible;
+}
+
+.todo-person__complete:hover {
+  background-color: #96EE74;
+  border-radius: 5px;
+  color: rgb(0, 71, 9);
+}
+
+.todo {
+  padding: 5px 5px 5px 10px;
+  margin: 0;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.todo:hover {
+  background-color: #e0f7ff;
+}
+
+.todo__hard {
+  visibility: hidden;
+  float: right;
+  border: 0;
+  background-color: transparent;
+  text-transform: lowercase;
+  color: #777;
+}
+
+.todo:hover .todo__hard {
+  visibility: visible;
+}
+
+.todo__hard:hover {
+  color: #a55;
+  background-color: #ffe0e0;
+  border-radius: 5px;
+}
+
+.todo--hard .todo__hard {
+  visibility: visible;
+}
+
+.todo--hard .todo__hard:hover {
+  background-color: #e0f7ff;
+  color: #555;
+}
+
+.todo__hard:focus {
+  outline: none;
+}
+
+.todo__box {
+  /* TODO: restyle the checkboxes */
+  cursor: pointer;
+}
+
+.todo__title {
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+
+.todo--hard .todo__title {
+    color: #a55;
+}
+
+.todo--hard .todo__hard {
+  color: #a55;
+}
+
+.todo--hard:hover,
+.todo--hard {
+  background-color: #ffe0e0;
+}
+
+.todo--hard-completed,
+.todo--completed {
+  background-color: white;
+}
+
+.todo--completed .todo__title {
+  color: #aaa;
+  font-style: italic;
+}
+
+.todo--hard-completed .todo__title {
+  color: #faa;
+  font-style: italic;
+}
+

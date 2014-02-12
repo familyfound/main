@@ -1,0 +1,66 @@
+/** drop list **/
+.droplist {
+  display: inline-block;
+  margin-left: 10px;
+}
+.droplist__head {
+  cursor: pointer;
+}
+
+.droplist__head:after {
+  content: '\e114';
+  margin-left: 0;
+  cursor: pointer;
+  font-family: 'Glyphicons Halflings';
+}
+
+.droplist__list {
+  z-index: 100;
+  display: none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background-color: white;
+  border-radius: 10px;
+  border-top-left-radius: 0;
+}
+
+.droplist--open .droplist__list {
+  display: block;
+  position: absolute;
+}
+
+.droplist:focus {
+  outline: none;
+}
+
+.droplist__item {
+  padding: 0px 5px;
+  margin-bottom: 5px;
+}
+
+.droplist__item:first-child {
+  border-top-right-radius: 10px;
+}
+
+.droplist__item:first-child {
+  border-top-right-radius: 10px;
+}
+
+.droplist__link {
+  padding: 5px 10px;
+  background-color: #07d;
+  color: white;
+  box-shadow: 3px 3px 10px #cef inset, -3px -3px 10px #59c inset;
+  border-radius: 10px;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+
+.droplist__link:hover {
+  color: white;
+  background-color: #5af;
+  text-decoration: none;
+}
+

@@ -34,10 +34,11 @@ var App = React.createClass({
         loadingTodos: true,
         funCount: 0
       })
-      m.load(data.personId, 1, 5, this.loadedFan, this.loadedTodos)
+      m.load(data.personId, 5, 1, this.loadedFan, this.loadedTodos)
     }.bind(this))
   },
   morePerson: function (id, person) {
+    console.log(id, person)
     var todos = this.state.todoPeople.slice()
       , add = person.data.todos.some(function (t) {return !t.completed})
     if (add) {

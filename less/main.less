@@ -1,0 +1,106 @@
+
+
+html,
+body {
+  height: 100%;
+  background-color: #cae0ff;
+}
+
+.header {
+  padding: 10px 15px;
+}
+
+.header__name {
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.header__loading {
+  margin-left: 10px;
+}
+
+.overview__top {
+  /*
+  height: 40px;
+  display: none;
+  */
+  border: 1px solid #ccc;
+}
+
+.overview__top--expanded {
+  height: 500px;
+  border: 1px solid #ccc;
+}
+
+.person-page__vitals {
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/** searcher **/
+.searcher {
+  margin: 0 50px 0 10px;
+}
+
+.searcher__title {
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+.searcher__title:hover {
+  background-color: #e0efff;
+}
+
+.searcher__iframe {
+  width: 100%;
+  border: 0;
+  height: 0px;
+  opacity: 0;
+  display: block;
+  transition: height .5s ease, opacity .5s ease;
+}
+
+.searcher--open .searcher__iframe {
+  box-shadow: 0 0 5px black;
+  opacity: 1;
+  height: 700px;
+}
+
+
+
+/** login page **/
+
+.login-page {
+  display: flex;
+  height: 100%;
+  background-color: #cae0ff;
+}
+
+.login-page__left,
+.login-page__right {
+  flex: 1;
+}
+
+.login-page__middle {
+  padding: 50px 10px;
+}
+
+.login-page__iframe {
+  width: 320px;
+  height: 750px;
+  border: none;
+  border-radius: 10px;
+}
+
+#main {
+  height: auto;
+}
+
+
+
