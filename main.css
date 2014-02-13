@@ -1,7 +1,9 @@
 html,
 body {
   height: 100%;
-  background-color: #cae0ff;
+  background-repeat: repeat;
+  background-size: 10px 10px;
+  background-image: linear-gradient(45deg, transparent 0%, transparent 10%, #ffffff 15%, #ffffff 25%, transparent 30%, transparent 60%, #ffffff 65%, #ffffff 75%, transparent 80%);
 }
 .header {
   padding: 10px 15px;
@@ -146,11 +148,11 @@ body {
   margin-right: 5px;
 }
 .tip__todo {
-  color: #ffaaaa;
+  color: #ffff00;
   font-weight: bold;
 }
 .tip__todo--hard {
-  color: #ff7777;
+  color: #e70000;
 }
 .tip__todo--hard::after {
   content: "hard";
@@ -179,28 +181,28 @@ body {
   fill: #d9d9d9;
 }
 .fan-box.show-age .a-young {
-  fill: #5555ff;
+  fill: #0000ff;
 }
 .fan-box.show-age .a-young:hover {
-  fill: #6f6fff;
+  fill: #1a1aff;
 }
 .fan-box.show-age .a-middle {
-  fill: #8888ff;
+  fill: #000099;
 }
 .fan-box.show-age .a-middle:hover {
-  fill: #a2a2ff;
+  fill: #0000b3;
 }
 .fan-box.show-age .a-old {
-  fill: #bbbbff;
+  fill: #000033;
 }
 .fan-box.show-age .a-old:hover {
-  fill: #d5d5ff;
+  fill: #00004c;
 }
 .fan-box.show-age .a-ancient {
-  fill: #eeeeff;
+  fill: #000000;
 }
 .fan-box.show-age .a-ancient:hover {
-  fill: #ffffff;
+  fill: #0d0d0d;
 }
 .fan-box.show-sources .s-unknown {
   fill: #cccccc;
@@ -209,28 +211,28 @@ body {
   fill: #d9d9d9;
 }
 .fan-box.show-sources .s-none {
-  fill: #ff7777;
+  fill: #ff00e1;
 }
 .fan-box.show-sources .s-none:hover {
-  fill: #ff9191;
+  fill: #ff1ae4;
 }
 .fan-box.show-sources .s-few {
-  fill: #ffaaaa;
+  fill: #cc00b4;
 }
 .fan-box.show-sources .s-few:hover {
-  fill: #ffc3c3;
+  fill: #e600cb;
 }
 .fan-box.show-sources .s-some {
-  fill: #c3ffc3;
+  fill: #990087;
 }
 .fan-box.show-sources .s-some:hover {
-  fill: #ddffdd;
+  fill: #b3009e;
 }
 .fan-box.show-sources .s-many {
-  fill: #aaffaa;
+  fill: #66005a;
 }
 .fan-box.show-sources .s-many:hover {
-  fill: #c3ffc3;
+  fill: #800071;
 }
 .fan-box.show-completion .c-not-evaluated {
   fill: #cccccc;
@@ -239,22 +241,22 @@ body {
   fill: #d9d9d9;
 }
 .fan-box.show-completion .c-completed {
-  fill: #aaffaa;
+  fill: #00ff00;
 }
 .fan-box.show-completion .c-completed:hover {
-  fill: #c3ffc3;
+  fill: #1aff1a;
 }
 .fan-box.show-completion .c-has-todos {
-  fill: #ffaaaa;
+  fill: #ffff00;
 }
 .fan-box.show-completion .c-has-todos:hover {
-  fill: #ffc3c3;
+  fill: #ffff1a;
 }
 .fan-box.show-completion .c-just-hard {
-  fill: #ff7777;
+  fill: #e70000;
 }
 .fan-box.show-completion .c-just-hard:hover {
-  fill: #ff9191;
+  fill: #ff0101;
 }
 .fan-box.show-children .ch-living {
   fill: #cccccc;
@@ -263,22 +265,22 @@ body {
   fill: #d9d9d9;
 }
 .fan-box.show-children .ch-very-few {
-  fill: #ffaaaa;
+  fill: #ffb300;
 }
 .fan-box.show-children .ch-very-few:hover {
-  fill: #ffc3c3;
+  fill: #ffbb1a;
 }
 .fan-box.show-children .ch-few {
-  fill: #ffaabb;
+  fill: #ffe500;
 }
 .fan-box.show-children .ch-few:hover {
-  fill: #ffc3cf;
+  fill: #ffe81a;
 }
 .fan-box.show-children .ch-several {
-  fill: #aaffbb;
+  fill: #ff7f00;
 }
 .fan-box.show-children .ch-several:hover {
-  fill: #c3ffcf;
+  fill: #ff8c1a;
 }
 .todo-people__loading {
   padding: 20px 50px;

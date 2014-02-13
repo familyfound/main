@@ -1,18 +1,18 @@
 
 @grey: #ccc;
-@awesome: #afa;
+@awesome: #0F0;
 @light-awesome: lighten(@awesome, 5%);
-@todo: #faa;
-@todo-hard: #f77;
+@todo: #FFFF00;
+@todo-hard: #E70000;
 
 @todo-minor: #fab;
 @fine: #afb;
 
-@grad-0: #55f;
-@grad-1: lighten(@grad-0, 10%);
-@grad-2: lighten(@grad-1, 10%);
-@grad-3: lighten(@grad-2, 10%);
-@grad-4: lighten(@grad-3, 10%);
+@grad-0: #00f;
+@grad-1: darken(@grad-0, 20%);
+@grad-2: darken(@grad-1, 20%);
+@grad-3: darken(@grad-2, 20%);
+@grad-4: darken(@grad-3, 20%);
 
 .tip {
   pointer-events: none;
@@ -99,19 +99,19 @@
     }
 
     .s-none {
-      .hoverable(@todo-hard);
+      .hoverable(hsl(307, 100%, 50%));
     }
     
     .s-few {
-      .hoverable(@todo);
+      .hoverable(hsl(307, 100%, 40%));
     }
 
     .s-some {
-      .hoverable(@light-awesome);
+      .hoverable(hsl(307, 100%, 30%));
     }
 
     .s-many {
-      .hoverable(@awesome);
+      .hoverable(hsl(307, 100%, 20%));
     }
   }
 
@@ -139,15 +139,15 @@
     }
 
     .ch-very-few {
-      .hoverable(@todo);
+      .hoverable(#FFB300);
     }
 
     .ch-few {
-      .hoverable(@todo-minor);
+      .hoverable(#FFE500);
     }
 
     .ch-several {
-      .hoverable(@fine);
+      .hoverable(#FF7F00);
     }
   }
 }

@@ -1,9 +1,19 @@
 
+@grad-b: transparent;
+@grad-f: #FFF;
+
 
 html,
 body {
   height: 100%;
-  background-color: #cae0ff;
+  background-repeat: repeat;
+  background-size: 10px 10px;
+  background-image: linear-gradient(45deg,
+    @grad-b 0%, @grad-b 10%,
+    @grad-f 15%, @grad-f 25%,
+    @grad-b 30%, @grad-b 60%,
+    @grad-f 65%, @grad-f 75%,
+    @grad-b 80%)
 }
 
 .header {
