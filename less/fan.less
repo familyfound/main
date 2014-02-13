@@ -1,11 +1,18 @@
 
 @grey: #ccc;
 @awesome: #afa;
+@light-awesome: lighten(@awesome, 5%);
 @todo: #faa;
 @todo-hard: #f77;
 
-@todo-minor: #fdd;
-@fine: #dfd;
+@todo-minor: #fab;
+@fine: #afb;
+
+@grad-0: #55f;
+@grad-1: lighten(@grad-0, 10%);
+@grad-2: lighten(@grad-1, 10%);
+@grad-3: lighten(@grad-2, 10%);
+@grad-4: lighten(@grad-3, 10%);
 
 .tip {
   pointer-events: none;
@@ -64,6 +71,50 @@
     stroke: none;
   }
 
+  &.show-age {
+    .a-unknown {
+      .hoverable(@grey);
+    }
+
+    .a-young {
+      .hoverable(@grad-0);
+    }
+
+    .a-middle {
+      .hoverable(@grad-1);
+    }
+
+    .a-old {
+      .hoverable(@grad-2);
+    }
+
+    .a-ancient {
+      .hoverable(@grad-3);
+    }
+  }
+
+  &.show-sources {
+    .s-unknown {
+      .hoverable(@grey);
+    }
+
+    .s-none {
+      .hoverable(@todo-hard);
+    }
+    
+    .s-few {
+      .hoverable(@todo);
+    }
+
+    .s-some {
+      .hoverable(@light-awesome);
+    }
+
+    .s-many {
+      .hoverable(@awesome);
+    }
+  }
+
   &.show-completion {
     .c-not-evaluated {
       .hoverable(@grey);
@@ -83,6 +134,10 @@
   }
 
   &.show-children {
+    .ch-living {
+      .hoverable(@grey);
+    }
+
     .ch-very-few {
       .hoverable(@todo);
     }

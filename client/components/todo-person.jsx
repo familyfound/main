@@ -14,6 +14,7 @@ function findTodo(todos, type) {
 }
 
 var Droplist = React.createClass({
+  displayName: 'DropList',
   getDefaultProps: function () {
     return {
       className: '',
@@ -100,6 +101,7 @@ function makeDropicon(person) {
 }
 
 var TodoPerson = module.exports = React.createClass({
+  displayName: 'TodoPerson',
   getInitialState: function () {
     return {person: {}}
   },
@@ -194,7 +196,7 @@ var TodoPerson = module.exports = React.createClass({
   },
 
   render: function () {
-    if (!this.state.person || !this.state.person.rels) {
+    if (!this.state.person || !this.state.person.rels || !this.state.person.data) {
       return <div>Loading</div>
     }
     var person = this.state.person

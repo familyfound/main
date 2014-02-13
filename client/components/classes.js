@@ -33,6 +33,7 @@ module.exports = {
   },
   'num-children': function (data) {
     if (!data.rels) return false
+    if (data.display.lifespan.match(/Living/)) return 'ch-living'
     switch (data.rels.children.length) {
       case 0:
       case 1:
@@ -42,6 +43,23 @@ module.exports = {
       default:
         return 'ch-several'
     }
+  },
+  age: function (data) {
+    var display = data.rels.display
+    if (!display.age) return 'a-unknown'
+    if (display.age < 30) return 'a-young'
+    if (display.age < 60) return 'a-middle'
+    if (display.age < 80) return 'a-old'
+    return 'a-ancient'
+  },
+  sources: function (data) {
+    if (!data.more || !data.more.sources) return 's-unknown'
+    if (data.display.lifespan.match(/Living/)) return 's-unknown'
+    var n = data.more.sources.length
+    if (!n) return 's-none'
+    if (n < 3) return 's-few'
+    if (n < 6) return 's-some'
+    return 's-many'
   }
 }
 

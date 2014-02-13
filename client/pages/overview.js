@@ -5,23 +5,12 @@ var FanBox = require('../components/fan-box')
   , d = React.DOM
 
 var OverviewPage = module.exports = React.createClass({
+  displayName: 'OverviewPage',
   render: function () {
     return d.div(
       { className: 'overview' },
       d.div(
-        {className: 'overview__top'},
-        FanBox({
-          pid: this.props.pid,
-          manager: this.props.manager,
-          overviewPerson: this.props.overviewPerson,
-          viewPerson: this.props.viewPerson
-        }),
-        HistoryBox({
-          history: this.props.history
-        })
-      ),
-      d.div(
-        {className: 'overview__bottom'},
+        {className: 'overview__todo'},
         TodoPeople({
           manager: this.props.manager,
           people: this.props.todoPeople,
@@ -32,6 +21,18 @@ var OverviewPage = module.exports = React.createClass({
         ResearchJournal({
           manager: this.props.manager,
 */        })
+      ),
+      d.div(
+        {className: 'overview__fan'},
+        FanBox({
+          pid: this.props.pid,
+          manager: this.props.manager,
+          overviewPerson: this.props.overviewPerson,
+          viewPerson: this.props.viewPerson
+        }),
+        HistoryBox({
+          history: this.props.history
+        })
       )
     )
   }

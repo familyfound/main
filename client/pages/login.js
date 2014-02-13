@@ -3,6 +3,7 @@
 var fsauth = require('fsauth')
 
 var LoginPage = module.exports = React.createClass({
+  displayName: 'LoginPage',
   getDefaultProps: function () {
     return {
       checkPath: '/auth/check-login',

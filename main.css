@@ -13,15 +13,11 @@ body {
 .header__loading {
   margin-left: 10px;
 }
-.overview__top {
-  /*
-  height: 40px;
-  display: none;
-  */
-  border: 1px solid #ccc;
+.overview {
+  display: flex;
 }
-.overview__top--expanded {
-  height: 500px;
+.overview__fan {
+  flex: 1;
   border: 1px solid #ccc;
 }
 .person-page__vitals {
@@ -176,6 +172,66 @@ body {
   fill: none;
   stroke: none;
 }
+.fan-box.show-age .a-unknown {
+  fill: #cccccc;
+}
+.fan-box.show-age .a-unknown:hover {
+  fill: #d9d9d9;
+}
+.fan-box.show-age .a-young {
+  fill: #5555ff;
+}
+.fan-box.show-age .a-young:hover {
+  fill: #6f6fff;
+}
+.fan-box.show-age .a-middle {
+  fill: #8888ff;
+}
+.fan-box.show-age .a-middle:hover {
+  fill: #a2a2ff;
+}
+.fan-box.show-age .a-old {
+  fill: #bbbbff;
+}
+.fan-box.show-age .a-old:hover {
+  fill: #d5d5ff;
+}
+.fan-box.show-age .a-ancient {
+  fill: #eeeeff;
+}
+.fan-box.show-age .a-ancient:hover {
+  fill: #ffffff;
+}
+.fan-box.show-sources .s-unknown {
+  fill: #cccccc;
+}
+.fan-box.show-sources .s-unknown:hover {
+  fill: #d9d9d9;
+}
+.fan-box.show-sources .s-none {
+  fill: #ff7777;
+}
+.fan-box.show-sources .s-none:hover {
+  fill: #ff9191;
+}
+.fan-box.show-sources .s-few {
+  fill: #ffaaaa;
+}
+.fan-box.show-sources .s-few:hover {
+  fill: #ffc3c3;
+}
+.fan-box.show-sources .s-some {
+  fill: #c3ffc3;
+}
+.fan-box.show-sources .s-some:hover {
+  fill: #ddffdd;
+}
+.fan-box.show-sources .s-many {
+  fill: #aaffaa;
+}
+.fan-box.show-sources .s-many:hover {
+  fill: #c3ffc3;
+}
 .fan-box.show-completion .c-not-evaluated {
   fill: #cccccc;
 }
@@ -200,6 +256,12 @@ body {
 .fan-box.show-completion .c-just-hard:hover {
   fill: #ff9191;
 }
+.fan-box.show-children .ch-living {
+  fill: #cccccc;
+}
+.fan-box.show-children .ch-living:hover {
+  fill: #d9d9d9;
+}
 .fan-box.show-children .ch-very-few {
   fill: #ffaaaa;
 }
@@ -207,16 +269,16 @@ body {
   fill: #ffc3c3;
 }
 .fan-box.show-children .ch-few {
-  fill: #ffdddd;
+  fill: #ffaabb;
 }
 .fan-box.show-children .ch-few:hover {
-  fill: #fff7f7;
+  fill: #ffc3cf;
 }
 .fan-box.show-children .ch-several {
-  fill: #ddffdd;
+  fill: #aaffbb;
 }
 .fan-box.show-children .ch-several:hover {
-  fill: #f7fff7;
+  fill: #c3ffcf;
 }
 .todo-people__loading {
   padding: 20px 50px;

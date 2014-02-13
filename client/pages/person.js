@@ -8,6 +8,7 @@ var TodoList = require('../components/todo-list')
   , searchItems = require('../components/searches').searchItems
 
 var PersonPage = module.exports = React.createClass({
+  displayName: 'PersonPage',
 
   getInitialState: function () {
     return {person: null, loading: false}

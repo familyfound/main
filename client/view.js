@@ -7,6 +7,7 @@ var Header = require('./components/header')
   , d = React.DOM
 
 var View = module.exports = React.createClass({
+  displayName: 'View',
   mixins: [RouterMixin],
   routes: {
     '': 'overview',
@@ -24,6 +25,11 @@ var View = module.exports = React.createClass({
   },
   setLoadingText: function (text) {
     this.setState({loadingText: text})
+  },
+  componentDidUpdate: function (props, state) {
+    if (state._route[':pid'] !== this.state._route[':pid']) {
+      this.props.loadPerson(this.state._route[':pid'] || this.props.userData.personId)
+    }
   },
   render: function () {
     var main

@@ -3,6 +3,7 @@
 var d = React.DOM
 
 var Header = module.exports = React.createClass({
+  displayName: 'Header',
   render: function () {
     return (
       React.DOM.div( {className:"header"}, 

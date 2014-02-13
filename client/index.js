@@ -8,6 +8,7 @@ function isIncompleted(todos) {
 }
 
 var App = React.createClass({
+  displayName: 'App',
   getInitialState: function () {
     return {
       token: null,
@@ -34,13 +35,17 @@ var App = React.createClass({
         loadingTodos: true,
         funCount: 0
       })
-      m.load(data.personId, 5, 5, this.loadedFan, this.loadedTodos)
+      this.loadPerson(data.personId)
     }.bind(this))
+  },
+  loadPerson: function (id) {
+    this.setState({todoPeople: []})
+    this.state.manager.load(id, 5, 5, this.loadedFan, this.loadedTodos)
   },
   morePerson: function (id, person) {
     console.log(id, person)
     var todos = this.state.todoPeople.slice()
-      , add = person.data.todos.some(function (t) {return !t.completed})
+      , add = person.data.todos.some(function (t) {return t && !t.completed})
     if (add) {
       todos.push(id)
     }
@@ -84,6 +89,7 @@ var App = React.createClass({
       todoPeople: this.state.todoPeople,
       userData: this.state.userData,
       manager: this.state.manager,
+      loadPerson: this.loadPerson,
       token: this.state.token,
       loadingText: loadingText,
       removeTodoPerson: this.removeTodoPerson
