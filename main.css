@@ -136,6 +136,36 @@ body {
   background-color: #5af;
   text-decoration: none;
 }
+.tip {
+  pointer-events: none;
+}
+.tip-inner {
+  text-align: left;
+  font-size: 14px;
+  border-radius: 10px;
+}
+.tip__name {
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 5px;
+}
+.tip__todo {
+  color: #ffaaaa;
+  font-weight: bold;
+}
+.tip__todo--hard {
+  color: #ff7777;
+}
+.tip__todo--hard::after {
+  content: "hard";
+  font-style: italic;
+  font-weight: normal;
+  color: #faa;
+  margin-left: 15px;
+}
+.tip__sep {
+  border-bottom: 1px solid #ddd;
+}
 .fan-box path.node {
   fill: #aaa;
   stroke: white;
@@ -163,6 +193,12 @@ body {
 }
 .fan-box.show-completion .c-has-todos:hover {
   fill: #ffc3c3;
+}
+.fan-box.show-completion .c-just-hard {
+  fill: #ff7777;
+}
+.fan-box.show-completion .c-just-hard:hover {
+  fill: #ff9191;
 }
 .fan-box.show-children .ch-very-few {
   fill: #ffaaaa;

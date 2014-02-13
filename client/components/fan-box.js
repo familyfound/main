@@ -3,6 +3,7 @@ var d = React.DOM
   , Fan = require('fan')
   , classes = require('./classes')
   , Tip = require('tip')
+  , tipMessage = require('./tip').message
 
 function nodeClasses(data) {
   if (!data.rels) return {path: 'not-loaded'};
@@ -17,10 +18,6 @@ function nodeClasses(data) {
     path: path.join(' '),
     g: g.join(' ')
   }
-}
-
-function nodeTip(data) {
-  return 'Hello brother';
 }
 
 var FanBox = module.exports = React.createClass({
@@ -49,7 +46,7 @@ var FanBox = module.exports = React.createClass({
     }, Fan({
       attr: 'rels',
       getClasses: nodeClasses,
-      hoverTips: nodeTip,
+      tip: tipMessage,
       onClick: this.props.onClick,
       onRightClick: this.props.onRightClick,
       transform: transform,

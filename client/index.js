@@ -34,7 +34,7 @@ var App = React.createClass({
         loadingTodos: true,
         funCount: 0
       })
-      m.load(data.personId, 5, 1, this.loadedFan, this.loadedTodos)
+      m.load(data.personId, 5, 5, this.loadedFan, this.loadedTodos)
     }.bind(this))
   },
   morePerson: function (id, person) {

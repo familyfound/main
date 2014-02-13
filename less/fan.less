@@ -2,9 +2,47 @@
 @grey: #ccc;
 @awesome: #afa;
 @todo: #faa;
+@todo-hard: #f77;
 
 @todo-minor: #fdd;
 @fine: #dfd;
+
+.tip {
+  pointer-events: none;
+}
+
+.tip-inner {
+  text-align: left;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+.tip__name {
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.tip__todo {
+  color: @todo;
+  font-weight: bold;
+}
+
+.tip__todo--hard {
+  color: @todo-hard;
+}
+.tip__todo--hard::after {
+  content: "hard";
+  font-style: italic;
+  font-weight: normal;
+  color: #faa;
+  margin-left: 15px;
+
+}
+
+.tip__sep {
+  border-bottom: 1px solid #ddd;
+}
 
 .hoverable(@bgcolor) {
   fill: @bgcolor;
@@ -37,6 +75,10 @@
 
     .c-has-todos {
       .hoverable(@todo);
+    }
+
+    .c-just-hard {
+      .hoverable(@todo-hard);
     }
   }
 
