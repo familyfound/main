@@ -233,11 +233,6 @@ var TodoPerson = module.exports = React.createClass({
     return (
       React.DOM.div( {className:"todo-person"}, 
         React.DOM.div( {className:"todo-person__top"}, 
-          React.DOM.button(
-            {className:"todo-person__complete",
-            onClick:this.onComplete}, 
-            " Completed "
-          ),
           Star(
             {className:"todo-person__star",
             value:person.data.starred,

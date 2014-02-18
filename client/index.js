@@ -23,8 +23,7 @@ var App = React.createClass({
   },
   authorized: function (token, data) {
     var sock = io.connect(location.origin)
-    // sock.on('person', this.funCounter)
-    sock.on('more_person', this.morePerson)
+    sock.on('person:more', this.morePerson)
     sock.emit('authorize', data.personId, token, function () {
       var m = new Manager(sock)
       this.setState({
@@ -42,7 +41,7 @@ var App = React.createClass({
     this.setState({todoPeople: []})
     this.state.manager.load(id, 5, 5, this.loadedFan, this.loadedTodos)
   },
-  morePerson: function (id, person) {
+  morePerson: function (id, person, num) {
     console.log(id, person)
     var todos = this.state.todoPeople.slice()
       , add = person.data.todos.some(function (t) {return t && !t.completed})
@@ -51,12 +50,7 @@ var App = React.createClass({
     }
     this.setState({
       todoPeople: todos,
-      funCount: this.state.funCount + 1
-    })
-  },
-  funCounter: function () {
-    this.setState({
-      funCount: this.state.funCount + 1
+      funCount: num
     })
   },
   loadedFan: function (count, depth) {

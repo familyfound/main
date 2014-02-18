@@ -3,16 +3,9 @@
 
   The main page
 
-## Installation
-
-  Install with [component(1)](http://component.io):
-
-    $ component install familyfound/main
-
-## API
+# Basic Organization
 
 
 
-## License
 
-  MIT
+
