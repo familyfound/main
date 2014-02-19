@@ -46,6 +46,7 @@ module.exports = {
   },
   age: function (data) {
     var display = data.rels.display
+    if (display.lifespan.match(/Living/)) return 'a-living'
     if (!display.age) return 'a-unknown'
     if (display.age < 30) return 'a-young'
     if (display.age < 60) return 'a-middle'
@@ -53,8 +54,8 @@ module.exports = {
     return 'a-ancient'
   },
   sources: function (data) {
+    if (data.rels.display.lifespan.match(/Living/)) return 's-living'
     if (!data.more || !data.more.sources) return 's-unknown'
-    if (data.rels.display.lifespan.match(/Living/)) return 's-unknown'
     var n = data.more.sources.length
     if (!n) return 's-none'
     if (n < 3) return 's-few'

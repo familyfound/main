@@ -73,6 +73,10 @@
   }
 
   &.show-age {
+    .a-living {
+      .hoverable(lighten(@grad-0, 10%));
+    }
+
     .a-unknown {
       .hoverable(@grey);
     }
@@ -95,6 +99,10 @@
   }
 
   &.show-sources {
+    .s-living {
+      .hoverable(hsl(307, 100%, 80%));
+    }
+
     .s-unknown {
       .hoverable(@grey);
     }
@@ -136,7 +144,7 @@
 
   &.show-children {
     .ch-living {
-      .hoverable(@grey);
+      .hoverable(lighten(#FFB300, 20%));
     }
 
     .ch-very-few {

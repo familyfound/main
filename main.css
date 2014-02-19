@@ -175,6 +175,12 @@ body {
   fill: none;
   stroke: none;
 }
+.fan-box.show-age .a-living {
+  fill: #3333ff;
+}
+.fan-box.show-age .a-living:hover {
+  fill: #4d4dff;
+}
 .fan-box.show-age .a-unknown {
   fill: #cccccc;
 }
@@ -204,6 +210,12 @@ body {
 }
 .fan-box.show-age .a-ancient:hover {
   fill: #0d0d0d;
+}
+.fan-box.show-sources .s-living {
+  fill: #ff99f3;
+}
+.fan-box.show-sources .s-living:hover {
+  fill: #ffb3f6;
 }
 .fan-box.show-sources .s-unknown {
   fill: #cccccc;
@@ -260,10 +272,10 @@ body {
   fill: #ff0101;
 }
 .fan-box.show-children .ch-living {
-  fill: #cccccc;
+  fill: #ffd166;
 }
 .fan-box.show-children .ch-living:hover {
-  fill: #d9d9d9;
+  fill: #ffd980;
 }
 .fan-box.show-children .ch-very-few {
   fill: #ffb300;
@@ -283,11 +295,23 @@ body {
 .fan-box.show-children .ch-several:hover {
   fill: #ff8c1a;
 }
+.quiet-button {
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px 5px 5px;
+}
 .todo-people__loading {
   padding: 20px 50px;
   font-weight: bold;
 }
 .todo-people__show-hard {
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px 5px 5px;
+}
+.todo-people__load-more {
   border: 1px solid #ccc;
   background-color: white;
   border-radius: 5px;
