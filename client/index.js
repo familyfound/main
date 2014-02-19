@@ -1,6 +1,8 @@
 
 var LoginPage = require('./pages/login')
   , View = require('./view')
+  , RouterMixin = require('./router')
+
   , Manager = require('person-manager')
 
 function isIncompleted(todos) {
@@ -12,8 +14,9 @@ var App = React.createClass({
   getInitialState: function () {
     return {
       token: null,
-      todoPeople: [],
-      userData: {}
+      sock: null,
+      manager: null,
+      userData: {},
     }
   },
   getDefaultProps: function () {
@@ -23,50 +26,16 @@ var App = React.createClass({
   },
   authorized: function (token, data) {
     var sock = io.connect(location.origin)
-    sock.on('person:more', this.morePerson)
     sock.emit('authorize', data.personId, token, function () {
       var m = new Manager(sock)
       this.setState({
         manager: m,
+        sock: sock,
         userData: data,
         token: token,
-        loadingFan: true,
-        loadingTodos: true,
-        funCount: 0
       })
-      this.loadPerson(data.personId)
+      // this.loadPerson(data.personId)
     }.bind(this))
-  },
-  loadPerson: function (id) {
-    this.setState({todoPeople: []})
-    this.state.manager.load(id, 5, 5, this.loadedFan, this.loadedTodos)
-  },
-  morePerson: function (id, person, num) {
-    console.log(id, person)
-    var todos = this.state.todoPeople.slice()
-      , add = person.data.todos.some(function (t) {return t && !t.completed})
-    if (add) {
-      todos.push(id)
-    }
-    this.setState({
-      todoPeople: todos,
-      funCount: num
-    })
-  },
-  loadedFan: function (count, depth) {
-    this.setState({
-      loadingFan: false
-    })
-  },
-  loadedTodos: function (count, depth) {
-    this.setState({
-      loadingTodos: false
-    })
-  },
-  removeTodoPerson: function (id) {
-    var pp = this.state.todoPeople.slice()
-    pp.splice(pp.indexOf(id), 1)
-    this.setState({todoPeople: pp})
   },
   render: function () {
     if (!this.state.token) {
@@ -75,18 +44,10 @@ var App = React.createClass({
         authorized: this.authorized
       })
     }
-    var loadingText = ''
-    if (this.state.loadingTodos || this.state.loadingFan) {
-      loadingText = 'Looked through ' + this.state.funCount + ' people';
-    }
     return View({
-      todoPeople: this.state.todoPeople,
       userData: this.state.userData,
       manager: this.state.manager,
-      loadPerson: this.loadPerson,
-      token: this.state.token,
-      loadingText: loadingText,
-      removeTodoPerson: this.removeTodoPerson
+      sock: this.state.sock
     })
   }
 })

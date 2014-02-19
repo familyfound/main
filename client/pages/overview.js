@@ -16,11 +16,13 @@ var OverviewPage = module.exports = React.createClass({
           people: this.props.todoPeople,
           overviewPerson: this.props.overviewPerson,
           removePerson: this.props.removeTodoPerson,
-          personHref: this.props.personHref
+          personHref: this.props.personHref,
+          loadedMore: this.props.loadedMore,
+          loadMoreTodos: this.props.loadMoreTodos
 /*        }),
         ResearchJournal({
           manager: this.props.manager,
-*/        })
+*/      })
       ),
       d.div(
         {className: 'overview__fan'},

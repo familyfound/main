@@ -25,7 +25,7 @@ clean:
 test: lint test-only
 
 lint:
-	jshint *.js lib test
+	jshint *.js lib client test
 
 test-only:
 	mocha -R spec
