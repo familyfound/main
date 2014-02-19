@@ -152,6 +152,10 @@ body {
   color: #ffff00;
   font-weight: bold;
 }
+.tip__not-processed {
+  font-weight: bold;
+  color: #9999ff;
+}
 .tip__todo--hard {
   color: #e70000;
 }
@@ -169,6 +173,7 @@ body {
   fill: #aaa;
   stroke: white;
   stroke-weight: 2px;
+  cursor: pointer;
 }
 .fan-box .not-loaded {
   display: none;

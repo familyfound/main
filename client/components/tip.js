@@ -53,7 +53,7 @@ function message(data) {
   lines.push(data.rels.children.length + ' children recorded')
 
   if (!data.data) {
-    lines.push('Not yet processed')
+    lines.push('<span class="tip__not-processed">Not yet processed</span>')
   } else {
     lines.push('<div className="tip__sep"></div>')
     lines = lines.concat(todoLines(data.data.todos))

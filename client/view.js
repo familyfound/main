@@ -106,12 +106,18 @@ var View = module.exports = React.createClass({
     })
   },
   donePedigree: function (count, time) {
+    if (count < this.state.numPeople) {
+      count = this.state.numPeople
+    }
     this.setState({
       loadingFan: false,
       numPeople: count
     })
   },
   doneTodos: function (count, time) {
+    if (count < this.state.numMorePeople) {
+      count = this.state.numMorePeople
+    }
     this.setState({
       loadingTodos: false,
       numMorePeople: count
