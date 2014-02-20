@@ -77,6 +77,8 @@ body {
 }
 #main {
   height: auto;
+  max-width: 1800px;
+  margin: 0 auto;
 }
 /** drop list **/
 .droplist {
