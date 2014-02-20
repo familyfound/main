@@ -5,6 +5,16 @@ var d = React.DOM
   , Tip = require('tip')
   , tipMessage = require('./tip').message
 
+function mainTitle(node, x, y) {
+  if (!node || !node.rels) return 'unload'
+  return node.rels.display.name
+}
+
+function nodeTitle(node) {
+  if (!node || !node.rels) return 'unload'
+  return node.rels.display.name
+}
+
 function nodeClasses(data) {
   if (!data.rels) return {path: 'not-loaded'};
   var path = []
@@ -97,6 +107,8 @@ var FanBox = module.exports = React.createClass({
         gens: this.props.gens,
         onClick: this.props.overviewPerson,
         onRightClick: this.props.onRightClick,
+        mainTitle: mainTitle,
+        overTitle: nodeTitle,
         transform: transform,
         manager: this.props.manager,
         id: this.props.pid,
