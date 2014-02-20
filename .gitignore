@@ -5,3 +5,8 @@ node_modules
 /web/build.*
 web/react.js
 *.swp
+ex-dubplicates.json
+ex-matches.json
+ex-sources.json
+/doot.sh
+more.css
