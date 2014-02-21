@@ -20,10 +20,9 @@ function todosLeft(data) {
 module.exports = {
   tests: {
     completion: function (data) {
-      if (data.data === null) {
+      if (!data.data || !data.data.todos) {
         return 'c-not-evaluated'
       }
-      if (!data.data) return false
       var todos = todosLeft(data.data)
       if (!todos) {
         return 'c-completed'
@@ -34,7 +33,6 @@ module.exports = {
       return 'c-has-todos'
     },
     children: function (data) {
-      if (!data.rels) return false
       if (data.rels.display.lifespan.match(/Living/)) return 'ch-living'
       switch (data.rels.children.length) {
         case 0:
@@ -70,7 +68,7 @@ module.exports = {
       'c-not-evaluated': 'Not Evaluated',
       'c-completed': 'Completed',
       'c-just-hard': 'Just Hard',
-      'c-has-todos': 'Has Todos'
+      'c-has-todos': 'Has Tasks'
     },
     children: {
       'ch-living': 'Living',
@@ -80,19 +78,19 @@ module.exports = {
     },
     age: {
       'a-living': 'Living',
-      'a-unknown': 'Unknown',
       'a-young': 'Young',
       'a-middle': 'Middle',
       'a-old': 'Old',
-      'a-ancient': 'Ancient'
+      'a-ancient': 'Ancient',
+      'a-unknown': 'Unknown',
     },
     sources: {
       's-living': 'Living',
-      's-unknown': 'Unknown',
       's-none': 'None',
       's-few': 'Few',
       's-some': 'Some',
-      's-many': 'Many'
+      's-many': 'Many',
+      's-unknown': 'Not Evaluated',
     }
   }
 }

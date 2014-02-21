@@ -5,6 +5,9 @@ body {
   background-size: 10px 10px;
   background-image: linear-gradient(45deg, transparent 0%, transparent 10%, #ffffff 15%, #ffffff 25%, transparent 30%, transparent 60%, #ffffff 65%, #ffffff 75%, transparent 80%);
 }
+body {
+  overflow-x: hidden;
+}
 .header {
   padding: 10px 15px;
 }
@@ -323,18 +326,18 @@ body {
   fill: #ffd980;
 }
 .fan-box.show-children .ch-very-few {
-  fill: #ffb300;
-  background-color: #ffb300;
-}
-.fan-box.show-children .ch-very-few:hover {
-  fill: #ffbb1a;
-}
-.fan-box.show-children .ch-few {
   fill: #ffe500;
   background-color: #ffe500;
 }
-.fan-box.show-children .ch-few:hover {
+.fan-box.show-children .ch-very-few:hover {
   fill: #ffe81a;
+}
+.fan-box.show-children .ch-few {
+  fill: #ffb300;
+  background-color: #ffb300;
+}
+.fan-box.show-children .ch-few:hover {
+  fill: #ffbb1a;
 }
 .fan-box.show-children .ch-several {
   fill: #ff7f00;
@@ -370,6 +373,7 @@ body {
   padding: 0;
   margin: 0;
   width: 500px;
+  list-style: none;
 }
 .todo-person {
   border: 1px solid #ccc;
@@ -507,4 +511,35 @@ body {
 .todo--hard-completed .todo__title {
   color: #faa;
   font-style: italic;
+}
+.lineage {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+.lineage__person a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+  padding: 20px;
+}
+.lineage__person a:hover {
+  background-color: #ddd;
+}
+.lineage__person__name {
+  font-weight: bold;
+  font-size: 20px;
+}
+.lineage__person__lifespan {
+  font-style: italic;
+  margin-left: 10px;
+  color: #999;
+}
+.lineage__person__place {
+  font-style: italic;
+  display: block;
+  color: #999;
+}
+.lineage__person__relation {
+  font-size: 17px;
 }

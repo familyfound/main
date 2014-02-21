@@ -4,6 +4,7 @@ var Star = require('./star')
   , Todo = require('./todo')
   , d = React.DOM
   , searchItems = require('./searches').searchItems
+  , relationship = require('./relationship.js')
 
 function findTodo(todos, type) {
   var ix = -1
@@ -182,6 +183,9 @@ var TodoPerson = module.exports = React.createClass({
     if (this.state.person.data.completed) {
       return 'completed'
     }
+    if (!this.state.person.data.todos) {
+      return 'no todos'
+    }
     this.state.person.data.todos.forEach(function (todo){
       if (todo.completed) return
       if (todo.hard) {
@@ -231,7 +235,7 @@ var TodoPerson = module.exports = React.createClass({
       )
     }
     return (
-      <div className='todo-person'>
+      <li className='todo-person'>
         <div className='todo-person__top'>
           <Star
             className='todo-person__star'
@@ -252,6 +256,9 @@ var TodoPerson = module.exports = React.createClass({
           <span className='todo-person__place'>
             {place || 'No recorded locations'}
           </span>
+          <div className='todo-person__relation'>
+            {relationship.text(display.gender, person.data.lineage.length)}
+          </div>
         </div>
         <ul className='todo-person__todos'>
           {person.data.todos && person.data.todos.map(function (todo) {
@@ -266,7 +273,7 @@ var TodoPerson = module.exports = React.createClass({
             )
           }.bind(this))}
         </ul>
-      </div>
+      </li>
     )
   }
 })

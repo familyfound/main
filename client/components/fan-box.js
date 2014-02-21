@@ -4,6 +4,7 @@ var d = React.DOM
   , classes = require('./classes')
   , Tip = require('tip')
   , tipMessage = require('./tip').message
+  , Lineage = require('./lineage.js')
 
 function mainTitle(node, x, y) {
   if (!node || !node.rels) return false
@@ -125,14 +126,19 @@ var FanBox = module.exports = React.createClass({
         overTitle: nodeTitle,
         transform: transform,
         manager: this.props.manager,
-        id: this.props.pid,
+        id: this.props.id,
         options: {
           width: r / this.props.gens,
           doubleWidth: false,
           sweep: this.props.sweep,
           offset: 0,
         }
-      }))
+      })),
+      Lineage({
+        id: this.props.id,
+        manager: this.props.manager,
+        treeHref: this.props.treeHref
+      })
     )
   }
 })

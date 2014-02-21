@@ -1,5 +1,6 @@
 
 var todos = require('api').todos
+  , relationship = require('./relationship.js')
 
 module.exports = {
   message: message
@@ -40,6 +41,9 @@ function message(data) {
   if (display.age) {
     lines[0] += ' (' + display.age + ' years)'
   }
+  if (data.data.lineage) {
+    lines.push('<span class="tip__relationship">' + relationship.text(display.gender, data.data.lineage.length) + '</span>')
+  }
   if (display.birthPlace) {
     lines.push('<strong>Born:</strong> ' + display.birthPlace)
   }
@@ -52,7 +56,7 @@ function message(data) {
 
   lines.push(data.rels.children.length + ' children recorded')
 
-  if (!data.data) {
+  if (!data.data || !data.data.todos) {
     lines.push('<span class="tip__not-processed">Not yet processed</span>')
   } else {
     lines.push('<div className="tip__sep"></div>')

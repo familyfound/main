@@ -14,14 +14,14 @@ var TodoPeople = module.exports = React.createClass({
       className: 'todo-people'
     },
     d.li(
-      {},
+      {className: 'todo-buttons'},
       d.button(
         {className: 'todo-people__show-hard', onClick: this.toggleHard},
         this.state.showHard ? 'Hide hard people' : 'Show hard people'
       ),
       !this.props.loading.more && d.button(
         {className: 'todo-people__load-more', onClick: this.props.loadMoreTodos},
-        'Find more things'
+        'Find more tasks'
       )
     ),
     this.props.people.map(function (id) {

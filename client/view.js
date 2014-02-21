@@ -136,6 +136,9 @@ var View = module.exports = React.createClass({
   personHref: function (pid) {
     return '#person/' + pid
   },
+  treeHref: function (pid) {
+    return '#' + pid
+  },
 
   // display things
 
@@ -156,6 +159,7 @@ var View = module.exports = React.createClass({
       overviewPerson: this.overviewPerson,
       loadMoreTodos: this.loadMoreTodos,
       personHref: this.personHref,
+      treeHref: this.treeHref,
       manager: this.props.manager,
       setLoadingText: this.setLoadingText,
       removeTodoPerson: this.removeTodoPerson,
@@ -179,7 +183,7 @@ var View = module.exports = React.createClass({
     if (this.state.loadingTodos) {
       var got = this.state.todoPeople.length
         , left = (this.state.loadedMore ? 10 : 5) - got
-      text += 'Loading Todos: ' + this.state.numMorePeople + ' searched'
+      text += 'Finding Tasks: ' + this.state.numMorePeople + ' searched'
       text += '; Found ' + got + ', looking for ' + left + ' more'
     }
     return text

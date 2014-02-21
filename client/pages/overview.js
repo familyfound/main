@@ -17,6 +17,7 @@ var OverviewPage = module.exports = React.createClass({
           overviewPerson: this.props.overviewPerson,
           removePerson: this.props.removeTodoPerson,
           personHref: this.props.personHref,
+          treeHref: this.props.treeHref,
           loading: this.props.loading,
           loadMoreTodos: this.props.loadMoreTodos
 /*        }),
@@ -27,10 +28,11 @@ var OverviewPage = module.exports = React.createClass({
       d.div(
         {className: 'overview__fan'},
         FanBox({
-          pid: this.props.pid,
+          id: this.props.pid,
           manager: this.props.manager,
           loading: this.props.loading,
           overviewPerson: this.props.overviewPerson,
+          treeHref: this.props.treeHref,
           viewPerson: this.props.viewPerson
         }),
         HistoryBox({
