@@ -6,12 +6,12 @@ var d = React.DOM
   , tipMessage = require('./tip').message
 
 function mainTitle(node, x, y) {
-  if (!node || !node.rels) return 'unload'
+  if (!node || !node.rels) return false
   return node.rels.display.name
 }
 
 function nodeTitle(node) {
-  if (!node || !node.rels) return 'unload'
+  if (!node || !node.rels) return false
   return node.rels.display.name
 }
 
@@ -20,14 +20,27 @@ function nodeClasses(data) {
   var path = []
     , g = []
     , cl
-  for (var name in classes) {
-    cl = classes[name](data)
+  for (var name in classes.tests) {
+    cl = classes.tests[name](data)
     if (cl) path.push(cl)
   }
   return {
     path: path.join(' '),
     g: g.join(' ')
   }
+}
+
+function classOptions(current) {
+  var options = classes.options[current.split('-')[1]]
+    , children = []
+  for (var name in options) {
+    children.push(d.li(
+      {className: 'fan-key-item'}, 
+      d.span({className: 'fan-key__color ' + name}),
+      d.span({className: 'fan-key__label'}, options[name])
+    ))
+  }
+  return d.ul({className: 'fan-key'}, children)
 }
 
 var showz = {
@@ -41,9 +54,9 @@ function showButtons(showing, show) {
   var buttons = []
   for (var name in showz) {
     buttons.push(d.button({
-      className: 'btn btn-default',
+      className: 'fan__btn btn btn-default' + (showing === name ? ' fan__btn--active':''),
       onClick: show.bind(null, name),
-      deisabled: showing === name
+      disabled: showing === name
     }, showz[name]))
   }
   return d.div.apply(d, [{}].concat(buttons))
@@ -97,6 +110,7 @@ var FanBox = module.exports = React.createClass({
       className: 'fan-box ' + this.state.showing,
     },
       showButtons(this.state.showing, this.setShow),
+      classOptions(this.state.showing),
       d.svg({
         width: this.state.width,
         height: height

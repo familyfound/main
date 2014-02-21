@@ -17,7 +17,7 @@ var OverviewPage = module.exports = React.createClass({
           overviewPerson: this.props.overviewPerson,
           removePerson: this.props.removeTodoPerson,
           personHref: this.props.personHref,
-          loadedMore: this.props.loadedMore,
+          loading: this.props.loading,
           loadMoreTodos: this.props.loadMoreTodos
 /*        }),
         ResearchJournal({
@@ -29,6 +29,7 @@ var OverviewPage = module.exports = React.createClass({
         FanBox({
           pid: this.props.pid,
           manager: this.props.manager,
+          loading: this.props.loading,
           overviewPerson: this.props.overviewPerson,
           viewPerson: this.props.viewPerson
         }),

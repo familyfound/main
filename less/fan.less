@@ -59,8 +59,33 @@
 
 .hoverable(@bgcolor) {
   fill: @bgcolor;
+  background-color: @bgcolor;
+
   &:hover {
     fill: lighten(@bgcolor, 5%);
+  }
+}
+
+.fan-key {
+  padding: 10px;
+
+  .fan-key__color {
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    margin-right: 5px;
+    border-radius: 3px;
+  }
+  .fan-key__label {
+    display: inline-block;
+    margin-top: -10px;
+    vertical-align: middle;
+    font-weight: bold;
+  }
+  .fan-key-item {
+    list-style: none;
+    display: inline-block;
+    margin-right: 10px;
   }
 }
 

@@ -19,7 +19,7 @@ var TodoPeople = module.exports = React.createClass({
         {className: 'todo-people__show-hard', onClick: this.toggleHard},
         this.state.showHard ? 'Hide hard people' : 'Show hard people'
       ),
-      !this.props.loadedMore && d.button(
+      !this.props.loading.more && d.button(
         {className: 'todo-people__load-more', onClick: this.props.loadMoreTodos},
         'Find more things'
       )

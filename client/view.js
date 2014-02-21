@@ -152,14 +152,22 @@ var View = module.exports = React.createClass({
     }
     return OverviewPage({
       pid: route[':pid'] || this.props.userData.personId,
+      // callbacks
       overviewPerson: this.overviewPerson,
-      todoPeople: this.state.todoPeople || [],
       loadMoreTodos: this.loadMoreTodos,
-      loadedMore: this.state.loadedMore,
       personHref: this.personHref,
       manager: this.props.manager,
       setLoadingText: this.setLoadingText,
-      removeTodoPerson: this.removeTodoPerson
+      removeTodoPerson: this.removeTodoPerson,
+      // data
+      todoPeople: this.state.todoPeople || [],
+      loading: {
+        more: this.state.loadedMore,
+        npeople: this.state.numPeople,
+        morepeople: this.state.numMorePeople,
+        fan: this.state.loadingFan,
+        todos: this.state.loadingTodos
+      }
     })
   },
 
