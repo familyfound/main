@@ -311,6 +311,13 @@ body {
 .fan-box.show-completion .c-has-todos:hover {
   fill: #ffff1a;
 }
+.fan-box.show-completion .c-just-cleanup {
+  fill: #e73030;
+  background-color: #e73030;
+}
+.fan-box.show-completion .c-just-cleanup:hover {
+  fill: #ea4747;
+}
 .fan-box.show-completion .c-just-hard {
   fill: #e70000;
   background-color: #e70000;
@@ -325,26 +332,40 @@ body {
 .fan-box.show-children .ch-living:hover {
   fill: #ffd980;
 }
-.fan-box.show-children .ch-very-few {
+.fan-box.show-children .ch-3 {
   fill: #ffe500;
   background-color: #ffe500;
 }
-.fan-box.show-children .ch-very-few:hover {
+.fan-box.show-children .ch-3:hover {
   fill: #ffe81a;
 }
-.fan-box.show-children .ch-few {
+.fan-box.show-children .ch-6 {
   fill: #ffb300;
   background-color: #ffb300;
 }
-.fan-box.show-children .ch-few:hover {
+.fan-box.show-children .ch-6:hover {
   fill: #ffbb1a;
 }
-.fan-box.show-children .ch-several {
+.fan-box.show-children .ch-9 {
   fill: #ff7f00;
   background-color: #ff7f00;
 }
-.fan-box.show-children .ch-several:hover {
+.fan-box.show-children .ch-9:hover {
   fill: #ff8c1a;
+}
+.fan-box.show-children .ch-12 {
+  fill: #ff5f00;
+  background-color: #ff5f00;
+}
+.fan-box.show-children .ch-12:hover {
+  fill: #ff6f1a;
+}
+.fan-box.show-children .ch-lots {
+  fill: #ff3f00;
+  background-color: #ff3f00;
+}
+.fan-box.show-children .ch-lots:hover {
+  fill: #ff521a;
 }
 .quiet-button {
   border: 1px solid #ccc;
@@ -511,35 +532,4 @@ body {
 .todo--hard-completed .todo__title {
   color: #faa;
   font-style: italic;
-}
-.lineage {
-  list-style: none;
-  padding: 0;
-  text-align: center;
-}
-.lineage__person a {
-  color: #333;
-  text-decoration: none;
-  display: block;
-  padding: 20px;
-}
-.lineage__person a:hover {
-  background-color: #ddd;
-}
-.lineage__person__name {
-  font-weight: bold;
-  font-size: 20px;
-}
-.lineage__person__lifespan {
-  font-style: italic;
-  margin-left: 10px;
-  color: #999;
-}
-.lineage__person__place {
-  font-style: italic;
-  display: block;
-  color: #999;
-}
-.lineage__person__relation {
-  font-size: 17px;
 }

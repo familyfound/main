@@ -94,7 +94,7 @@ var View = module.exports = React.createClass({
     })
   },
   onMorePerson: function (id, person, num) {
-    console.log(id, person)
+    // console.log(id, person)
     var todos = this.state.todoPeople.slice()
       , add = person.data.todos.some(function (t) {return t && !t.completed})
     if (add) {

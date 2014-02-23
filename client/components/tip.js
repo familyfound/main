@@ -41,7 +41,7 @@ function message(data) {
   if (display.age) {
     lines[0] += ' (' + display.age + ' years)'
   }
-  if (data.data.lineage) {
+  if (data.data && data.data.lineage) {
     lines.push('<span class="tip__relationship">' + relationship.text(display.gender, data.data.lineage.length) + '</span>')
   }
   if (display.birthPlace) {

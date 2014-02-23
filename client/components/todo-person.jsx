@@ -257,7 +257,7 @@ var TodoPerson = module.exports = React.createClass({
             {place || 'No recorded locations'}
           </span>
           <div className='todo-person__relation'>
-            {relationship.text(display.gender, person.data.lineage.length)}
+            {person.data.lineage && relationship.text(display.gender, person.data.lineage.length)}
           </div>
         </div>
         <ul className='todo-person__todos'>

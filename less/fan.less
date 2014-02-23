@@ -3,6 +3,7 @@
 @awesome: #0F0;
 @light-awesome: lighten(@awesome, 5%);
 @todo: #FFFF00;
+@todo-cleanup: #E73030;
 @todo-hard: #E70000;
 
 @todo-minor: #fab;
@@ -168,6 +169,10 @@
       .hoverable(@todo);
     }
 
+    .c-just-cleanup {
+      .hoverable(@todo-cleanup);
+    }
+
     .c-just-hard {
       .hoverable(@todo-hard);
     }
@@ -178,16 +183,24 @@
       .hoverable(lighten(#FFB300, 20%));
     }
 
-    .ch-very-few {
+    .ch-3 {
       .hoverable(#FFE500);
     }
 
-    .ch-few {
+    .ch-6 {
       .hoverable(#FFB300);
     }
 
-    .ch-several {
+    .ch-9 {
       .hoverable(#FF7F00);
+    }
+
+    .ch-12 {
+      .hoverable(#FF5F00);
+    }
+
+    .ch-lots {
+      .hoverable(#FF3F00);
     }
   }
 }
