@@ -23,6 +23,137 @@ function todosLeft(data) {
   }
 }
 
+var placeLists = {
+  'o-us': [
+    'United States',
+    'Alaska',
+    'Alabama',
+    'Arkansas',
+    'American Samoa',
+    'Arizona',
+    'California',
+    'Colorado',
+    'Connecticut',
+    'District of Columbia',
+    'Delaware',
+    'Florida',
+    'Georgia',
+    'Guam',
+    'Hawaii',
+    'Iowa',
+    'Idaho',
+    'Illinois',
+    'Indiana',
+    'Kansas',
+    'Kentucky',
+    'Louisiana',
+    'Massachusetts',
+    'Maryland',
+    'Maine',
+    'Michigan',
+    'Minnesota',
+    'Missouri',
+    'Northern Mariana Islands',
+    'Mississippi',
+    'Montana',
+    'National',
+    'North Carolina',
+    'North Dakota',
+    'Nebraska',
+    'New Hampshire',
+    'New Jersey',
+    'New Mexico',
+    'Nevada',
+    'New York',
+    'Ohio',
+    'Oklahoma',
+    'Oregon',
+    'Pennsylvania',
+    'Puerto Rico',
+    'Rhode Island',
+    'South Carolina',
+    'South Dakota',
+    'Tennessee',
+    'Texas',
+    'Utah',
+    'Virginia',
+    'Virgin Islands',
+    'Vermont',
+    'Washington',
+    'Wisconsin',
+    'West Virginia',
+    'Wyoming'
+  ],
+  'o-gb': [
+    'Britain',
+    'Ireland',
+    'Scotland',
+    'England'
+  ],
+  'o-eu': [
+    'Albania',
+    'Andorra',
+    'Armenia',
+    'Austria',
+    'Azerbaijan',
+    'Belarus',
+    'Belgium',
+    'Bosnia',
+    'Herzegovina',
+    'Bulgaria',
+    'Croatia',
+    'Cyprus',
+    'Czech Republic',
+    'Denmark',
+    'Estonia',
+    'Finland',
+    'France',
+    'Georgia',
+    'Germany',
+    'Greece',
+    'Hungary',
+    'Iceland',
+    'Ireland',
+    'Italy',
+    'Kosovo',
+    'Latvia',
+    'Liechtenstein',
+    'Lithuania',
+    'Luxembourg',
+    'Macedonia',
+    'Malta',
+    'Moldova',
+    'Monaco',
+    'Montenegro',
+    'The Netherlands',
+    'Norway',
+    'Poland',
+    'Portugal',
+    'Romania',
+    'Russia',
+    'San Marino',
+    'Serbia',
+    'Slovakia',
+    'Slovenia',
+    'Spain',
+    'Sweden',
+    'Switzerland',
+    'Turkey',
+    'Ukraine',
+    'United Kingdom',
+    'Vatican',
+  ]
+}
+
+function originClass(place) {
+  place = place.toLowerCase()
+  for (var cls in placeLists) {
+    for (var i in placeLists[cls]) {
+      if (place.indexOf(placeLists[cls][i].toLowerCase()) !== -1) return cls
+    }
+  }
+  return 'o-other'
+}
 
 module.exports = {
   tests: {
@@ -68,6 +199,26 @@ module.exports = {
       if (n < 6) return 's-some'
       return 's-many'
     },
+    modified: function (data) {
+      var date = data.data.modified
+      if (!date) return 'm-never'
+      var diff = new Date().getTime() - new Date(date).getTime()
+      if (diff < 24 * 60 * 60 * 1000) {
+        return 'm-day'
+      }
+      if (diff < 7 * 24 * 60 * 60 * 1000) {
+        return 'm-week'
+      }
+      if (diff < 31 * 7 * 24 * 60 * 60 * 1000) {
+        return 'm-month'
+      }
+      return 'm-long'
+    },
+    origin: function (data) {
+      var place = data.rels.display.birthPlace || data.rels.display.deathPlace
+      if (!place) return 'o-unknown'
+      return originClass(place)
+    },
   },
   options: {
     completion: {
@@ -100,6 +251,21 @@ module.exports = {
       's-some': '< 6',
       's-many': '6 +',
       's-unknown': 'Not Evaluated',
+    },
+    modified: {
+      'm-day': 'Today',
+      'm-week': 'This week',
+      'm-month': 'Less than a month',
+      'm-long': 'More than a month',
+      'm-never': 'Never'
+    },
+    origin: {
+      'o-us': 'United States',
+      // 'o-sa': 'South America',
+      'o-gb': 'British Isles',
+      'o-eu': 'Europe',
+      'o-other': 'Other',
+      'o-unknown': 'Unknown'
     }
   }
 }

@@ -48,7 +48,9 @@ var showz = {
   'show-completion': 'Completion',
   'show-children': 'Children',
   'show-sources': 'Sources',
-  'show-age': 'Lifespan'
+  'show-age': 'Lifespan',
+  'show-origin': 'Country',
+  'show-modified': 'Last Worked On'
 }
 
 function showButtons(showing, show) {

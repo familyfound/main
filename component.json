@@ -39,9 +39,9 @@
     "client/components/header.js",
     "client/components/history-box.js",
     "client/components/research-notes.js",
-    "client/components/todo-list.js",
     "client/components/todo-people.js",
     "client/components/todo-person.js",
+    "client/components/person-note.js",
     "client/components/vital-info.js"
   ],
   "styles": [

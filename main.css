@@ -206,6 +206,76 @@ body {
   fill: none;
   stroke: none;
 }
+.fan-box.show-origin .o-us {
+  fill: #0000ff;
+  background-color: #0000ff;
+}
+.fan-box.show-origin .o-us:hover {
+  fill: #1a1aff;
+}
+.fan-box.show-origin .o-gb {
+  fill: #ff0000;
+  background-color: #ff0000;
+}
+.fan-box.show-origin .o-gb:hover {
+  fill: #ff1a1a;
+}
+.fan-box.show-origin .o-eu {
+  fill: #008000;
+  background-color: #008000;
+}
+.fan-box.show-origin .o-eu:hover {
+  fill: #009a00;
+}
+.fan-box.show-origin .o-other {
+  fill: #ffff00;
+  background-color: #ffff00;
+}
+.fan-box.show-origin .o-other:hover {
+  fill: #ffff1a;
+}
+.fan-box.show-origin .o-unknown {
+  fill: #cccccc;
+  background-color: #cccccc;
+}
+.fan-box.show-origin .o-unknown:hover {
+  fill: #d9d9d9;
+}
+.fan-box.show-modified .m-never {
+  fill: #cccccc;
+  background-color: #cccccc;
+}
+.fan-box.show-modified .m-never:hover {
+  fill: #d9d9d9;
+}
+.fan-box.show-modified .m-long {
+  fill: #000000;
+  background-color: #000000;
+}
+.fan-box.show-modified .m-long:hover {
+  fill: #0d0d0d;
+}
+.fan-box.show-modified .m-month {
+  fill: #000033;
+  background-color: #000033;
+}
+.fan-box.show-modified .m-month:hover {
+  fill: #00004c;
+}
+.fan-box.show-modified .m-week {
+  fill: #000099;
+  background-color: #000099;
+}
+.fan-box.show-modified .m-week:hover {
+  fill: #0000b3;
+}
+.fan-box.show-modified .m-day {
+  fill: #0000ff;
+  background-color: #0000ff;
+}
+.fan-box.show-modified .m-day:hover {
+  fill: #1a1aff;
+}
 .fan-box.show-age .a-living {
   fill: #3333ff;
   background-color: #3333ff;
@@ -312,11 +382,11 @@ body {
   fill: #ffff1a;
 }
 .fan-box.show-completion .c-just-cleanup {
-  fill: #e73030;
-  background-color: #e73030;
+  fill: #e7ac30;
+  background-color: #e7ac30;
 }
 .fan-box.show-completion .c-just-cleanup:hover {
-  fill: #ea4747;
+  fill: #eab547;
 }
 .fan-box.show-completion .c-just-hard {
   fill: #e70000;
@@ -424,6 +494,7 @@ body {
 .todo-person__undo:hover {
   background-color: #ccc;
 }
+/** Person Top **/
 .todo-person__name {
   font-size: 17px;
   font-weight: bold;
@@ -443,6 +514,47 @@ body {
 .todo-person__complete {
   float: right;
 }
+/** Person Note **/
+.person-note {
+  color: #555;
+  position: relative;
+}
+.person-note__button {
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  opacity: .5;
+  background-color: white;
+  border: 1px solid #666;
+}
+.person-note__button::before {
+  content: "\f040";
+  font-family: 'FontAwesome';
+}
+.person-note--open .person-note__button {
+  opacity: 1;
+}
+.person-note--open .person-note__button::before {
+  content: "Save";
+}
+.person-note:hover .person-note__button {
+  opacity: 1;
+}
+.person-note__empty,
+.person-note__static {
+  cursor: pointer;
+  padding: 7px 15px;
+  display: block;
+}
+.person-note__empty {
+  font-style: italic;
+}
+.person-note__input {
+  width: 100%;
+  height: 100px;
+  padding: 6px 14px;
+}
+/** Person Todos **/
 .todo-person__todos {
   list-style: none;
   padding: 0;
@@ -467,6 +579,7 @@ body {
   border-radius: 5px;
   color: #004709;
 }
+/** Individual Todo Item **/
 .todo {
   padding: 5px 5px 5px 10px;
   margin: 0;
@@ -532,4 +645,35 @@ body {
 .todo--hard-completed .todo__title {
   color: #faa;
   font-style: italic;
+}
+.lineage {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+.lineage__person a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+  padding: 20px;
+}
+.lineage__person a:hover {
+  background-color: #ddd;
+}
+.lineage__person__name {
+  font-weight: bold;
+  font-size: 20px;
+}
+.lineage__person__lifespan {
+  font-style: italic;
+  margin-left: 10px;
+  color: #999;
+}
+.lineage__person__place {
+  font-style: italic;
+  display: block;
+  color: #999;
+}
+.lineage__person__relation {
+  font-size: 17px;
 }

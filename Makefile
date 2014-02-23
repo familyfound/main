@@ -7,6 +7,9 @@ LESS = $(wildcard less/*.less)
 build: components index.js main.css $(COMPILED)
 	@component build --dev -n build -s main -o web
 
+example-build: components index.js main.css $(COMPILED)
+	@component build --dev -n build -o test
+
 client/pages/%.js: client/pages/%.jsx
 	@jsx $< > $@
 

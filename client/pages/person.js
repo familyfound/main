@@ -1,6 +1,5 @@
 
-var TodoList = require('../components/todo-list')
-  , VitalInfo = require('../components/vital-info')
+var VitalInfo = require('../components/vital-info')
   , ResearchNotes = require('../components/research-notes')
   , ActionButtons = require('../components/action-buttons')
   , Searcher = require('../components/searcher')

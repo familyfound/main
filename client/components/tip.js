@@ -37,7 +37,7 @@ function message(data) {
   if (!data || !data.rels) return 'loading'
   var display = data.rels.display
     , lines = []
-  lines.push('<span class="tip__name">' + display.name + '</span> <em>' + display.lifespan + '</em>')
+  lines.push('<span class="tip__name">' + (display.name || '[No Name]') + '</span> <em>' + display.lifespan + '</em>')
   if (display.age) {
     lines[0] += ' (' + display.age + ' years)'
   }

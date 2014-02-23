@@ -3,7 +3,7 @@
 @awesome: #0F0;
 @light-awesome: lighten(@awesome, 5%);
 @todo: #FFFF00;
-@todo-cleanup: #E73030;
+@todo-cleanup: #E7AC30;
 @todo-hard: #E70000;
 
 @todo-minor: #fab;
@@ -102,6 +102,50 @@
     display: none;
     fill: none;
     stroke: none;
+  }
+
+  &.show-origin {
+    .o-us {
+      .hoverable(blue);
+    }
+    
+    .o-gb {
+      .hoverable(red);
+    }
+
+    .o-eu {
+      .hoverable(green);
+    }
+
+    .o-other {
+      .hoverable(yellow);
+    }
+
+    .o-unknown {
+      .hoverable(@grey);
+    }
+  }
+
+  &.show-modified {
+    .m-never {
+      .hoverable(@grey);
+    }
+
+    .m-long {
+      .hoverable(@grad-3);
+    }
+    
+    .m-month {
+      .hoverable(@grad-2);
+    }
+
+    .m-week {
+      .hoverable(@grad-1);
+    }
+    
+    .m-day {
+      .hoverable(@grad-0);
+    }
   }
 
   &.show-age {

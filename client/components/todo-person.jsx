@@ -2,16 +2,16 @@
 
 var Star = require('./star')
   , Todo = require('./todo')
+  , PersonNote = require('./person-note')
   , d = React.DOM
   , searchItems = require('./searches').searchItems
   , relationship = require('./relationship.js')
 
-function findTodo(todos, type) {
-  var ix = -1
+function findTodo(todos, type, key) {
   for (var i in todos) {
-    if (todos[i].type === type) {ix = i; break;}
+    if (todos[i].type === type && (!key || todos[i].key === key)) {return i}
   }
-  return ix
+  return -1
 }
 
 var Droplist = React.createClass({
@@ -121,9 +121,9 @@ var TodoPerson = module.exports = React.createClass({
   gotData: function (data) {
     this.setState({person: data})
   },
-  onDone: function (type) {
+  onDone: function (type, key) {
     var todos = this.state.person.data.todos
-      , ix = findTodo(todos, type)
+      , ix = findTodo(todos, type, key)
     if (ix === -1) {
       console.error('tried to mark', type, 'as done but not found')
       return
@@ -135,11 +135,11 @@ var TodoPerson = module.exports = React.createClass({
     }
     // ughhh mutating state...
     this.setState({person: this.state.person})
-    this.props.manager.setTodoDone(this.props.id, type, todos[ix].completed)
+    this.props.manager.setTodoDone(this.props.id, type, key, todos[ix].completed)
   },
-  onHard: function (type) {
+  onHard: function (type, key) {
     var todos = this.state.person.data.todos
-      , ix = findTodo(todos, type)
+      , ix = findTodo(todos, type, key)
     if (ix === -1) {
       console.error('tried to mark', type, 'as done but not found')
       return
@@ -151,7 +151,7 @@ var TodoPerson = module.exports = React.createClass({
     }
     // ughhh mutating state...
     this.setState({person: this.state.person})
-    this.props.manager.setTodoHard(this.props.id, type, todos[ix].hard)
+    this.props.manager.setTodoHard(this.props.id, type, key, todos[ix].hard)
   },
 
   onComplete: function () {
@@ -175,6 +175,12 @@ var TodoPerson = module.exports = React.createClass({
     }
     this.setState({person: this.state.person})
     this.props.manager.setStarred(this.props.id, data.starred)
+  },
+
+  changeNote: function (text) {
+    this.state.person.data.note = text
+    this.setState({person: this.state.person})
+    this.props.manager.setNote(this.props.id, text)
   },
 
   getState: function () {
@@ -210,7 +216,7 @@ var TodoPerson = module.exports = React.createClass({
     if (person.data.completed) {
       return (
         <div className='todo-person todo-person--completed'>
-          <span className='todo-person__s-name'>{display.name}</span>
+          <span className='todo-person__s-name'>{display.name || '[No Name]'}</span>
           marked as complete.
           <button className='todo-person__undo' onClick={this.onComplete}>Undo</button>
         </div>
@@ -221,15 +227,15 @@ var TodoPerson = module.exports = React.createClass({
     if (status === 'no todos') {
       return (
         <div className='todo-person todo-person--no-todos'>
-          <span className='todo-person__s-name'>{display.name}</span> finished!
-          <a href={this.props.personHref}>View person page</a>
+          <span className='todo-person__s-name'>{display.name || '[No Name]'}</span> finished!
+          {/*<a href={this.props.personHref}>View person page</a>*/}
         </div>
       )
     }
     if (status === 'hard todos' && !this.props.showHard) {
       return (
         <div className='todo-person todo-person--hard-todos'>
-          <span className='todo-person__s-name'>{display.name}</span>
+          <span className='todo-person__s-name'>{display.name || '[No Name]'}</span>
           has only "hard" items.
         </div>
       )
@@ -242,7 +248,7 @@ var TodoPerson = module.exports = React.createClass({
             value={person.data.starred}
             onChange={this.onStar}/>
           <a className='todo-person__name' href={this.props.personHref}>
-            {display.name}
+            {display.name || '[No Name]'}
           </a>
           <div className='todo-person__lifespan'>
             {display.lifespan}
@@ -259,15 +265,16 @@ var TodoPerson = module.exports = React.createClass({
           <div className='todo-person__relation'>
             {person.data.lineage && relationship.text(display.gender, person.data.lineage.length)}
           </div>
+          {PersonNote({value: person.data.note, onChange: this.changeNote})}
         </div>
         <ul className='todo-person__todos'>
           {person.data.todos && person.data.todos.map(function (todo) {
             return (
-              <li className='todo-person__todo' key={todo.type}>{
+              <li className='todo-person__todo' key={todo.type + ':' + todo.key}>{
                 Todo({
                   data: todo,
-                  onDone: this.onDone.bind(null, todo.type),
-                  onHard: this.onHard.bind(null, todo.type)
+                  onDone: this.onDone.bind(null, todo.type, todo.key),
+                  onHard: this.onHard.bind(null, todo.type, todo.key)
                 })
               }</li>
             )
