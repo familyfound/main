@@ -53,14 +53,14 @@ remote-libs: web/jquery-2.0.3.js web/react-0.8.0.js web/bootstrap-3.1.0 web/font
 web/bootstrap-3.1.0:
 	@cd web &&\
 	    curl -O https://github.com/twbs/bootstrap/releases/download/v3.1.0/bootstrap-3.1.0-dist.zip &&\
-	    jar xf bootstrap-3.1.0-dist.zip &&\
+	    unzip bootstrap-3.1.0-dist.zip &&\
 	    mv dist bootstrap-3.1.0 &&\
 	    rm bootstrap-3.1.0-dist.zip
 
 web/font-awesome-4.0.3:
 	@cd web &&\
 	    curl -O http://fontawesome.io/assets/font-awesome-4.0.3.zip &&\
-	    jar xf font-awesome-4.0.3.zip &&\
+	    unzip font-awesome-4.0.3.zip &&\
 	    rm font-awesome-4.0.3.zip
 
 web/jquery-2.0.3.js:
