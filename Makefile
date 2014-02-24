@@ -10,6 +10,8 @@ build: components index.js main.css $(COMPILED)
 example-build: components index.js main.css $(COMPILED)
 	@component build --dev -n build -o test
 
+# Resources
+
 client/pages/%.js: client/pages/%.jsx
 	@jsx $< > $@
 
@@ -19,11 +21,15 @@ client/components/%.js: client/components/%.jsx
 main.css: ${LESS}
 	lessc less/index.less main.css
 
+# Other stuff
+
 components: component.json
 	@component install --dev
 
 clean:
 	rm -fr build components template.js
+
+# Testing
 
 test: lint test-only
 
@@ -40,26 +46,39 @@ gh-pages: build
 	mv w/* ./
 	rmdir w
 
+# Remote Libs
+
+remote-libs: web/jquery-2.0.3.js web/react-0.8.0.js web/bootstrap-3.1.0 web/font-awesome-4.0.3
+
 web/bootstrap-3.1.0:
 	@cd web &&\
-	    wget https://github.com/twbs/bootstrap/releases/download/v3.1.0/bootstrap-3.1.0-dist.zip &&\
-	    unzip bootstrap-3.1.0-dist.zip &&\
+	    curl -O https://github.com/twbs/bootstrap/releases/download/v3.1.0/bootstrap-3.1.0-dist.zip &&\
+	    jar xf bootstrap-3.1.0-dist.zip &&\
 	    mv dist bootstrap-3.1.0 &&\
 	    rm bootstrap-3.1.0-dist.zip
 
 web/font-awesome-4.0.3:
 	@cd web &&\
-	    wget http://fontawesome.io/assets/font-awesome-4.0.3.zip &&\
-	    unzip font-awesome-4.0.3.zip &&\
+	    curl -O http://fontawesome.io/assets/font-awesome-4.0.3.zip &&\
+	    jar xf font-awesome-4.0.3.zip &&\
 	    rm font-awesome-4.0.3.zip
 
 web/jquery-2.0.3.js:
-	@cd web && wget http://code.jquery.com/jquery-2.0.3.js
+	@cd web && curl -O http://code.jquery.com/jquery-2.0.3.js
 
 web/react-0.8.0.js:
-	@cd web && wget http://fb.me/react-0.8.0.js
+	@cd web && curl -O http://fb.me/react-0.8.0.js
 
-serve: web/jquery-2.0.3.js web/react-0.8.0.js web/bootstrap-3.1.0 web/font-awesome-4.0.3
+# Heroku stuff
+
+postinstall: remote-libs get-tools
+
+get-tools:
+	@npm install -g component less jshint react-tools
+
+#
+
+serve: remote-libs
 	@node index.js
 
-.PHONY: clean
+.PHONY: clean serve postinstall get-tools remote-libs test lint test-only build example-build

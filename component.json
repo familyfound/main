@@ -5,12 +5,13 @@
   "version": "0.0.1",
   "keywords": [],
   "dependencies": {
+    "familyfound/fsauth": "*",
+    "familyfound/api": "v1.0.2",
+    "familyfound/fan": "1.0.0",
+    "familyfound/person-manager": "1.0.1",
+
     "jashkenas/backbone": "*",
     "lodash/lodash": "*",
-    "familyfound/fsauth": "*",
-    "familyfound/api": "*",
-    "familyfound/fan": "*",
-    "familyfound/person-manager": "*",
     "component/tip": "*",
     "component/aurora-tip": "*"
   },
