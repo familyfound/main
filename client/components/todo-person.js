@@ -227,8 +227,7 @@ var TodoPerson = module.exports = React.createClass({
     if (status === 'no todos') {
       return (
         React.DOM.div( {className:"todo-person todo-person--no-todos"}, 
-          React.DOM.span( {className:"todo-person__s-name"}, display.name || '[No Name]'), " finished! ",
-          /*<a href={this.props.personHref}>View person page</a>*/
+          React.DOM.span( {className:"todo-person__s-name"}, display.name || '[No Name]'), " finished! "
         )
       )
     }

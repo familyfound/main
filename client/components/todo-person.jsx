@@ -228,7 +228,6 @@ var TodoPerson = module.exports = React.createClass({
       return (
         <div className='todo-person todo-person--no-todos'>
           <span className='todo-person__s-name'>{display.name || '[No Name]'}</span> finished!
-          {/*<a href={this.props.personHref}>View person page</a>*/}
         </div>
       )
     }
