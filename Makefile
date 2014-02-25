@@ -71,7 +71,10 @@ web/react-0.9.0.js:
 
 # Heroku stuff
 
-postinstall: remote-libs get-tools
+postinstall: remote-libs get-tools use-cdn
+
+use-cdn:
+	mv web/index-cdn.html web/index.html
 
 get-tools:
 	@npm install -g component less jshint react-tools
