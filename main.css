@@ -162,7 +162,7 @@ body {
   color: #9999ff;
 }
 .tip__todo--hard {
-  color: #e70000;
+  color: #ff4444;
 }
 .tip__todo--hard::after {
   content: "hard";
@@ -207,32 +207,32 @@ body {
   stroke: none;
 }
 .fan-box.show-origin .o-us {
-  fill: #0000ff;
-  background-color: #0000ff;
+  fill: #6666ff;
+  background-color: #6666ff;
 }
 .fan-box.show-origin .o-us:hover {
-  fill: #1a1aff;
+  fill: #8080ff;
 }
 .fan-box.show-origin .o-gb {
-  fill: #ff0000;
-  background-color: #ff0000;
+  fill: #ff682d;
+  background-color: #ff682d;
 }
 .fan-box.show-origin .o-gb:hover {
-  fill: #ff1a1a;
+  fill: #ff7a47;
 }
 .fan-box.show-origin .o-eu {
-  fill: #008000;
-  background-color: #008000;
+  fill: #3aff3a;
+  background-color: #3aff3a;
 }
 .fan-box.show-origin .o-eu:hover {
-  fill: #009a00;
+  fill: #54ff54;
 }
 .fan-box.show-origin .o-other {
-  fill: #ffff00;
-  background-color: #ffff00;
+  fill: #ffff34;
+  background-color: #ffff34;
 }
 .fan-box.show-origin .o-other:hover {
-  fill: #ffff1a;
+  fill: #ffff4e;
 }
 .fan-box.show-origin .o-unknown {
   fill: #cccccc;
@@ -389,11 +389,11 @@ body {
   fill: #eab547;
 }
 .fan-box.show-completion .c-just-hard {
-  fill: #e70000;
-  background-color: #e70000;
+  fill: #ff4444;
+  background-color: #ff4444;
 }
 .fan-box.show-completion .c-just-hard:hover {
-  fill: #ff0101;
+  fill: #ff5e5e;
 }
 .fan-box.show-children .ch-living {
   fill: #ffd166;
