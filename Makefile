@@ -71,7 +71,7 @@ web/react-0.9.0.js:
 
 # Heroku stuff
 
-postinstall: get-tools use-cdn
+postinstall: get-tools use-cdn build
 
 use-cdn:
 	mv web/index-cdn.html web/index.html
