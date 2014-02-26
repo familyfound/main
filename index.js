@@ -19,6 +19,15 @@ app.use(express.session());
 
 auth.addRoutes(app, '/auth/check-login', '/auth/callback', config.fs_key)
 
+app.use(function (req, res, next) {
+  var protocol = req.headers['x-forwarded-proto'] || req.protocol
+    , host = protocol + '://' + req.headers.host
+  if (host !== config.host) {
+    console.warn('Redirecting to expected hostname')
+    return res.redirect(config.host)
+  }
+  next()
+})
 app.use(express.static(__dirname + '/web'))
 
 // now the sockets will talk
