@@ -1,6 +1,7 @@
 
 var d = React.DOM
   , Fan = require('fan')
+  , TodoPerson = require('./todo-person')
   , classes = require('./classes')
   , Tip = require('tip')
   , tipMessage = require('./tip').message
@@ -109,33 +110,52 @@ var FanBox = module.exports = React.createClass({
     var height = this.getHeight()
       , r = this.state.width / 2
       , transform = 'translate(' + this.state.width/2 + ', ' + r + ')'
-    return d.div({
-      className: 'fan-box ' + this.state.showing,
-    },
+
+    return d.div(
+      {className: 'fan-box ' + this.state.showing,},
+
       showButtons(this.state.showing, this.setShow),
       classOptions(this.state.showing),
+
       d.svg({
         width: this.state.width,
         height: height
       }, Fan({
         attr: 'rels',
-        getClasses: nodeClasses,
+
+        // statics
+        transform: transform,
         tip: tipMessage,
         gens: this.props.gens,
-        onClick: this.props.overviewPerson,
-        onRightClick: this.props.onRightClick,
-        mainTitle: mainTitle,
-        overTitle: nodeTitle,
-        transform: transform,
-        manager: this.props.manager,
-        id: this.props.id,
+
+        // other statics
         options: {
           width: r / this.props.gens,
           doubleWidth: false,
           sweep: this.props.sweep,
           offset: 0,
-        }
+        },
+
+        // functions
+        getClasses: nodeClasses,
+        mainTitle: mainTitle,
+        overTitle: nodeTitle,
+        
+        // event callbacks
+        onClick: this.props.overviewPerson,
+        onRightClick: this.props.onRightClick,
+
+        // other stuff
+        manager: this.props.manager,
+        id: this.props.id,
       })),
+
+      TodoPerson({
+        manager: this.props.manager,
+        id: this.props.id,
+        showAnyway: true
+      }),
+
       Lineage({
         id: this.props.id,
         manager: this.props.manager,

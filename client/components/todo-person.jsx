@@ -6,6 +6,7 @@ var Star = require('./star')
   , d = React.DOM
   , searchItems = require('./searches').searchItems
   , relationship = require('./relationship.js')
+  , Droplist = require('./droplist')
 
 function findTodo(todos, type, key) {
   for (var i in todos) {
@@ -13,86 +14,6 @@ function findTodo(todos, type, key) {
   }
   return -1
 }
-
-var Droplist = React.createClass({
-  displayName: 'DropList',
-  getDefaultProps: function () {
-    return {
-      className: '',
-      items: []
-    }
-  },
-  getInitialState: function () {
-    return {
-      open: false,
-      focused: false,
-      active: false
-    }
-  },
-  open: function () {
-    this.setState({
-      open: true
-    })
-  },
-  toggle: function () {
-    if (!this.state.open) return this.open()
-    this.setState({open: false})
-  },
-  close: function (e) {
-    if (e && e.suppressed) return
-    this.setState({open: false})
-  },
-  onOpen: function () {
-    document.addEventListener('mousedown', this.close)
-  },
-  componentDidUpdate: function () {
-    if (this.state.open) {
-      this.onOpen()
-    } else {
-      document.removeEventListener('mousedown', this.close)
-    }
-  },
-  componentDidMount: function () {
-    if (this.state.open) {
-      this.onOpen()
-    } else {
-      document.removeEventListener('mousedown', this.close)
-    }
-  },
-  focus: function () {
-    this.setState({open: true})
-  },
-  suppressMouseDown: function (e) {
-    if (!this.state.open) return
-    e.preventDefault()
-    e.stopPropagation()
-    e.nativeEvent.stopPropagation()
-    e.nativeEvent.suppressed = true
-    return false
-  },
-  render: function () {
-    return (
-      d.div({
-        tabIndex:0,
-        className:'droplist ' + this.props.className + (this.state.open ? ' droplist--open' : ''),
-        onMouseDown:this.suppressMouseDown
-      }, [
-        d.div({className:"droplist__head", onClick: this.toggle}),
-        d.ul({className:"droplist__list"},
-          this.props.items.map(function (value, i) {
-            return (
-              d.li({className: 'droplist__item'},
-                d.a({href: value.href, target: '_blank', className: 'droplist__link'}, value.title)
-              )
-            )
-          }.bind(this))
-        )
-      ])
-    )
-  },
-})
-
-
 
 
 function makeDropicon(person) {
@@ -103,6 +24,15 @@ function makeDropicon(person) {
 
 var TodoPerson = module.exports = React.createClass({
   displayName: 'TodoPerson',
+  getDefaultProps: function () {
+    return {
+      manager: null,
+      id: null,
+      showHard: false,
+      personHref: '',
+      showAnyway: false
+    }
+  },
   getInitialState: function () {
     return {person: {}}
   },
@@ -212,8 +142,9 @@ var TodoPerson = module.exports = React.createClass({
     var person = this.state.person
       , display = person.rels.display
       , place = display.birthPlace || display.deathPlace
+      , showAnyway = this.props.showAnyway
 
-    if (person.data.completed) {
+    if (!showAnyway && person.data.completed) {
       return (
         <div className='todo-person todo-person--completed'>
           <span className='todo-person__s-name'>{display.name || '[No Name]'}</span>
@@ -224,14 +155,14 @@ var TodoPerson = module.exports = React.createClass({
     }
     var status = this.getState()
 
-    if (status === 'no todos') {
+    if (!showAnyway && status === 'no todos') {
       return (
         <div className='todo-person todo-person--no-todos'>
           <span className='todo-person__s-name'>{display.name || '[No Name]'}</span> finished!
         </div>
       )
     }
-    if (status === 'hard todos' && !this.props.showHard) {
+    if (!showAnyway && status === 'hard todos' && !this.props.showHard) {
       return (
         <div className='todo-person todo-person--hard-todos'>
           <span className='todo-person__s-name'>{display.name || '[No Name]'}</span>
@@ -240,7 +171,7 @@ var TodoPerson = module.exports = React.createClass({
       )
     }
     return (
-      <li className='todo-person'>
+      <div className='todo-person'>
         <div className='todo-person__top'>
           <Star
             className='todo-person__star'
@@ -279,7 +210,7 @@ var TodoPerson = module.exports = React.createClass({
             )
           }.bind(this))}
         </ul>
-      </li>
+      </div>
     )
   }
 })

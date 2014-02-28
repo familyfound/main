@@ -25,20 +25,27 @@
     "client/pages/login.js",
     "client/pages/person.js",
     "client/pages/overview.js",
+
     "client/components/action-buttons.js",
     "client/components/tip.js",
     "client/components/fan-box.js",
+    "client/components/lineage.js",
+    "client/components/droplist.js",
+
     "client/components/classes.js",
     "client/components/relationship.js",
-    "client/components/lineage.js",
     "client/components/data-bound.js",
     "client/components/searches.js",
     "client/components/searcher.js",
+
     "client/components/star.js",
     "client/components/todo.js",
     "client/components/footer.js",
     "client/components/header.js",
+
+    "client/components/star-box.js",
     "client/components/history-box.js",
+    "client/components/history-item.js",
     "client/components/research-notes.js",
     "client/components/todo-people.js",
     "client/components/todo-person.js",

@@ -25,7 +25,8 @@ var TodoPeople = module.exports = React.createClass({
       )
     ),
     this.props.people.map(function (id) {
-      return TodoPerson({
+      return d.li({key: id},
+        TodoPerson({
         showHard: this.state.showHard,
         overviewPerson: this.props.overviewPerson,
         viewPerson: this.props.viewPerson,
@@ -33,7 +34,7 @@ var TodoPeople = module.exports = React.createClass({
         personHref: this.props.personHref(id),
         removePerson: this.props.removePerson.bind(null, id),
         id: id
-      })
+      }))
     }.bind(this)),
     !this.props.people.length && d.li({className: 'todo-people__loading'}, 'Searching your tree for things to do...'))
   }

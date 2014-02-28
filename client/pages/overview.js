@@ -1,7 +1,9 @@
 
 var FanBox = require('../components/fan-box')
   , HistoryBox = require('../components/history-box')
+  , StarBox = require('../components/star-box')
   , TodoPeople = require('../components/todo-people')
+  , TodoPerson = require('../components/todo-person')
   , d = React.DOM
 
 var OverviewPage = module.exports = React.createClass({
@@ -26,7 +28,8 @@ var OverviewPage = module.exports = React.createClass({
 */      })
       ),
       d.div(
-        {className: 'overview__fan'},
+        {className: 'overview__others'},
+
         FanBox({
           id: this.props.pid,
           manager: this.props.manager,
@@ -35,8 +38,16 @@ var OverviewPage = module.exports = React.createClass({
           treeHref: this.props.treeHref,
           viewPerson: this.props.viewPerson
         }),
+
+        StarBox({
+          stars: this.props.stars,
+          manager: this.props.manager,
+          personHref: this.props.personHref,
+        }),
+
         HistoryBox({
-          history: this.props.history
+          manager: this.props.manager,
+          personHref: this.props.personHref,
         })
       )
     )

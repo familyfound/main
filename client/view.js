@@ -155,6 +155,7 @@ var View = module.exports = React.createClass({
     }
     return OverviewPage({
       pid: route[':pid'] || this.props.userData.personId,
+
       // callbacks
       overviewPerson: this.overviewPerson,
       loadMoreTodos: this.loadMoreTodos,
@@ -163,6 +164,7 @@ var View = module.exports = React.createClass({
       manager: this.props.manager,
       setLoadingText: this.setLoadingText,
       removeTodoPerson: this.removeTodoPerson,
+
       // data
       todoPeople: this.state.todoPeople || [],
       loading: {
