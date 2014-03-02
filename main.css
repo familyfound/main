@@ -1,3 +1,26 @@
+.m-box {
+  border: 1px solid #ccc;
+  margin: 5px;
+  padding: 7px 10px 10px;
+  border-radius: 5px;
+  background-color: white;
+  margin-bottom: 10px;
+}
+.m-person-name {
+  font-size: 17px;
+  font-weight: bold;
+}
+.m-person-meta {
+  display: inline-block;
+  color: #555;
+}
+.m-person-lifespan {
+  font-weight: bold;
+  margin: 0 15px;
+}
+.m-section-title {
+  margin-left: 5px;
+}
 html,
 body {
   height: 100%;
@@ -74,6 +97,16 @@ body {
   height: auto;
   max-width: 1800px;
   margin: 0 auto;
+  padding: 10px;
+}
+.history-box__title {
+  margin-left: 5px;
+}
+.star-box__title {
+  margin-left: 5px;
+}
+.todo-people__title {
+  margin-left: 5px;
 }
 @media (min-width: 400px) and (max-width: 1500px - 1) {
   .overview__lists {
@@ -157,25 +190,6 @@ body {
   color: white;
   background-color: #5af;
   text-decoration: none;
-}
-.m-box {
-  border: 1px solid #ccc;
-  margin: 5px;
-  padding: 7px 10px 10px;
-  border-radius: 5px;
-  background-color: white;
-}
-.m-person-name {
-  font-size: 17px;
-  font-weight: bold;
-}
-.m-person-meta {
-  display: inline-block;
-  color: #555;
-}
-.m-person-lifespan {
-  font-weight: bold;
-  margin: 0 15px;
 }
 .tip {
   pointer-events: none;
@@ -516,6 +530,7 @@ body {
   padding: 7px 10px 10px;
   border-radius: 5px;
   background-color: white;
+  margin-bottom: 10px;
 }
 .todo-person--no-todos,
 .todo-person--hard-todos,
@@ -700,6 +715,7 @@ body {
   padding: 7px 10px 10px;
   border-radius: 5px;
   background-color: white;
+  margin-bottom: 10px;
 }
 .history-item__name {
   font-size: 17px;
