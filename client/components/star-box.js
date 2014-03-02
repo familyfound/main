@@ -7,7 +7,7 @@ var StarBox = module.exports = React.createClass({
   getDefaultProps: function () {
     return {
       manager: null,
-      personHref: function () {}
+      overviewPerson: function () {}
     }
   },
   getInitialState: function () {
@@ -27,14 +27,13 @@ var StarBox = module.exports = React.createClass({
   render: function () {
     return d.div(
       {className: 'star-box'},
+      d.h2({className: 'star-box__title'}, 'Starred People'),
       this.state.ids.map(function (id) {
         return TodoPerson({
           showAnyway: true,
-          overviewPerson: this.props.overviewPerson,
+          personHref: this.props.personHref(id),
           viewPerson: this.props.viewPerson,
           manager: this.props.manager,
-          personHref: this.props.personHref(id),
-          removePerson: this.props.removePerson.bind(null, id),
           id: id
         })
       }.bind(this))

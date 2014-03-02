@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/familyfound/main",
   "devDependencies": {
-    "glob": "~3.2.8"
+    "glob": "~3.2.9",
+    "browserify": "~3.31.2"
   }
 }

@@ -48,7 +48,7 @@ gh-pages: build
 
 # Remote Libs
 
-remote-libs: web/jquery-2.0.3.js web/react-0.9.0.js web/bootstrap-3.1.0 web/font-awesome-4.0.3
+remote-libs: web/jquery-2.0.3.js web/react-0.9.0.js web/bootstrap-3.1.0 web/font-awesome-4.0.3 web/moment.js
 
 web/bootstrap-3.1.0:
 	@cd web &&\
@@ -62,6 +62,9 @@ web/font-awesome-4.0.3:
 	    wget http://fontawesome.io/assets/font-awesome-4.0.3.zip &&\
 	    unzip font-awesome-4.0.3.zip &&\
 	    rm font-awesome-4.0.3.zip
+
+web/moment.js:
+	@cd web && wget http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.js
 
 web/jquery-2.0.3.js:
 	@cd web && wget http://code.jquery.com/jquery-2.0.3.js

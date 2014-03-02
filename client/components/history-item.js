@@ -52,18 +52,26 @@ var HistoryItem = module.exports = React.createClass({
           {className: 'history-item__lifespan'},
           display.lifespan
         ),
-        d.span(
-          {className: 'history-item__date'},
-          this.props.value.date
+        d.a(
+          {
+            target: '_blank',
+            href: 'https://familysearch.org/tree/#view=ancestor&person=' + this.props.value.id
+          },
+          this.props.value.id + ' on fs ',
+          d.i({className: 'glyphicon glyphicon-new-window'})
         )
       ),
       d.div(
         {className: 'history-item__relation'},
         relation
       ),
-      d.div(
+      d.span(
         {className: 'history-item__thing'},
         whatHappened
+      ),
+      d.span(
+        {className: 'history-item__date'},
+        moment(this.props.value.date).fromNow()
       )
     )
   }

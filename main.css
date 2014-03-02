@@ -18,13 +18,6 @@ body {
 .header__loading {
   margin-left: 10px;
 }
-.overview {
-  display: flex;
-}
-.overview__fan {
-  flex: 1;
-  border: 1px solid #ccc;
-}
 .person-page__vitals {
   padding: 10px 20px;
   font-size: 20px;
@@ -83,6 +76,33 @@ body {
   max-width: 1800px;
   margin: 0 auto;
 }
+@media (min-width: 400px) and (max-width: 1500px - 1) {
+  .overview__lists {
+    display: flex;
+  }
+}
+@media (min-width: 1020px) {
+  .overview {
+    display: flex;
+  }
+  .overview__todo {
+    width: 450px;
+  }
+  .overview__others {
+    flex: 1;
+  }
+}
+@media (min-width: 1500px) {
+  .overview__others {
+    display: flex;
+  }
+  .overview__lists {
+    width: 450px;
+  }
+  .fan-box {
+    flex: 1;
+  }
+}
 /** drop list **/
 .droplist {
   display: inline-block;
@@ -138,6 +158,25 @@ body {
   color: white;
   background-color: #5af;
   text-decoration: none;
+}
+.m-box {
+  border: 1px solid #ccc;
+  margin: 5px;
+  padding: 7px 10px 10px;
+  border-radius: 5px;
+  background-color: white;
+}
+.m-person-name {
+  font-size: 17px;
+  font-weight: bold;
+}
+.m-person-meta {
+  display: inline-block;
+  color: #555;
+}
+.m-person-lifespan {
+  font-weight: bold;
+  margin: 0 15px;
 }
 .tip {
   pointer-events: none;
@@ -249,32 +288,32 @@ body {
   fill: #d9d9d9;
 }
 .fan-box.show-modified .m-long {
-  fill: #000000;
-  background-color: #000000;
+  fill: #b6ffb3;
+  background-color: #b6ffb3;
 }
 .fan-box.show-modified .m-long:hover {
-  fill: #0d0d0d;
+  fill: #ceffcd;
 }
 .fan-box.show-modified .m-month {
-  fill: #000033;
-  background-color: #000033;
+  fill: #54ff4d;
+  background-color: #54ff4d;
 }
 .fan-box.show-modified .m-month:hover {
-  fill: #00004c;
+  fill: #6cff67;
 }
 .fan-box.show-modified .m-week {
-  fill: #000099;
-  background-color: #000099;
+  fill: #09e600;
+  background-color: #09e600;
 }
 .fan-box.show-modified .m-week:hover {
-  fill: #0000b3;
+  fill: #0aff00;
 }
 .fan-box.show-modified .m-day {
-  fill: #0000ff;
-  background-color: #0000ff;
+  fill: #058000;
+  background-color: #058000;
 }
 .fan-box.show-modified .m-day:hover {
-  fill: #1a1aff;
+  fill: #069a00;
 }
 .fan-box.show-age .a-living {
   fill: #3333ff;
@@ -395,6 +434,13 @@ body {
 .fan-box.show-completion .c-just-hard:hover {
   fill: #ff5e5e;
 }
+.fan-box.show-completion .c-starred {
+  fill: #00e0ff;
+  background-color: #00e0ff;
+}
+.fan-box.show-completion .c-starred:hover {
+  fill: #1ae3ff;
+}
 .fan-box.show-children .ch-living {
   fill: #ffd166;
   background-color: #ffd166;
@@ -437,21 +483,6 @@ body {
 .fan-box.show-children .ch-lots:hover {
   fill: #ff521a;
 }
-.m-box {
-  border: 1px solid #ccc;
-  margin: 5px;
-  padding: 7px 10px 10px;
-  border-radius: 5px;
-  background-color: white;
-}
-.m-person-name {
-  font-size: 17px;
-  font-weight: bold;
-}
-.m-person-meta {
-  display: inline-block;
-  color: #555;
-}
 .quiet-button {
   border: 1px solid #ccc;
   background-color: white;
@@ -475,10 +506,9 @@ body {
   margin: 10px 5px 5px;
 }
 /** todo list **/
-.todo-people {
+.todo-people__list {
   padding: 0;
   margin: 0;
-  width: 500px;
   list-style: none;
 }
 .todo-person {
@@ -660,6 +690,35 @@ body {
 .todo--hard-completed .todo__title {
   color: #faa;
   font-style: italic;
+}
+.star {
+  margin-right: 10px;
+  color: #00e0ff;
+}
+.history-item {
+  border: 1px solid #ccc;
+  margin: 5px;
+  padding: 7px 10px 10px;
+  border-radius: 5px;
+  background-color: white;
+}
+.history-item__name {
+  font-size: 17px;
+  font-weight: bold;
+}
+.history-item__lifespan {
+  font-weight: bold;
+  margin: 0 15px;
+}
+.history-item__date {
+  display: inline-block;
+  color: #555;
+  font-style: italic;
+  margin-left: 10px;
+  font-size: 90%;
+}
+.history-item__thing {
+  font-weight: bold;
 }
 .lineage {
   list-style: none;

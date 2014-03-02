@@ -4,7 +4,9 @@
   "undef": true,
   "node": true,
   "globals": {
-    "React": false
+    "React": false,
+    "moment": false,
+    "$": false
   },
   "-W033": false,
   "-W024": false,

@@ -1,19 +1,5 @@
 
-@grey: #ccc;
-@awesome: #0F0;
-@light-awesome: lighten(@awesome, 5%);
-@todo: #FFFF00;
-@todo-cleanup: #E7AC30;
-@todo-hard: #FF4444;
-
-@todo-minor: #fab;
-@fine: #afb;
-
-@grad-0: #00f;
-@grad-1: darken(@grad-0, 20%);
-@grad-2: darken(@grad-1, 20%);
-@grad-3: darken(@grad-2, 20%);
-@grad-4: darken(@grad-3, 20%);
+@import "mixins.less";
 
 .tip {
   pointer-events: none;
@@ -132,19 +118,19 @@
     }
 
     .m-long {
-      .hoverable(@grad-3);
+      .hoverable(@green-4);
     }
     
     .m-month {
-      .hoverable(@grad-2);
+      .hoverable(@green-3);
     }
 
     .m-week {
-      .hoverable(@grad-1);
+      .hoverable(@green-2);
     }
     
     .m-day {
-      .hoverable(@grad-0);
+      .hoverable(@green-1);
     }
   }
 
@@ -219,6 +205,10 @@
 
     .c-just-hard {
       .hoverable(@todo-hard);
+    }
+
+    .c-starred {
+      .hoverable(@starred);
     }
   }
 

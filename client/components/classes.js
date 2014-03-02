@@ -161,6 +161,7 @@ module.exports = {
       if (!data.data || !data.data.todos) {
         return 'c-not-evaluated'
       }
+      if (data.data.starred) return 'c-starred'
       var todos = todosLeft(data.data)
       if (!todos) {
         return 'c-completed'
@@ -226,7 +227,8 @@ module.exports = {
       'c-completed': 'Completed',
       'c-just-hard': 'Just Hard',
       'c-just-cleanup': 'Cleanup',
-      'c-has-todos': 'Research'
+      'c-has-todos': 'Research',
+      'c-starred': 'Starred'
     },
     children: {
       'ch-living': 'Living',

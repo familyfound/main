@@ -136,11 +136,11 @@ var TodoPerson = module.exports = React.createClass({
   },
 
   render: function () {
-    if (!this.state.person || !this.state.person.rels || !this.state.person.data) {
+    if (!this.state.person || !this.state.person.data) {
       return <div>Loading</div>
     }
     var person = this.state.person
-      , display = person.rels.display
+      , display = (person.rels || person.data).display
       , place = display.birthPlace || display.deathPlace
       , showAnyway = this.props.showAnyway
 
@@ -170,6 +170,7 @@ var TodoPerson = module.exports = React.createClass({
         </div>
       )
     }
+          // {makeDropicon(person)}
     return (
       <div className='todo-person'>
         <div className='todo-person__top'>
@@ -184,9 +185,8 @@ var TodoPerson = module.exports = React.createClass({
             {display.lifespan}
           </div>
           <a target='_blank' href={'https://familysearch.org/tree/#view=ancestor&person=' + person.data.id}>
-            <i className='glyphicon glyphicon-new-window'/>
+            {person.data.id} on fs <i className='glyphicon glyphicon-new-window'/>
           </a>
-          {makeDropicon(person)}
         </div>
         <div className='todo-person__bottom'>
           <span className='todo-person__place'>

@@ -27,6 +27,7 @@ var HistoryBox = module.exports = React.createClass({
   render: function () {
     return d.div(
       {className: 'history-box'},
+      d.h2({className: 'history-box__title'}, 'Recent Actions'),
       this.state.items.map(function (item) {
         if (!item.display) return false
         return HistoryItem({

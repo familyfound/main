@@ -134,7 +134,8 @@ var View = module.exports = React.createClass({
     this.setRoute('' + pid)
   },
   personHref: function (pid) {
-    return '#person/' + pid
+    return this.treeHref(pid)
+    // return '#person/' + pid
   },
   treeHref: function (pid) {
     return '#' + pid

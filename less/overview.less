@@ -1,0 +1,41 @@
+
+.overview {
+}
+
+.overview__fan {
+}
+
+@landscape-phone: 400px;
+@landscape-tablet: 1020px;
+@large: 1500px;
+
+@media (min-width: @landscape-phone) and (max-width: @large - 1) {
+  .overview__lists {
+    display: flex;
+  }
+}
+
+@media (min-width: @landscape-tablet) {
+  .overview {
+    display: flex;
+  }
+  .overview__todo {
+    width: 450px;
+  }
+  .overview__others {
+    flex: 1;
+  }
+}
+
+@media (min-width: @large) {
+  .overview__others {
+    display: flex;
+  }
+  .overview__lists {
+    width: 450px;
+  }
+  .fan-box {
+    flex: 1;
+  }
+}
+

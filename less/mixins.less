@@ -1,4 +1,27 @@
 
+@grey: #ccc;
+@awesome: #0F0;
+@light-awesome: lighten(@awesome, 5%);
+@todo: #FFFF00;
+@todo-cleanup: #E7AC30;
+@todo-hard: #FF4444;
+@starred: #00E0FF;
+
+@todo-minor: #fab;
+@fine: #afb;
+
+@grad-0: #00f;
+@grad-1: darken(@grad-0, 20%);
+@grad-2: darken(@grad-1, 20%);
+@grad-3: darken(@grad-2, 20%);
+@grad-4: darken(@grad-3, 20%);
+
+@green-1: #058000;
+@green-2: lighten(@green-1, 20%);
+@green-3: lighten(@green-2, 20%);
+@green-4: lighten(@green-3, 20%);
+@green-5: lighten(@green-4, 20%);
+
 .m-box {
   border: 1px solid #ccc;
   margin: 5px;
@@ -15,4 +38,9 @@
 .m-person-meta {
   display: inline-block;
   color: #555;
+}
+
+.m-person-lifespan {
+  font-weight: bold;
+  margin: 0 15px;
 }

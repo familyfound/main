@@ -17,7 +17,13 @@ app.use(express.methodOverride());
 app.use(express.cookieParser(config.secret));
 app.use(express.session());
 
-auth.addRoutes(app, '/auth/check-login', '/auth/callback', config.fs_key)
+auth.addRoutes(app, {
+  check_login_path: '/auth/check-login',
+  callback_path: '/auth/callback',
+  logout_redirect: '/',
+  logout_path: '/logout',
+  key: config.fs_key
+})
 
 app.use(function (req, res, next) {
   var protocol = req.headers['x-forwarded-proto'] || req.protocol

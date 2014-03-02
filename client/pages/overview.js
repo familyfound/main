@@ -39,16 +39,19 @@ var OverviewPage = module.exports = React.createClass({
           viewPerson: this.props.viewPerson
         }),
 
-        StarBox({
-          stars: this.props.stars,
-          manager: this.props.manager,
-          personHref: this.props.personHref,
-        }),
+        d.div(
+          {className: 'overview__lists'},
+          StarBox({
+            stars: this.props.stars,
+            manager: this.props.manager,
+            personHref: this.props.personHref,
+          }),
 
-        HistoryBox({
-          manager: this.props.manager,
-          personHref: this.props.personHref,
-        })
+          HistoryBox({
+            manager: this.props.manager,
+            personHref: this.props.personHref,
+          })
+        )
       )
     )
   }
