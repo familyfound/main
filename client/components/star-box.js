@@ -36,7 +36,8 @@ var StarBox = module.exports = React.createClass({
           manager: this.props.manager,
           id: id
         })
-      }.bind(this))
+      }.bind(this)),
+      !this.state.ids.length && d.h4({className: 'star-box__empty'}, 'No starred people')
     )
   }
 })

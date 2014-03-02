@@ -34,7 +34,8 @@ var HistoryBox = module.exports = React.createClass({
           value: item,
           personHref: this.props.personHref
         })
-      }.bind(this))
+      }.bind(this)),
+      !this.state.items.length && d.h4({className: 'history-box__empty'}, 'No recent actions')
     )
   }
 })
