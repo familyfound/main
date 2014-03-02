@@ -437,6 +437,21 @@ body {
 .fan-box.show-children .ch-lots:hover {
   fill: #ff521a;
 }
+.m-box {
+  border: 1px solid #ccc;
+  margin: 5px;
+  padding: 7px 10px 10px;
+  border-radius: 5px;
+  background-color: white;
+}
+.m-person-name {
+  font-size: 17px;
+  font-weight: bold;
+}
+.m-person-meta {
+  display: inline-block;
+  color: #555;
+}
 .quiet-button {
   border: 1px solid #ccc;
   background-color: white;

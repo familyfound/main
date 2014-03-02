@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/familyfound/main/issues"
   },
-  "homepage": "https://github.com/familyfound/main"
+  "homepage": "https://github.com/familyfound/main",
+  "devDependencies": {
+    "glob": "~3.2.8"
+  }
 }
