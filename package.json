@@ -29,6 +29,8 @@
   "homepage": "https://github.com/familyfound/main",
   "devDependencies": {
     "glob": "~3.2.9",
-    "browserify": "~3.31.2"
+    "browserify": "~3.31.2",
+    "mkdirp": "~0.3.5",
+    "xon": "0.0.1"
   }
 }

@@ -42,6 +42,7 @@ var todo_items = todos.map(function (item) {
     }
   }
 })
+
 module.exports = [{
   id: pid,
   user: uid,
@@ -78,7 +79,10 @@ module.exports = [{
     gender: 'Male',
     generation: 2
   }
-}].concat(todo_items)
-
+}].concat(todo_items).map(function (value) {
+  return {
+    value: value
+  }
+})
 
 

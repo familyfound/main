@@ -7,8 +7,8 @@ LESS = $(wildcard less/*.less)
 build: components index.js main.css $(COMPILED)
 	@component build --dev -n build -s main -o web
 
-example-build: components index.js main.css $(COMPILED)
-	@component build --dev -n build -o test
+test-build: components index.js main.css $(COMPILED)
+	@component build --dev -n build -o test/client/build
 
 # Resources
 
@@ -45,6 +45,23 @@ gh-pages: build
 	rm -rf bootstrap font-awesome
 	mv w/* ./
 	rmdir w
+
+TEST_FIXTURES = $(patsubst test/client/fixtures/%.js, %, $(wildcard test/client/fixtures/*.js))
+TEST_DIRS = $(patsubst %, test/client/%, $(TEST_FIXTURES))
+TEST_HTMLS = $(patsubst %, test/client/%/index.html, $(TEST_FIXTURES))
+# TEST_DATA = $(patsubst %, test/client/build/%/data.js, $(TEST_FIXTURES))
+
+make-things: test-htmls test-build
+	node tsetup.js
+
+test-htmls: $(TEST_HTMLS)
+
+# test/client/%/data.js: test/client/fixtures/%.js
+# @browserify $< -o $@
+
+test/client/%/index.html:
+	@rm -f $@
+	@ln -s ../index-base.html $@;
 
 # Remote Libs
 

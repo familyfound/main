@@ -36,6 +36,12 @@ function historyName(item) {
 
 var HistoryItem = module.exports = React.createClass({
   displayName: 'HistoryItem',
+  getDefaultProps: function () {
+    return {
+      value: {},
+      personHref: function () {return '#nope'}
+    }
+  },
   render: function () {
     var display = this.props.value.display
       , relation = relationship.text(display.gender, display.generation)

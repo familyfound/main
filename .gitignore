@@ -14,3 +14,12 @@ more.css
 /web/font-awesome-4.0.3
 /web/jquery-2.0.3.js
 web/moment.js
+test/client/build.css
+test/client/build.js
+test/client/history-item/data.js
+test/client/*/data.js
+test/client/*/fixture.js
+test/client/*/index.html
+test/client/*/lib.js
+test/client/*/setup.js
+test/client/index.html
