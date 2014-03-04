@@ -332,11 +332,11 @@ body {
   fill: #069a00;
 }
 .fan-box.show-age .a-living {
-  fill: #3333ff;
-  background-color: #3333ff;
+  fill: #a471ff;
+  background-color: #a471ff;
 }
 .fan-box.show-age .a-living:hover {
-  fill: #4d4dff;
+  fill: #b48bff;
 }
 .fan-box.show-age .a-unknown {
   fill: #cccccc;
@@ -346,25 +346,25 @@ body {
   fill: #d9d9d9;
 }
 .fan-box.show-age .a-young {
-  fill: #0000ff;
-  background-color: #0000ff;
+  fill: #adf5ff;
+  background-color: #adf5ff;
 }
 .fan-box.show-age .a-young:hover {
-  fill: #1a1aff;
+  fill: #c7f8ff;
 }
 .fan-box.show-age .a-middle {
-  fill: #000099;
-  background-color: #000099;
+  fill: #7e7eff;
+  background-color: #7e7eff;
 }
 .fan-box.show-age .a-middle:hover {
-  fill: #0000b3;
+  fill: #9898ff;
 }
 .fan-box.show-age .a-old {
-  fill: #000033;
-  background-color: #000033;
+  fill: #0008cc;
+  background-color: #0008cc;
 }
 .fan-box.show-age .a-old:hover {
-  fill: #00004c;
+  fill: #0009e6;
 }
 .fan-box.show-age .a-ancient {
   fill: #000000;
@@ -374,11 +374,11 @@ body {
   fill: #0d0d0d;
 }
 .fan-box.show-sources .s-living {
-  fill: #ff99f3;
-  background-color: #ff99f3;
+  fill: #b0b3fd;
+  background-color: #b0b3fd;
 }
 .fan-box.show-sources .s-living:hover {
-  fill: #ffb3f6;
+  fill: #c9cbfe;
 }
 .fan-box.show-sources .s-unknown {
   fill: #cccccc;
@@ -388,32 +388,32 @@ body {
   fill: #d9d9d9;
 }
 .fan-box.show-sources .s-none {
-  fill: #ff00e1;
-  background-color: #ff00e1;
+  fill: #ff9696;
+  background-color: #ff9696;
 }
 .fan-box.show-sources .s-none:hover {
-  fill: #ff1ae4;
+  fill: #ffb0b0;
 }
 .fan-box.show-sources .s-few {
-  fill: #cc00b4;
-  background-color: #cc00b4;
+  fill: #cc0041;
+  background-color: #cc0041;
 }
 .fan-box.show-sources .s-few:hover {
-  fill: #e600cb;
+  fill: #e60049;
 }
 .fan-box.show-sources .s-some {
-  fill: #990087;
-  background-color: #990087;
+  fill: #bb00a5;
+  background-color: #bb00a5;
 }
 .fan-box.show-sources .s-some:hover {
-  fill: #b3009e;
+  fill: #d400bc;
 }
 .fan-box.show-sources .s-many {
-  fill: #66005a;
-  background-color: #66005a;
+  fill: #31002b;
+  background-color: #31002b;
 }
 .fan-box.show-sources .s-many:hover {
-  fill: #800071;
+  fill: #4b0041;
 }
 .fan-box.show-completion .c-not-evaluated {
   fill: #cccccc;
@@ -458,25 +458,25 @@ body {
   fill: #1ae3ff;
 }
 .fan-box.show-children .ch-living {
-  fill: #ffd166;
-  background-color: #ffd166;
+  fill: #ffb3b3;
+  background-color: #ffb3b3;
 }
 .fan-box.show-children .ch-living:hover {
-  fill: #ffd980;
+  fill: #ffcdcd;
 }
 .fan-box.show-children .ch-3 {
-  fill: #ffe500;
-  background-color: #ffe500;
+  fill: #fff625;
+  background-color: #fff625;
 }
 .fan-box.show-children .ch-3:hover {
-  fill: #ffe81a;
+  fill: #fff73f;
 }
 .fan-box.show-children .ch-6 {
-  fill: #ffb300;
-  background-color: #ffb300;
+  fill: #ffc02c;
+  background-color: #ffc02c;
 }
 .fan-box.show-children .ch-6:hover {
-  fill: #ffbb1a;
+  fill: #ffc846;
 }
 .fan-box.show-children .ch-9 {
   fill: #ff7f00;
@@ -486,18 +486,18 @@ body {
   fill: #ff8c1a;
 }
 .fan-box.show-children .ch-12 {
-  fill: #ff5f00;
-  background-color: #ff5f00;
+  fill: #d65000;
+  background-color: #d65000;
 }
 .fan-box.show-children .ch-12:hover {
-  fill: #ff6f1a;
+  fill: #f05a00;
 }
 .fan-box.show-children .ch-lots {
-  fill: #ff3f00;
-  background-color: #ff3f00;
+  fill: #8f2300;
+  background-color: #8f2300;
 }
 .fan-box.show-children .ch-lots:hover {
-  fill: #ff521a;
+  fill: #a92900;
 }
 .quiet-button {
   border: 1px solid #ccc;
