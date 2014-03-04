@@ -8,7 +8,7 @@ build: components index.js main.css $(COMPILED)
 	@component build --dev -n build -s main -o web
 
 test-build: components index.js main.css $(COMPILED)
-	@component build --dev -n build -o test/client/build
+	@component build --dev -n build -o test/client/
 
 # Resources
 

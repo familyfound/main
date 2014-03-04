@@ -34,6 +34,10 @@ function historyName(item) {
   return names[item.key](item)
 }
 
+function capFirst(str) {
+  return str[0].toUpperCase() + str.slice(1)
+}
+
 var HistoryItem = module.exports = React.createClass({
   displayName: 'HistoryItem',
   getDefaultProps: function () {
@@ -50,34 +54,36 @@ var HistoryItem = module.exports = React.createClass({
       {className: 'history-item'},
       d.div(
         {className: 'history-item__top'},
+        d.span(
+          {className: 'history-item__thing'},
+          capFirst(whatHappened)
+        ),
+        ' on ',
         d.a({
           className: 'history-item__name',
           href: this.props.personHref(this.props.value.id),
         }, display.name),
         d.span(
-          {className: 'history-item__lifespan'},
-          display.lifespan
-        ),
-        d.a(
-          {
-            target: '_blank',
-            href: 'https://familysearch.org/tree/#view=ancestor&person=' + this.props.value.id
-          },
-          this.props.value.id + ' on fs ',
-          d.i({className: 'glyphicon glyphicon-new-window'})
+          {className: 'history-item__date'},
+          moment(this.props.value.date).fromNow()
         )
       ),
-      d.div(
+      d.a(
+        {
+          target: '_blank',
+          href: 'https://familysearch.org/tree/#view=ancestor&person=' + this.props.value.id
+        },
+        this.props.value.id + ' on familysearch.org ',
+        d.i({className: 'glyphicon glyphicon-new-window'})
+      ),
+      d.br(),
+      d.span(
         {className: 'history-item__relation'},
         relation
       ),
       d.span(
-        {className: 'history-item__thing'},
-        whatHappened
-      ),
-      d.span(
-        {className: 'history-item__date'},
-        moment(this.props.value.date).fromNow()
+        {className: 'history-item__lifespan'},
+        display.lifespan
       )
     )
   }
