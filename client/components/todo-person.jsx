@@ -213,9 +213,9 @@ var TodoPerson = module.exports = React.createClass({
           <a target='_blank' href={'https://familysearch.org/tree/#view=ancestor&person=' + person.data.id}>
             {person.data.id} on familysearch.org <i className='glyphicon glyphicon-new-window'/>
           </a>
-          <span className='todo-person__place'>
+          <div className='todo-person__place'>
             {place || 'No recorded locations'}
-          </span>
+          </div>
           <div className='todo-person__relation'>
             {person.data.lineage && relationship.text(display.gender, person.data.lineage.length)}
           </div>

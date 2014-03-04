@@ -563,12 +563,12 @@ body {
 }
 .todo-person__place,
 .todo-person__lifespan {
-  display: inline-block;
   color: #555;
 }
 .todo-person__lifespan {
   font-weight: bold;
   margin: 0 15px;
+  display: inline-block;
 }
 .todo-person__place {
   font-style: italic;

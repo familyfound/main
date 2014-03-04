@@ -213,7 +213,7 @@ var TodoPerson = module.exports = React.createClass({
           React.DOM.a( {target:"_blank", href:'https://familysearch.org/tree/#view=ancestor&person=' + person.data.id}, 
             person.data.id, " on familysearch.org ", React.DOM.i( {className:"glyphicon glyphicon-new-window"})
           ),
-          React.DOM.span( {className:"todo-person__place"}, 
+          React.DOM.div( {className:"todo-person__place"}, 
             place || 'No recorded locations'
           ),
           React.DOM.div( {className:"todo-person__relation"}, 
