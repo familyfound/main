@@ -9,7 +9,7 @@ module.exports = {
 function todoTitle(data) {
   var tpl = todos.titles[data.type]
     , items = data.data
-  if (items && items.args) {
+  if (items && 'undefined' !== typeof items.args) {
     items = items.args
   }
   if (!Array.isArray(items)) {
