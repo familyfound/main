@@ -1,12 +1,40 @@
 
 var d = React.DOM
-
   , todos = require('api').todos
+  , Note = require('./person-note')
+
+var CheckBox = React.createClass({
+  getDefaultProps: function () {
+    return {
+      checked: false,
+      onChange: function () {}
+    }
+  },
+  render: function () {
+    return d.i({
+      onClick: this.props.onChange,
+      className: 'check-box fa fa-' + (this.props.checked ? 'check-' : '') + 'square-o'
+    })
+  }
+})
 
 var Todo = module.exports = React.createClass({
-  onClick: function (e) {
-    if (e.target !== this.getDOMNode()) return
+  getDefaultProps: function () {
+    return {
+      startOpen: false,
+      onDone: function () {
+      }
+    }
+  },
+  getInitialState: function () {
+    return {
+      open: this.props.startOpen
+    }
+  },
+  toggleDone: function (e) {
     this.props.onDone()
+    e.stopPropagation()
+    return false
   },
   getTitle: function () {
     var tpl = todos.titles[this.props.data.type]
@@ -33,13 +61,20 @@ var Todo = module.exports = React.createClass({
             className: 'todo__link',
             target: '_blank',
             href: links[link]
-          }, link)
+          },
+          d.i({className: 'fa fa-arrow-right'}),
+          link
+          )
         )
       })
     )
   },
+  toggleOpen: function () {
+    this.setState({open: !this.state.open})
+  },
   render: function () {
     var cls = 'todo'
+      , ttype = todos.types[this.props.data.type]
     if (this.props.data.completed) {
       if (this.props.data.hard) {
         cls += ' todo--hard-completed'
@@ -49,25 +84,55 @@ var Todo = module.exports = React.createClass({
     } else if (this.props.data.hard) {
       cls += ' todo--hard'
     }
+    if (!this.state.open) {
+      return d.div(
+        {
+          className: cls + ' todo--collapsed',
+          onClick: this.toggleOpen
+        },
+        d.span({
+          className: 'todo__title'
+        }, this.getTitle())
+      )
+    }
     return d.div({
         className: cls,
-        onClick: this.onClick
       },
+      d.div(
+        {
+          className: 'todo__head',
+          onClick: this.toggleOpen
+        },
+        CheckBox({
+          onChange: this.toggleDone,
+          checked: !!this.props.data.completed
+        }),
+        d.span({
+          className: 'todo__title'
+        }, this.getTitle())
+      ),
+      Note({
+        className: 'todo__note',
+        text: this.props.data.note || '',
+        onChange: this.props.changeNote
+      }),
+      this.getLinks(),
+      ttype.help && d.span({
+        className: 'todo__explanation',
+      }, ttype.help),
       d.button({
         className: 'todo__hard' + (this.props.data.hard ? ' todo__hard--depressed' : ''),
         onClick: this.props.onHard
-      }, 'Hard'),
-      d.input({
-        className: 'todo__box',
-        type: 'checkbox',
-        checked: !!this.props.data.completed,
-        onChange: this.props.onDone,
-      }),
-      d.span({
-        className: 'todo__title',
-        onClick: this.props.onDone,
-      }, this.getTitle()),
-      this.getLinks()
+      }, !this.props.data.hard ? 'Mark as hard' : 'Unmark as hard'),
+      ttype.help_link && d.a(
+        {
+          className: 'todo__help-button',
+          href: ttype.help_link,
+          target: '_blank'
+        },
+        d.i({className: 'fa fa-question-circle'}),
+        'More help'
+      )
     )
   }
 })

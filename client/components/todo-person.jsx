@@ -30,16 +30,19 @@ var TodoPerson = module.exports = React.createClass({
       id: null,
       showHard: false,
       personHref: '',
-      showAnyway: false
+      showAnyway: false,
+      initialData: {}
     }
   },
   getInitialState: function () {
-    return {person: {}}
+    return {person: this.props.initialData}
   },
   componentDidMount: function () {
+    if (!this.props.manager) return
     this.props.manager.on(this.props.id, this.gotData)
   },
   componentWillUnmount: function () {
+    if (!this.props.manager) return
     this.props.manager.off(this.props.id, this.gotData)
   },
   componentDidUpdate: function (prevProps) {
@@ -51,6 +54,21 @@ var TodoPerson = module.exports = React.createClass({
   gotData: function (data) {
     this.setState({person: data})
   },
+
+  todoNote: function (type, key, value) {
+    var todos = this.state.person.data.todos
+      , ix = findTodo(todos, type, key)
+    if (ix === -1) {
+      console.error('tried to mark', type, 'as done but not found')
+      return
+    }
+    todos[ix].note = value
+    // ughhh mutating state...
+    this.setState({person: this.state.person})
+    if (!this.props.manager) return
+    this.props.manager.setTodoNote(this.props.id, type, key, value)
+  },
+
   onDone: function (type, key) {
     var todos = this.state.person.data.todos
       , ix = findTodo(todos, type, key)
@@ -65,8 +83,10 @@ var TodoPerson = module.exports = React.createClass({
     }
     // ughhh mutating state...
     this.setState({person: this.state.person})
+    if (!this.props.manager) return
     this.props.manager.setTodoDone(this.props.id, type, key, todos[ix].completed)
   },
+
   onHard: function (type, key) {
     var todos = this.state.person.data.todos
       , ix = findTodo(todos, type, key)
@@ -81,6 +101,7 @@ var TodoPerson = module.exports = React.createClass({
     }
     // ughhh mutating state...
     this.setState({person: this.state.person})
+    if (!this.props.manager) return
     this.props.manager.setTodoHard(this.props.id, type, key, todos[ix].hard)
   },
 
@@ -92,6 +113,7 @@ var TodoPerson = module.exports = React.createClass({
       data.completed = new Date()
     }
     this.setState({person: this.state.person})
+    if (!this.props.manager) return
     this.props.manager.setCompleted(this.props.id, data.completed)
     // if (this.sortedPeople().length === 0) this.props.loadMorePeople()
   },
@@ -104,12 +126,14 @@ var TodoPerson = module.exports = React.createClass({
       data.starred = new Date()
     }
     this.setState({person: this.state.person})
+    if (!this.props.manager) return
     this.props.manager.setStarred(this.props.id, data.starred)
   },
 
   changeNote: function (text) {
     this.state.person.data.note = text
     this.setState({person: this.state.person})
+    if (!this.props.manager) return
     this.props.manager.setNote(this.props.id, text)
   },
 
@@ -204,7 +228,8 @@ var TodoPerson = module.exports = React.createClass({
                 Todo({
                   data: todo,
                   onDone: this.onDone.bind(null, todo.type, todo.key),
-                  onHard: this.onHard.bind(null, todo.type, todo.key)
+                  onHard: this.onHard.bind(null, todo.type, todo.key),
+                  changeNote: this.todoNote.bind(null, todo.type, todo.key)
                 })
               }</li>
             )

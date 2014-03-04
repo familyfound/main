@@ -1,0 +1,54 @@
+/** Person Note **/
+
+.note {
+  color: #555;
+  position: relative;
+}
+
+.note__button {
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  opacity: .5;
+  background-color: white;
+  border: 1px solid #666;
+
+  &::before {
+    content: "\f040";
+    font-family: 'FontAwesome';
+  }
+}
+
+.note--open {
+  .note__button {
+    opacity: 1;
+
+    &::before {
+      content: "Save";
+    }
+  }
+}
+
+.note:hover .note__button {
+  opacity: 1;
+}
+
+.note__empty,
+.note__static {
+  cursor: pointer;
+  padding: 7px 15px;
+  display: block;
+}
+
+.note__empty {
+  font-style: italic;
+  margin-right: 20px;
+}
+
+.note__input {
+  width: 100%;
+  height: 100px;
+  padding: 6px 14px;
+}
+
+

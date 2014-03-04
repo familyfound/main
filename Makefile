@@ -34,7 +34,7 @@ clean:
 test: lint test-only
 
 lint:
-	jshint *.js lib client test
+	jshint *.js lib client test/client/fixtures
 
 test-only:
 	mocha -R spec
@@ -51,7 +51,7 @@ TEST_DIRS = $(patsubst %, test/client/%, $(TEST_FIXTURES))
 TEST_HTMLS = $(patsubst %, test/client/%/index.html, $(TEST_FIXTURES))
 # TEST_DATA = $(patsubst %, test/client/build/%/data.js, $(TEST_FIXTURES))
 
-make-things: test-htmls test-build
+examples: test-htmls test-build
 	node tsetup.js
 
 test-htmls: $(TEST_HTMLS)
@@ -97,7 +97,7 @@ use-cdn:
 	mv web/index-cdn.html web/index.html
 
 get-tools:
-	@npm install -g component less jshint react-tools
+	#@npm install -g component less jshint react-tools
 
 #
 

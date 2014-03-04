@@ -1,10 +1,20 @@
 
 var d = React.DOM
 
-var PersonNote = module.exports = React.createClass({
-  displayName: 'PersonNote',
+var Note = module.exports = React.createClass({
+  displayName: 'Note',
+  getDefaultProps: function () {
+    return {
+      className: '',
+      onChange: function () {},
+      text: ''
+    }
+  },
   getInitialState: function () {
-    return {open: false, text: this.props.value}
+    return {
+      open: false, text: this.props.value,
+      onChange: function () {}
+    }
   },
   componentWillReceiveProps: function (props) {
     if (!this.state.open) {
@@ -23,19 +33,20 @@ var PersonNote = module.exports = React.createClass({
     if (!this.state.open) {
       if (!this.state.text) {
         return d.span({
-          className: 'person-note__empty',
+          className: 'note__empty',
           onClick: this.open
         }, 'Click to add a note')
       }
       return d.span({
-        className: 'person-note__static'
+        className: 'note__static'
       }, this.state.text)
     }
     return d.textarea({
-      className: 'person-note__input',
+      className: 'note__input',
       ref: 'input',
       value: this.state.text,
-      onChange: this.onChange
+      onChange: this.onChange,
+      onBlur: this.action
     })
   },
   onChange: function (e) {
@@ -48,11 +59,14 @@ var PersonNote = module.exports = React.createClass({
     this.props.onChange(this.state.text)
   },
   render: function () {
+    var cname = this.props.className + ' note' 
+    if (this.state.open) cname += ' note--open' 
+    if (!this.props.text) cname += ' note--empty' 
     return d.div({
-      className: 'person-note' + (this.state.open ? ' person-note--open' : ''),
+      className: cname,
       onClick: this.open
     }, this.body(), d.button({
-      className: 'person-note__button',
+      className: 'note__button',
       onClick: this.action
     }))
   }

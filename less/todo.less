@@ -1,0 +1,138 @@
+/** Individual Todo Item **/
+
+.check-box {
+  cursor: pointer;
+  padding-right: 10px;
+
+  &:hover {
+    color: #ffd600;
+    font-weight: bold;
+  }
+}
+
+.todo {
+  padding: 5px 5px 5px 10px;
+  margin: 0;
+  border-radius: 5px;
+  position: relative;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+
+  &::after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+}
+
+.todo--collapsed {
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.todo--collapsed:hover {
+  border-color: #ccc;
+}
+
+/** links **/
+
+.todo__links {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 0;
+}
+
+.todo__link {
+  padding: 3px 0;
+  border-radius: 10px;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.todo__link i {
+  margin-right: 10px;
+}
+
+.todo__help-button {
+  display: block;
+
+  i {
+    margin-right: 10px;
+  }
+}
+
+.todo__note.note--empty {
+  float: right;
+  &.note--open {
+    float: none;
+  }
+}
+
+.todo__explanation {
+  display: block;
+  padding: 10px;
+  color: #555;
+}
+
+.todo__hard {
+  float: right;
+  border: 0;
+  background-color: transparent;
+  text-transform: lowercase;
+  border-radius: 5px;
+  color: #777;
+}
+
+.todo:hover .todo__hard {
+}
+
+.todo__hard:hover {
+  color: #a55;
+  background-color: #ffe0e0;
+}
+
+.todo--hard .todo__hard {
+  visibility: visible;
+}
+
+.todo__hard:focus {
+  outline: none;
+}
+
+.todo__title {
+  cursor: pointer;
+}
+
+
+.todo--hard .todo__title {
+    color: #a55;
+}
+
+.todo--hard .todo__hard {
+  color: #a55;
+  background-color: #ffe0e0;
+}
+
+.todo--collapsed.todo--hard {
+  // background-color: #ffe0e0;
+}
+
+.todo--hard-completed,
+.todo--completed {
+  background-color: white;
+}
+
+.todo--completed .todo__title {
+  color: #aaa;
+  font-style: italic;
+}
+
+.todo--hard-completed .todo__title {
+  color: #faa;
+  font-style: italic;
+}
+
+

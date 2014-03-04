@@ -1,0 +1,34 @@
+/** Person Todos **/
+
+.todo-person__todos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-person__todo {
+  margin: 0;
+  padding: 0;
+}
+
+.todo-person__complete {
+  visibility: hidden;
+  border: none;
+  background-color: white;
+  text-transform: lowercase;
+  color: #555;
+}
+
+.todo-person:hover .todo-person__complete {
+  visibility: visible;
+}
+
+.todo-person__complete:hover {
+  background-color: #96EE74;
+  border-radius: 5px;
+  color: rgb(0, 71, 9);
+}
+
+@import "person-note.less";
+@import "todo.less";
+

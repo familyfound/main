@@ -6,9 +6,9 @@
   "keywords": [],
   "dependencies": {
     "familyfound/fsauth": "*",
-    "familyfound/api": "v1.1.0",
+    "familyfound/api": "v1.2.0",
     "familyfound/fan": "1.0.0",
-    "familyfound/person-manager": "1.1.0",
+    "familyfound/person-manager": "1.2.0",
 
     "jashkenas/backbone": "*",
     "lodash/lodash": "*",
