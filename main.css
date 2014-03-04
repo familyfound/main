@@ -583,6 +583,7 @@ body {
   margin-top: 13px;
   margin-bottom: 2px;
 }
+.custom-todos__list,
 .todo-person__todos {
   list-style: none;
   padding: 0;
@@ -754,6 +755,24 @@ body {
 .todo--hard-completed .todo__title {
   color: #faa;
   font-style: italic;
+}
+.custom-todo .todo__head {
+  display: flex;
+}
+.custom-todo__input {
+  flex: 1;
+  cursor: text;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+.custom-todo__input:focus {
+  border-color: #ccc;
+}
+.custom-todo .todo__note {
+  float: none;
+}
+.custom-todos__add {
+  float: right;
 }
 .star {
   margin-right: 10px;

@@ -8,6 +8,8 @@ var Star = require('./star')
   , relationship = require('./relationship.js')
   , Droplist = require('./droplist')
 
+  , CustomTodos = require('./custom-todos')
+
 function findTodo(todos, type, key) {
   for (var i in todos) {
     if (todos[i].type === type && (!key || todos[i].key === key)) {return i}
@@ -137,6 +139,13 @@ var TodoPerson = module.exports = React.createClass({
     this.props.manager.setNote(this.props.id, text)
   },
 
+  changeCustom: function (todos) {
+    this.state.person.data.customTodos = todos
+    this.setState({person: this.state.person})
+    if (!this.props.manager) return
+    this.props.manager.setCustomTodos(this.props.id, todos)
+  },
+
   getState: function () {
     var hard = []
       , todos = []
@@ -235,6 +244,7 @@ var TodoPerson = module.exports = React.createClass({
             )
           }.bind(this))}
         </ul>
+        {CustomTodos({data: person.data.customTodos, onChange: this.changeCustom})}
       </div>
     )
   }

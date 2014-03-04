@@ -72,6 +72,11 @@ module.exports = [
     modified: new Date(),
     starred: false,
     todos: todos,
+    customTodos: [{
+      title: 'Ask grandma about her things',
+      completed: false,
+      hard: false
+    }],
     user: 'USSR-FXW'
   }
 ].map(function (data) {
