@@ -55,13 +55,13 @@ var Note = module.exports = React.createClass({
   action: function () {
     if (!this.state.open) return this.open()
     this.setState({open: false})
-    if (this.state.text === this.props.text) return
+    if (this.state.text === this.props.value) return
     this.props.onChange(this.state.text)
   },
   render: function () {
     var cname = this.props.className + ' note' 
     if (this.state.open) cname += ' note--open' 
-    if (!this.props.text) cname += ' note--empty' 
+    if (!this.props.value) cname += ' note--empty' 
     return d.div({
       className: cname,
       onClick: this.open

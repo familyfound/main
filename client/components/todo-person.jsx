@@ -208,11 +208,11 @@ var TodoPerson = module.exports = React.createClass({
           <div className='todo-person__lifespan'>
             {display.lifespan}
           </div>
-          <a target='_blank' href={'https://familysearch.org/tree/#view=ancestor&person=' + person.data.id}>
-            {person.data.id} on fs <i className='glyphicon glyphicon-new-window'/>
-          </a>
         </div>
         <div className='todo-person__bottom'>
+          <a target='_blank' href={'https://familysearch.org/tree/#view=ancestor&person=' + person.data.id}>
+            {person.data.id} on familysearch.org <i className='glyphicon glyphicon-new-window'/>
+          </a>
           <span className='todo-person__place'>
             {place || 'No recorded locations'}
           </span>
@@ -220,7 +220,7 @@ var TodoPerson = module.exports = React.createClass({
             {person.data.lineage && relationship.text(display.gender, person.data.lineage.length)}
           </div>
         </div>
-        <h4 className='todo-person__tasks-title'>Tasks</h4>
+        {!!(person.data.todos && person.data.todos.length) && d.h4({className: 'todo-person__tasks-title'}, 'Tasks')}
         <ul className='todo-person__todos'>
           {person.data.todos && person.data.todos.map(function (todo) {
             return (

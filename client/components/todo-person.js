@@ -207,12 +207,12 @@ var TodoPerson = module.exports = React.createClass({
           ),
           React.DOM.div( {className:"todo-person__lifespan"}, 
             display.lifespan
-          ),
-          React.DOM.a( {target:"_blank", href:'https://familysearch.org/tree/#view=ancestor&person=' + person.data.id}, 
-            person.data.id, " on fs ", React.DOM.i( {className:"glyphicon glyphicon-new-window"})
           )
         ),
         React.DOM.div( {className:"todo-person__bottom"}, 
+          React.DOM.a( {target:"_blank", href:'https://familysearch.org/tree/#view=ancestor&person=' + person.data.id}, 
+            person.data.id, " on familysearch.org ", React.DOM.i( {className:"glyphicon glyphicon-new-window"})
+          ),
           React.DOM.span( {className:"todo-person__place"}, 
             place || 'No recorded locations'
           ),
@@ -220,7 +220,7 @@ var TodoPerson = module.exports = React.createClass({
             person.data.lineage && relationship.text(display.gender, person.data.lineage.length)
           )
         ),
-        React.DOM.h4( {className:"todo-person__tasks-title"}, "Tasks"),
+        !!(person.data.todos && person.data.todos.length) && d.h4({className: 'todo-person__tasks-title'}, 'Tasks'),
         React.DOM.ul( {className:"todo-person__todos"}, 
           person.data.todos && person.data.todos.map(function (todo) {
             return (

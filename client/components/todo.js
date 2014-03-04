@@ -32,6 +32,7 @@ var Todo = module.exports = React.createClass({
     }
   },
   toggleDone: function (e) {
+    if (!this.props.data.completed) this.setState({open: false})
     this.props.onDone()
     e.stopPropagation()
     return false
@@ -113,7 +114,7 @@ var Todo = module.exports = React.createClass({
       ),
       Note({
         className: 'todo__note',
-        text: this.props.data.note || '',
+        value: this.props.data.note || '',
         onChange: this.props.changeNote
       }),
       this.getLinks(),

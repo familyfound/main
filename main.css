@@ -1,3 +1,26 @@
+.m-box {
+  border: 1px solid #ccc;
+  margin: 5px;
+  padding: 7px 10px 10px;
+  border-radius: 5px;
+  background-color: white;
+  margin-bottom: 10px;
+}
+.m-person-name {
+  font-size: 17px;
+  font-weight: bold;
+}
+.m-person-meta {
+  display: inline-block;
+  color: #555;
+}
+.m-person-lifespan {
+  font-weight: bold;
+  margin: 0 15px;
+}
+.m-section-title {
+  margin-left: 5px;
+}
 html,
 body {
   height: 100%;
@@ -222,6 +245,9 @@ body {
 .fan-key .fan-key-item {
   list-style: none;
   display: inline-block;
+  margin-right: 10px;
+}
+.fan__btn {
   margin-right: 10px;
 }
 .fan-box path.node {
@@ -473,29 +499,6 @@ body {
 .fan-box.show-children .ch-lots:hover {
   fill: #ff521a;
 }
-.m-box {
-  border: 1px solid #ccc;
-  margin: 5px;
-  padding: 7px 10px 10px;
-  border-radius: 5px;
-  background-color: white;
-  margin-bottom: 10px;
-}
-.m-person-name {
-  font-size: 17px;
-  font-weight: bold;
-}
-.m-person-meta {
-  display: inline-block;
-  color: #555;
-}
-.m-person-lifespan {
-  font-weight: bold;
-  margin: 0 15px;
-}
-.m-section-title {
-  margin-left: 5px;
-}
 .quiet-button {
   border: 1px solid #ccc;
   background-color: white;
@@ -575,9 +578,10 @@ body {
 }
 /** Person Todos **/
 .todo-person__tasks-title {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   margin-top: 13px;
+  margin-bottom: 2px;
 }
 .todo-person__todos {
   list-style: none;
@@ -754,6 +758,7 @@ body {
 .star {
   margin-right: 10px;
   color: #00e0ff;
+  cursor: pointer;
 }
 .history-item {
   border: 1px solid #ccc;

@@ -5,8 +5,12 @@ var d = React.DOM
   , todos = require('api').todos
 
 function historyTodoName(item) {
+  var title = todos.types[item.todo].title.replace('{}', '')
   if (item.key === 'hard') {
-    return (item.value ? '' : 'un') + 'marked task "' + todos.types[item.todo].title.replace('{}', '') + '" as hard'
+    return (item.value ? '' : 'un') + 'marked task "' + title + '" as hard'
+  }
+  if (item.key === 'note') {
+    return 'Added a note to "' + title + '"'
   }
   if (item.value) {
     return todos.types[item.todo].history
