@@ -36,9 +36,15 @@ var CustomTodo = module.exports = React.createClass({
       title: this.props.data.title || ''
     }
   },
-  componentDidUpdate: function (props) {
-    if (this.props.data.title !== this.state.title) {
-      this.setState({title: this.props.data.title})
+  componentDidUpdate: function (props, state) {
+    if (props.data.title !== this.props.data.title) {
+      return this.setState({title: this.props.data.title})
+    }
+    if (!state.open && this.state.open) {
+      var node = this.refs.title.getDOMNode()
+      node.selectionStart = node.selectionEnd = node.value.length
+      node.focus()
+      node.selectionStart = node.selectionEnd = node.value.length
     }
   },
   toggleDone: function (e) {
@@ -76,9 +82,16 @@ var CustomTodo = module.exports = React.createClass({
           className: cls + ' todo--collapsed',
           onClick: this.toggleOpen
         },
+        d.i({
+          className: 'custom-todo__collapse fa fa-angle-up',
+          onClick: this.toggleOpen
+        }),
         d.span({
           className: 'todo__title'
-        }, this.props.data.title)
+        }, this.props.data.title),
+        this.props.data.note && d.i({
+          className: 'todo__has-note fa fa-pencil'
+        })
       )
     }
     return d.div({
@@ -87,7 +100,6 @@ var CustomTodo = module.exports = React.createClass({
       d.div(
         {
           className: 'todo__head',
-          onClick: this.toggleOpen
         },
         CheckBox({
           onChange: this.toggleDone,
@@ -101,12 +113,16 @@ var CustomTodo = module.exports = React.createClass({
           onClick: function (e) {e.stopPropagation()},
           onBlur: this.setTitle,
           onKeyDown: this.titleKey
+        }),
+        d.i({
+          className: 'custom-todo__collapse fa fa-angle-down',
+          onClick: this.toggleOpen
         })
       ),
       Note({
         className: 'todo__note',
         value: this.props.data.note || '',
-        onChange: this.props.changeNote
+        onChange: this.props.onNote
       }),
       d.button({
         className: 'todo__hard' + (this.props.data.hard ? ' todo__hard--depressed' : ''),

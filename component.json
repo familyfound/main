@@ -54,7 +54,9 @@
     "client/components/custom-todo.js",
 
     "client/components/person-note.js",
-    "client/components/vital-info.js"
+    "client/components/vital-info.js",
+
+    "lib/utils.js"
   ],
   "styles": [
     "main.css"

@@ -55,7 +55,7 @@ var LoginPage = module.exports = React.createClass({
     if (this.state.status === 'loading') {
       return (
         React.DOM.div( {className:"login-page__loading"}, 
-          " Loading ", React.DOM.i( {className:"login-page__loading-indicator"})
+          "Loading ", React.DOM.i( {className:"login-page__loading-indicator"})
         )
       )
     }
@@ -63,10 +63,10 @@ var LoginPage = module.exports = React.createClass({
       return (
         React.DOM.div( {className:"login-page__error"}, 
           React.DOM.h3( {className:"login-page__error__title"}, 
-            " An error occurred while logging in. "
+            "An error occurred while logging in."
           ),
-          " Try ", React.DOM.a( {href:"/", className:"login-page__reload"}, "reloading"), " the "+
-          "page or please ", React.DOM.a( {href:"https://github.com/familyfound/familyfound/issues"}, "report this problem"),". "
+          "Try ", React.DOM.a( {href:"/", className:"login-page__reload"}, "reloading"), " the"+' '+
+          "page or please ", React.DOM.a( {href:"https://github.com/familyfound/familyfound/issues"}, "report this problem"),"."
         )
       )
     }

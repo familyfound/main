@@ -74,6 +74,7 @@ module.exports = [
     todos: todos,
     customTodos: [{
       title: 'Ask grandma about her things',
+      note: "Possible source: https://familysearch.org/pal:/MM9.1.1/M8P5-MML, But there's also this person KWHZ-3D1 or this other one https://familysearch.org/tree/#view=ancestor&person=KWHZ-3D1",
       completed: false,
       hard: false
     }],

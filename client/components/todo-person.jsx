@@ -219,12 +219,9 @@ var TodoPerson = module.exports = React.createClass({
           </div>
         </div>
         <div className='todo-person__bottom'>
-          <a target='_blank' href={'https://familysearch.org/tree/#view=ancestor&person=' + person.data.id}>
-            {person.data.id} on familysearch.org <i className='glyphicon glyphicon-new-window'/>
-          </a>
-          <span className='todo-person__place'>
+          <div className='todo-person__place'>
             {place || 'No recorded locations'}
-          </span>
+          </div>
           <div className='todo-person__relation'>
             {person.data.lineage && relationship.text(display.gender, person.data.lineage.length)}
           </div>
@@ -245,6 +242,9 @@ var TodoPerson = module.exports = React.createClass({
           }.bind(this))}
         </ul>
         {CustomTodos({data: person.data.customTodos, onChange: this.changeCustom})}
+        <a className='todo-person__fsorg' target='_blank' href={'https://familysearch.org/tree/#view=ancestor&person=' + person.data.id}>
+          View on familysearch.org: {person.data.id}
+        </a>
       </div>
     )
   }

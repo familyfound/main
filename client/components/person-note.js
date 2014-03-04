@@ -1,5 +1,6 @@
 
 var d = React.DOM
+  , utils = require('../../lib/utils')
 
 var Note = module.exports = React.createClass({
   displayName: 'Note',
@@ -23,11 +24,27 @@ var Note = module.exports = React.createClass({
   },
   componentDidUpdate: function (props, state) {
     if (state.open || !this.state.open) return
-    this.refs.input.getDOMNode().focus()
+    var node = this.refs.input.getDOMNode()
+    node.focus()
+    node.selectionEnd = node.selectionStart = node.value.length
   },
   open: function () {
     if (this.state.open) return
     this.setState({open: true})
+  },
+  staticContent: function () {
+    var items = utils.findLinks(this.state.text).map(function (chunk) {
+      if (Array.isArray(chunk)) {
+        return d.a({
+          href: chunk[0],
+          target: '_blank'
+        }, chunk[1])
+      }
+      return chunk
+    })
+    return d.span.apply(d, [{
+      className: 'note__static'
+    }].concat(items))
   },
   body: function () {
     if (!this.state.open) {
@@ -37,20 +54,30 @@ var Note = module.exports = React.createClass({
           onClick: this.open
         }, 'Click to add a note')
       }
-      return d.span({
-        className: 'note__static'
-      }, this.state.text)
+      return this.staticContent()
     }
     return d.textarea({
       className: 'note__input',
       ref: 'input',
       value: this.state.text,
       onChange: this.onChange,
+      onKeyDown: this.onKeyDown,
       onBlur: this.action
     })
   },
+  onKeyDown: function (e) {
+    if (e.keyCode === 13 && e.shiftKey) {
+      this.action()
+    }
+  },
   onChange: function (e) {
     this.setState({text: e.target.value})
+  },
+  onDown: function (e) {
+    if (this.state.open) {
+      e.preventDefault()
+      e.stopPropagation()
+    }
   },
   action: function () {
     if (!this.state.open) return this.open()
@@ -67,7 +94,8 @@ var Note = module.exports = React.createClass({
       onClick: this.open
     }, this.body(), d.button({
       className: 'note__button',
-      onClick: this.action
+      onClick: this.action,
+      onMouseDown: this.onDown
     }))
   }
 })

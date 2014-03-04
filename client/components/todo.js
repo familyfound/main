@@ -93,7 +93,10 @@ var Todo = module.exports = React.createClass({
         },
         d.span({
           className: 'todo__title'
-        }, this.getTitle())
+        }, this.getTitle()),
+        this.props.data.note && d.i({
+          className: 'todo__has-note fa fa-pencil'
+        })
       )
     }
     return d.div({

@@ -563,12 +563,12 @@ body {
 }
 .todo-person__place,
 .todo-person__lifespan {
-  display: inline-block;
   color: #555;
 }
 .todo-person__lifespan {
   font-weight: bold;
   margin: 0 15px;
+  display: inline-block;
 }
 .todo-person__place {
   font-style: italic;
@@ -576,7 +576,14 @@ body {
 .todo-person__complete {
   float: right;
 }
+.todo-person__fsorg {
+  text-align: right;
+  display: block;
+  margin-bottom: -3px;
+  margin-top: 3px;
+}
 /** Person Todos **/
+.custom-todos__title,
 .todo-person__tasks-title {
   font-size: 14px;
   font-weight: bold;
@@ -588,6 +595,9 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+.custom-todos__list {
+  margin-bottom: 5px;
 }
 .todo-person__todo {
   margin: 0;
@@ -620,6 +630,8 @@ body {
   opacity: .5;
   background-color: white;
   border: 1px solid #666;
+  border-radius: 5px;
+  outline: none;
 }
 .note__button::before {
   content: "\f040";
@@ -627,6 +639,8 @@ body {
 }
 .note--open .note__button {
   opacity: 1;
+  border-radius: 0;
+  border-top-left-radius: 5px;
 }
 .note--open .note__button::before {
   content: "Save";
@@ -637,17 +651,18 @@ body {
 .note__empty,
 .note__static {
   cursor: pointer;
-  padding: 7px 15px;
+  padding: 5px 10px 0;
   display: block;
 }
 .note__empty {
   font-style: italic;
-  margin-right: 20px;
+  margin-right: 27px;
+  padding: 7px;
 }
 .note__input {
   width: 100%;
   height: 100px;
-  padding: 6px 14px;
+  padding: 10px;
 }
 /** Individual Todo Item **/
 .check-box {
@@ -655,7 +670,7 @@ body {
   padding-right: 10px;
 }
 .check-box:hover {
-  color: #ffd600;
+  color: #BD9E00;
   font-weight: bold;
 }
 .todo {
@@ -681,12 +696,18 @@ body {
 }
 .todo__head {
   cursor: pointer;
+  margin-bottom: 5px;
+}
+.todo__has-note {
+  margin-left: 10px;
+  color: #888;
 }
 /** links **/
 .todo__links {
   list-style: none;
   padding: 0;
-  margin: 5px 0 0;
+  margin: 0;
+  margin-top: 12px;
 }
 .todo__link {
   padding: 3px 0;
@@ -764,6 +785,7 @@ body {
   cursor: text;
   border: 1px solid transparent;
   border-radius: 5px;
+  padding: 2px 10px;
 }
 .custom-todo__input:focus {
   border-color: #ccc;
@@ -771,8 +793,54 @@ body {
 .custom-todo .todo__note {
   float: none;
 }
-.custom-todos__add {
+.custom-todos__add-btn {
   float: right;
+  border: 1px solid transparent;
+  background-color: transparent;
+  border-radius: 5px;
+  margin-top: -5px;
+}
+.custom-todos__add-btn:hover {
+  color: #777;
+  border-color: #aaa;
+}
+.custom-todos__add-btn:active {
+  background-color: #ddd;
+}
+.custom-todos__add-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+.custom-todos__add-btn i {
+  margin-left: 5px;
+  line-height: 18px;
+  font-size: 18px;
+  vertical-align: middle;
+}
+.custom-todo__collapse {
+  float: right;
+  padding: 0 10px;
+}
+.custom-todo .todo__head i {
+  line-height: 24px;
+}
+.add-todo {
+  display: flex;
+}
+.add-todo__btn {
+  margin-right: 5px;
+  padding: 5px 15px;
+  border-radius: 10px;
+}
+.add-todo__input {
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  padding: 5px 10px;
+  flex: 1;
+}
+.star-box__empty,
+.history-box__empty {
+  margin-left: 20px;
 }
 .star {
   margin-right: 10px;
@@ -786,6 +854,11 @@ body {
   border-radius: 5px;
   background-color: white;
   margin-bottom: 10px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+  margin-bottom: 0;
+  border-radius: 0;
 }
 .history-item__name {
   font-size: 17px;

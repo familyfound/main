@@ -7,7 +7,7 @@ var Header = module.exports = React.createClass({
   render: function () {
     return (
       React.DOM.div( {className:"header"}, 
-        " Welcome, ",
+        "Welcome,",
         React.DOM.span( {className:"header__name"}, 
           this.props.userData.displayName
         ),
