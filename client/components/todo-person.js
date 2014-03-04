@@ -218,9 +218,9 @@ var TodoPerson = module.exports = React.createClass({
           ),
           React.DOM.div( {className:"todo-person__relation"}, 
             person.data.lineage && relationship.text(display.gender, person.data.lineage.length)
-          ),
-          PersonNote({value: person.data.note, onChange: this.changeNote})
+          )
         ),
+        React.DOM.h4( {className:"todo-person__tasks-title"}, "Tasks"),
         React.DOM.ul( {className:"todo-person__todos"}, 
           person.data.todos && person.data.todos.map(function (todo) {
             return (

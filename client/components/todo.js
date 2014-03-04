@@ -39,7 +39,7 @@ var Todo = module.exports = React.createClass({
   getTitle: function () {
     var tpl = todos.titles[this.props.data.type]
       , items = this.props.data.data
-    if (items && items.args) {
+    if (items && 'undefined' !== typeof items.args) {
       items = items.args
     }
     if (!Array.isArray(items)) {

@@ -15,7 +15,7 @@
   margin: 0;
   border-radius: 5px;
   position: relative;
-  margin-top: 5px;
+  margin-top: 1px;
   border: 1px solid #ccc;
 
   &::after {
@@ -33,6 +33,10 @@
 
 .todo--collapsed:hover {
   border-color: #ccc;
+}
+
+.todo__head {
+  cursor: pointer;
 }
 
 /** links **/
@@ -111,6 +115,7 @@
     color: #a55;
 }
 
+.todo--hard-completed .todo__hard,
 .todo--hard .todo__hard {
   color: #a55;
   background-color: #ffe0e0;
