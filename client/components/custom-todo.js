@@ -2,21 +2,7 @@
 var d = React.DOM
   , todos = require('api').todos
   , Note = require('./person-note')
-
-var CheckBox = React.createClass({
-  getDefaultProps: function () {
-    return {
-      checked: false,
-      onChange: function () {}
-    }
-  },
-  render: function () {
-    return d.i({
-      onClick: this.props.onChange,
-      className: 'check-box fa fa-' + (this.props.checked ? 'check-' : '') + 'square-o'
-    })
-  }
-})
+  , CheckBox = require('./check-box')
 
 var CustomTodo = module.exports = React.createClass({
   displayName: 'CustomTodo',
@@ -103,10 +89,6 @@ var CustomTodo = module.exports = React.createClass({
         {
           className: 'todo__head',
         },
-        CheckBox({
-          onChange: this.toggleDone,
-          checked: !!this.props.data.completed
-        }),
         d.input({
           className: 'todo__title custom-todo__input',
           ref: 'title',
@@ -115,6 +97,10 @@ var CustomTodo = module.exports = React.createClass({
           onClick: function (e) {e.stopPropagation()},
           onBlur: this.setTitle,
           onKeyDown: this.titleKey
+        }),
+        CheckBox({
+          onChange: this.toggleDone,
+          checked: !!this.props.data.completed
         }),
         d.i({
           className: 'custom-todo__collapse fa fa-angle-down',

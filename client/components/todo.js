@@ -11,10 +11,10 @@ var CheckBox = React.createClass({
     }
   },
   render: function () {
-    return d.i({
+    return d.button({
       onClick: this.props.onChange,
-      className: 'check-box fa fa-' + (this.props.checked ? 'check-' : '') + 'square-o'
-    })
+      className: 'check-button btn btn-primary ' + (this.props.checked ? 'active' : '')
+    }, !this.props.checked ? 'mark done' : 'mark not done')
   }
 })
 

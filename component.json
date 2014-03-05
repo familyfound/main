@@ -53,6 +53,7 @@
     "client/components/todo-person.js",
     "client/components/custom-todos.js",
     "client/components/custom-todo.js",
+    "client/components/check-box.js",
 
     "client/components/person-note.js",
     "client/components/vital-info.js",
