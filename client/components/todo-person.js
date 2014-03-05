@@ -181,7 +181,7 @@ var TodoPerson = module.exports = React.createClass({
       return (
         React.DOM.div( {className:"todo-person todo-person--completed"}, 
           React.DOM.span( {className:"todo-person__s-name"}, display.name || '[No Name]'),
-          "marked as complete.",
+          " marked as complete. ",
           React.DOM.button( {className:"todo-person__undo", onClick:this.onComplete}, "Undo")
         )
       )
@@ -191,7 +191,7 @@ var TodoPerson = module.exports = React.createClass({
     if (!showAnyway && status === 'no todos') {
       return (
         React.DOM.div( {className:"todo-person todo-person--no-todos"}, 
-          React.DOM.span( {className:"todo-person__s-name"}, display.name || '[No Name]'), " finished!"
+          React.DOM.span( {className:"todo-person__s-name"}, display.name || '[No Name]'), " finished! "
         )
       )
     }
@@ -199,7 +199,7 @@ var TodoPerson = module.exports = React.createClass({
       return (
         React.DOM.div( {className:"todo-person todo-person--hard-todos"}, 
           React.DOM.span( {className:"todo-person__s-name"}, display.name || '[No Name]'),
-          "has only \"hard\" items."
+          " has only \"hard\" items. "
         )
       )
     }
@@ -243,7 +243,7 @@ var TodoPerson = module.exports = React.createClass({
         ),
         CustomTodos({data: person.data.customTodos, onChange: this.changeCustom}),
         React.DOM.a( {className:"todo-person__fsorg", target:"_blank", href:'https://familysearch.org/tree/#view=ancestor&person=' + person.data.id}, 
-          "View on familysearch.org: ", person.data.id
+          " View on familysearch.org: ", person.data.id
         )
       )
     )

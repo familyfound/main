@@ -4,7 +4,7 @@ var d = React.DOM
   , TodoPerson = require('./todo-person')
   , classes = require('./classes')
   , Tip = require('tip')
-  , tipMessage = require('./tip').message
+  , tipMessage = require('./tip').shortMessage
   , Lineage = require('./lineage.js')
 
 function mainTitle(node, x, y) {
