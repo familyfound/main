@@ -4,17 +4,71 @@
 .history-item {
   .m-box;
   border: none;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 15px;
   margin-bottom: 0;
   border-radius: 0;
+  padding: 0;
+  border-width: 1px 0;
+  border-color: transparent;
+  border-style: solid;
+  cursor: pointer;
+
+  &:hover {
+    // background-color: #e7e7e7;
+    border-color: #ccc;
+  }
 }
 
 .history-item__top {
+  padding: 0 5px;
+
+  &:hover {
+    // color: #444;
+  }
+}
+
+.history-item__action {
+  padding-left: 20px;
+}
+
+.history-item__action-title {
+  // font-weight: bold;
+}
+
+.history-item__extra {
+  padding-left: 20px;
+}
+
+.history-item__action-body {
+  padding-left: 20px;
+}
+
+.history-item__action-body,
+.history-item__extra {
+  display: none;
+}
+
+.history-item__body {
+  padding: 5px 5px 0;
+}
+
+.history-item--open {
+  padding-bottom: 5px;
+  .history-item__top {
+  }
+  .history-item__action-body,
+  .history-item__extra {
+    display: block;
+  }
+
+  .history-item__action-title {
+    // font-weight: bold;
+  }
+
 }
 
 .history-item__name {
   .m-person-name;
+  font-size: 14px;
 }
 
 .history-item__lifespan {
@@ -26,6 +80,7 @@
   font-style: italic;
   margin-left: 10px;
   font-size: 90%;
+  float: right;
 }
 
 .history-item__relation {

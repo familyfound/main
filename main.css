@@ -957,14 +957,47 @@ body {
   background-color: white;
   margin-bottom: 10px;
   border: none;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 15px;
   margin-bottom: 0;
   border-radius: 0;
+  padding: 0;
+  border-width: 1px 0;
+  border-color: transparent;
+  border-style: solid;
+  cursor: pointer;
+}
+.history-item:hover {
+  border-color: #ccc;
+}
+.history-item__top {
+  padding: 0 5px;
+}
+.history-item__action {
+  padding-left: 20px;
+}
+.history-item__extra {
+  padding-left: 20px;
+}
+.history-item__action-body {
+  padding-left: 20px;
+}
+.history-item__action-body,
+.history-item__extra {
+  display: none;
+}
+.history-item__body {
+  padding: 5px 5px 0;
+}
+.history-item--open {
+  padding-bottom: 5px;
+}
+.history-item--open .history-item__action-body,
+.history-item--open .history-item__extra {
+  display: block;
 }
 .history-item__name {
   font-size: 17px;
   font-weight: bold;
+  font-size: 14px;
 }
 .history-item__lifespan {
   font-weight: bold;
@@ -976,6 +1009,7 @@ body {
   font-style: italic;
   margin-left: 10px;
   font-size: 90%;
+  float: right;
 }
 .history-item__thing {
   font-weight: bold;
