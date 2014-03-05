@@ -24,11 +24,27 @@ var HistoryBox = module.exports = React.createClass({
   gotData: function (data) {
     this.setState({items: data.items || []})
   },
+  grouped: function () {
+    var items = this.state.items
+      , grouped = []
+    for (var i=0; i<items.length; i++) {
+      if (grouped.length && items[i].id === grouped[grouped.length-1].id) {
+        grouped[grouped.length-1].actions.push(items[i])
+        continue;
+      }
+      grouped.push({
+        id: items[i].id,
+        display: items[i].display,
+        actions: [items[i]]
+      })
+    }
+    return grouped
+  },
   render: function () {
     return d.div(
       {className: 'history-box'},
       d.h2({className: 'history-box__title'}, 'Recent Actions'),
-      this.state.items.map(function (item) {
+      this.grouped().map(function (item) {
         if (!item.display) return false
         return HistoryItem({
           value: item,

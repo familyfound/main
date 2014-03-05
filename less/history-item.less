@@ -4,30 +4,34 @@
 .history-item {
   .m-box;
   border: none;
-  margin-bottom: 0;
+  margin-bottom: 15px;
   border-radius: 0;
   padding: 0;
-  border-width: 1px 0;
-  border-color: transparent;
-  border-style: solid;
-  cursor: pointer;
 
   &:hover {
     // background-color: #e7e7e7;
-    border-color: #ccc;
+    // border-color: #ccc;
   }
 }
 
 .history-item__top {
-  padding: 0 5px;
 
   &:hover {
     // color: #444;
   }
 }
 
+.history-item__fsorg {
+  // float: right;
+}
+
 .history-item__action {
-  padding-left: 20px;
+  margin-bottom: 5px;
+
+  i {
+    margin-right: 5px;
+  }
+  // padding-left: 20px;
 }
 
 .history-item__action-title {
@@ -35,20 +39,19 @@
 }
 
 .history-item__extra {
-  padding-left: 20px;
+  // padding-left: 20px;
+  margin-bottom: 10px;
 }
 
 .history-item__action-body {
-  padding-left: 20px;
+  // padding-left: 20px;
+  color: #777;
 }
 
+/*
 .history-item__action-body,
 .history-item__extra {
   display: none;
-}
-
-.history-item__body {
-  padding: 5px 5px 0;
 }
 
 .history-item--open {
@@ -65,10 +68,14 @@
   }
 
 }
+*/
+
+.history-item__body {
+  padding: 5px 5px 0;
+}
 
 .history-item__name {
   .m-person-name;
-  font-size: 14px;
 }
 
 .history-item__lifespan {
@@ -84,6 +91,7 @@
 }
 
 .history-item__relation {
+  font-style: italic;
 }
 
 .history-item__thing {

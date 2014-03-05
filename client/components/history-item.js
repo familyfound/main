@@ -4,53 +4,61 @@ var d = React.DOM
 
   , todos = require('api').todos
 
-function historyTodoName(item) {
+function historyTodoInfo(item) {
   var title = todos.types[item.todo].title.replace('{}', '')
   if (item.key === 'hard') {
-    return (item.value ? '' : 'un') + 'marked task as hard'
-    // return (item.value ? '' : 'un') + 'marked task "' + title + '" as hard'
+    return {
+      // title: (item.value ? '' : 'un') + 'marked task as hard',
+      title: (item.value ? '' : 'un') + 'marked task "' + title + '" as hard',
+      icon: item.value ? 'fa-meh-o' : 'fa-smile-o'
+    }
   }
   if (item.key === 'note') {
-    return 'Changed note'
-    // return 'Added a note to "' + title + '"'
+    return {
+      title: 'Changed note on task "' + title + '"',
+      icon: 'fa-pencil-square-o',
+      body: item.value
+    }
   }
   if (item.value) {
-    return 'Completed task'
-    // return todos.types[item.todo].history
+    return {
+      title: todos.types[item.todo].history,
+      icon: 'fa-check-square-o'
+    }
   }
-  return 'Marked task as incomplete'
-  // return 'marked task "' + todos.types[item.todo].title.replace('{}', '') + '" as incomplete'
+  return {
+    // title: 'Marked task as incomplete'
+    title: 'Marked task "' + todos.types[item.todo].title.replace('{}', '') + '" as incomplete',
+    icon: 'fa-square-o'
+  }
 }
 
-function historyName(item) {
+function historyInfo(item) {
   if (item.todo) {
-    return historyTodoName(item)
+    return historyTodoInfo(item)
   }
   var names = {
     starred: function (item) {
-      return (item.value ? '' : 'un') + 'starred'
+      return {
+        title: (item.value ? '' : 'un') + 'starred',
+        icon: 'fa-star' + (item.value ? '' : '-o')
+      }
     },
     note: function (item) {
-      return 'Changed note'
-      // var text = item.value
-      // if (text.length > 50) text = text.slice(0, 47) + '...'
-      // return 'Changed note to "' + text + '"'
+      return {
+        title: 'Changed note',
+        icon: 'fa-pencil',
+        body: item.value
+      }
     },
     customTodos: function (item) {
-      return 'Changed custom tasks'
+      return {
+        title: 'Changed custom tasks',
+        icon: 'fa-plus-square-o'
+      }
     }
   }
   return names[item.key](item)
-}
-
-function historyBody(item) {
-  var names = {
-    note: function (item) {
-      return item.value
-    }
-  }
-  if (names[item.key]) return names[item.key](item)
-  return false
 }
 
 function capFirst(str) {
@@ -65,27 +73,17 @@ var HistoryItem = module.exports = React.createClass({
       personHref: function () {return '#nope'}
     }
   },
-  getInitialState: function () {
-    return {
-      open: false
-    }
-  },
-  toggleOpen: function () {
-    this.setState({open: !this.state.open})
-  },
   render: function () {
     var display = this.props.value.display
       , relation = relationship.text(display.gender, display.generation)
-      , whatHappened = historyName(this.props.value)
-      , body = historyBody(this.props.value)
 
     return d.div(
-      {className: 'history-item' + (this.state.open ? ' history-item--open' : ''), onClick: this.toggleOpen},
+      {className: 'history-item'},
       d.div(
         {className: 'history-item__top'},
         d.span(
           {className: 'history-item__date'},
-          moment(this.props.value.date).fromNow()
+          moment(this.props.value.actions[0].date).fromNow()
         ),
         d.a({
           className: 'history-item__name',
@@ -111,17 +109,23 @@ var HistoryItem = module.exports = React.createClass({
           relation
         )
       ),
-      d.div(
-        {className: 'history-item__action'},
-        d.span(
-          {className: 'history-item__action-title'},
-          capFirst(whatHappened) + ' '
-        ),
-        d.div(
-          {className: 'history-item__action-body'},
-          body
+      this.props.value.actions.map(function (action) {
+        var info = historyInfo(action)
+        return d.div(
+          {className: 'history-item__action'},
+          d.i({
+            className: 'fa fa-fw ' + info.icon
+          }),
+          d.span(
+            {className: 'history-item__action-title'},
+            capFirst(info.title) + ' '
+          ),
+          d.div(
+            {className: 'history-item__action-body'},
+            info.body
+          )
         )
-      )
+      })
     )
   }
 })

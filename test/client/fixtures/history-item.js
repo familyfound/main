@@ -81,7 +81,11 @@ module.exports = [{
   }
 }].concat(todo_items).map(function (value) {
   return {
-    value: value
+    value: {
+      id: value.id,
+      display: value.display,
+      actions: [value]
+    }
   }
 })
 
