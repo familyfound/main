@@ -198,8 +198,11 @@ var View = module.exports = React.createClass({
     return d.div(
       { className: 'main-view' },
       Header({
+        pid: this.currentId(),
+        manager: this.props.manager,
         userData: this.props.userData,
-        loadingText: this.loadingText()
+        loadingText: this.loadingText(),
+        personHref: this.personHref
       }),
       this.mainPage(),
       Footer()

@@ -42,6 +42,7 @@
     "client/components/todo.js",
     "client/components/footer.js",
     "client/components/header.js",
+    "client/components/breadcrumb.js",
 
     "client/components/star-box.js",
     "client/components/history-box.js",

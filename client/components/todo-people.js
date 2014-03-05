@@ -4,7 +4,7 @@ var d = React.DOM
 
 var TodoPeople = module.exports = React.createClass({
   getInitialState: function () {
-    return {}
+    return {open: false}
   },
   loadingMessage: function () {
     if (!this.props.loading.todos) return false
@@ -26,11 +26,18 @@ var TodoPeople = module.exports = React.createClass({
       disabled: this.props.loading.todos
     }, 'Look for more')
   },
+  toggleOpen: function () {
+    this.setState({open: !this.state.open})
+  },
   render: function () {
     return d.div({
-      className: 'todo-people'
+      className: 'todo-people' + (this.state.open ? ' todo-people--open' : '')
     },
-    d.h2({className: 'todo-people__title'}, 'People to work on'),
+    d.h2(
+      {className: 'todo-people__title', onClick: this.toggleOpen},
+      d.i({className: 'todo-people__caret fa fa-fw fa-angle-' + (this.state.open ? 'down' : 'right')}),
+      'People to work on'
+    ),
     d.div(
       {className: 'todo-buttons'},
       this.loadMore(),

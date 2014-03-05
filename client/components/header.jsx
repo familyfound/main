@@ -1,6 +1,7 @@
 /** @jsx React.DOM */
 
 var d = React.DOM
+  , Breadcrumb = require('./breadcrumb')
 
 var Header = module.exports = React.createClass({
   displayName: 'Header',
@@ -15,6 +16,7 @@ var Header = module.exports = React.createClass({
         <span className='header__loading'>
           {this.props.loadingText}
         </span>
+        <Breadcrumb manager={this.props.manager} id={this.props.pid} personHref={this.props.personHref}/>
       </div>
     )
   }

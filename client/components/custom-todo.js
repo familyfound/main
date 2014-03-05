@@ -23,6 +23,7 @@ var CustomTodo = module.exports = React.createClass({
   getDefaultProps: function () {
     return {
       startOpen: false,
+      onRemove: function () {},
       onTitle: function () {},
       onDone: function () {},
       onHard: function () {},
@@ -57,6 +58,7 @@ var CustomTodo = module.exports = React.createClass({
     this.setState({title: e.target.value})
   },
   setTitle: function () {
+    if (this.state.title === this.props.data.title) return
     this.props.onTitle(this.state.title)
   },
   toggleOpen: function () {
@@ -127,7 +129,11 @@ var CustomTodo = module.exports = React.createClass({
       d.button({
         className: 'todo__hard' + (this.props.data.hard ? ' todo__hard--depressed' : ''),
         onClick: this.props.onHard
-      }, !this.props.data.hard ? 'Mark as hard' : 'Unmark as hard')
+      }, !this.props.data.hard ? 'Mark as hard' : 'Unmark as hard'),
+      d.button({
+        className: 'todo__remove',
+        onClick: this.props.onRemove
+      }, 'remove')
     )
   }
 })

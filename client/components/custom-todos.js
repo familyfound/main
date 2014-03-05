@@ -91,6 +91,10 @@ var CustomTodos = module.exports = React.createClass({
     this.setState({adding: false})
     this.props.onChange(this.props.data)
   },
+  onRemove: function (i) {
+    this.props.data.splice(i, 1);
+    this.props.onChange(this.props.data)
+  },
   render: function () {
     return d.div(
       {className: 'custom-todos'},
@@ -110,6 +114,7 @@ var CustomTodos = module.exports = React.createClass({
               onNote: this.todoAttr.bind(null, i, 'note'),
               onDone: this.onDone.bind(null, i),
               onHard: this.onHard.bind(null, i),
+              onRemove: this.onRemove.bind(null, i),
               data: task,
               key: i
             })

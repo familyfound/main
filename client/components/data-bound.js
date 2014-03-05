@@ -2,13 +2,14 @@
 module.exports = {
   getInitialState: function () {
     return {
-      data: null
+      data: this.props.initialData
     }
   },
   getDefaultProps: function () {
     return {
       id: null,
-      manager: null
+      manager: null,
+      initialData: null
     }
   },
   componentDidMount: function () {

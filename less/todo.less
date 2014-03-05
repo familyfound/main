@@ -88,8 +88,7 @@
   color: #555;
 }
 
-.todo__hard {
-  float: right;
+.m-hiding-button {
   border: 0;
   background-color: transparent;
   text-transform: lowercase;
@@ -97,12 +96,29 @@
   color: #777;
 }
 
+.todo__remove {
+  .m-hiding-button;
+  
+  &:hover {
+    color: white;
+    background-color: #f66;
+  }
+}
+.todo__hard {
+  float: right;
+  .m-hiding-button;
+  
+  &:hover {
+    color: #a55;
+    background-color: #ffe0e0;
+  }
+}
+
 .todo:hover .todo__hard {
 }
 
+.todo__remove:hover,
 .todo__hard:hover {
-  color: #a55;
-  background-color: #ffe0e0;
 }
 
 .todo--hard .todo__hard {
@@ -138,7 +154,7 @@
 }
 
 .todo--completed .todo__title {
-  color: #aaa;
+  color: #888;
   font-style: italic;
 }
 

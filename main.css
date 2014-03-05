@@ -39,7 +39,57 @@ body {
   margin: 0 10px;
 }
 .header__loading {
-  margin-left: 10px;
+  margin-right: 10px;
+}
+.header__logout {
+  margin-right: 15px;
+}
+.header__jump {
+  font-size: 13px;
+  font-weight: bold;
+}
+.breadcrumb {
+  padding: 0 5px;
+  margin-bottom: 0;
+  margin-left: 0;
+  list-style: none;
+  background-color: transparent;
+  border-radius: 0;
+  display: inline-block;
+}
+.breadcrumb > li + li:before {
+  content: "\f105";
+  font-family: 'FontAwesome';
+  padding: 0 2px;
+  color: #888;
+}
+.breadcrumb__dotdotdot:before {
+  content: "\2026";
+  font-weight: bold;
+}
+.breadcrumb--empty {
+  display: none;
+}
+.breadcrumb__item {
+  display: inline-block;
+}
+.breadcrumb__item a {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 5px;
+  color: #555;
+}
+.breadcrumb__item a:hover {
+  text-decoration: none;
+  background-color: #e7e7e7;
+  color: #black;
+}
+.breadcrumb__item--head a {
+  background-color: transparent;
+  font-weight: bold;
+}
+.breadcrumb__item--head a:hover {
+  background-color: transparent;
 }
 .person-page__vitals {
   padding: 10px 20px;
@@ -740,6 +790,24 @@ body {
   padding: 10px;
   color: #555;
 }
+.m-hiding-button {
+  border: 0;
+  background-color: transparent;
+  text-transform: lowercase;
+  border-radius: 5px;
+  color: #777;
+}
+.todo__remove {
+  border: 0;
+  background-color: transparent;
+  text-transform: lowercase;
+  border-radius: 5px;
+  color: #777;
+}
+.todo__remove:hover {
+  color: white;
+  background-color: #f66;
+}
 .todo__hard {
   float: right;
   border: 0;
@@ -774,7 +842,7 @@ body {
   background-color: white;
 }
 .todo--completed .todo__title {
-  color: #aaa;
+  color: #888;
   font-style: italic;
 }
 .todo--hard-completed .todo__title {
@@ -842,6 +910,31 @@ body {
   padding: 5px 10px;
   flex: 1;
 }
+.todo-people__caret {
+  display: none;
+}
+@media (max-width: 1000px) {
+  .todo-people__caret {
+    display: inline-block;
+  }
+  .todo-buttons,
+  .todo-people__list {
+    display: none;
+  }
+  .todo-people__title {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 0;
+  }
+  .todo-people--open .todo-buttons,
+  .todo-people--open .todo-people__list {
+    display: block;
+  }
+  .todo-people--open .todo-people__title {
+    border-color: transparent;
+  }
+}
 .star-box__empty,
 .history-box__empty {
   margin-left: 20px;
@@ -891,14 +984,15 @@ body {
   color: #333;
   text-decoration: none;
   display: block;
-  padding: 20px;
+  padding: 8px;
+  font-size: 12px;
 }
 .lineage__person a:hover {
   background-color: #ddd;
 }
 .lineage__person__name {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 16px;
 }
 .lineage__person__lifespan {
   font-style: italic;
@@ -911,5 +1005,5 @@ body {
   color: #999;
 }
 .lineage__person__relation {
-  font-size: 17px;
+  font-size: 14px;
 }

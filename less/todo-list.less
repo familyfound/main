@@ -98,3 +98,35 @@
 }
 
 @import "todo-person.less";
+
+.todo-people__caret {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .todo-people__caret {
+    display: inline-block;
+  }
+  .todo-buttons,
+  .todo-people__list {
+    display: none;
+  }
+  
+  .todo-people__title {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 0;
+  }
+  .todo-people--open {
+    .todo-buttons,
+    .todo-people__list {
+      display: block;
+    }
+    .todo-people__title {
+      border-color: transparent;
+    }
+  }
+}
+
+
