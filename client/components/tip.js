@@ -42,7 +42,7 @@ function shortMessage(data) {
   if (display.age) {
     lines[0] += ' (' + display.age + ' years)'
   }
-  var place = display.birthPlace || display.deathPlace
+  var place = display.birthPlace || display.deathPlace || 'No places recorded'
   lines.push('<span class="tip__place">' + place + '</span>')
   if (data.data && data.data.lineage) {
     lines.push('<span class="tip__relationship">' + relationship.text(display.gender, data.data.lineage.length) + '</span>')
