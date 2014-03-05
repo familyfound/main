@@ -3,7 +3,8 @@ var todos = require('api').todos
   , relationship = require('./relationship.js')
 
 module.exports = {
-  message: message
+  message: message,
+  shortMessage: shortMessage
 }
 
 function todoTitle(data) {
@@ -31,6 +32,22 @@ function todoLines(todos) {
     lines.push('<span class="' + cls + '">' + todoTitle(todos[i]) + '</span>')
   }
   return lines
+}
+
+function shortMessage(data) {
+  if (!data || !data.rels) return 'loading'
+  var display = data.rels.display
+    , lines = []
+  lines.push('<span class="tip__name">' + (display.name || '[No Name]') + '</span> <em>' + display.lifespan + '</em>')
+  if (display.age) {
+    lines[0] += ' (' + display.age + ' years)'
+  }
+  var place = display.birthPlace || display.deathPlace
+  lines.push('<span class="tip__place">' + place + '</span>')
+  if (data.data && data.data.lineage) {
+    lines.push('<span class="tip__relationship">' + relationship.text(display.gender, data.data.lineage.length) + '</span>')
+  }
+  return lines.join('<br/>')
 }
 
 function message(data) {
