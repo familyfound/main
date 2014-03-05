@@ -206,7 +206,7 @@ body {
   margin-right: 5px;
 }
 .tip__todo {
-  color: #ffff00;
+  color: #f367ff;
   font-weight: bold;
 }
 .tip__not-processed {
@@ -249,6 +249,7 @@ body {
 }
 .fan__btn {
   margin-right: 10px;
+  margin-bottom: 10px;
 }
 .fan-box path.node {
   fill: #aaa;
@@ -283,11 +284,11 @@ body {
   fill: #54ff54;
 }
 .fan-box.show-origin .o-other {
-  fill: #ffff34;
-  background-color: #ffff34;
+  fill: #dd8bfd;
+  background-color: #dd8bfd;
 }
 .fan-box.show-origin .o-other:hover {
-  fill: #ffff4e;
+  fill: #e4a4fd;
 }
 .fan-box.show-origin .o-unknown {
   fill: #cccccc;
@@ -430,11 +431,11 @@ body {
   fill: #1aff1a;
 }
 .fan-box.show-completion .c-has-todos {
-  fill: #ffff00;
-  background-color: #ffff00;
+  fill: #f367ff;
+  background-color: #f367ff;
 }
 .fan-box.show-completion .c-has-todos:hover {
-  fill: #ffff1a;
+  fill: #f581ff;
 }
 .fan-box.show-completion .c-just-cleanup {
   fill: #e7ac30;
@@ -508,6 +509,9 @@ body {
 .todo-people__loading {
   padding: 20px 50px;
   font-weight: bold;
+}
+.todo-people__load-status {
+  padding: 10px;
 }
 .todo-people__show-hard {
   border: 1px solid #ccc;

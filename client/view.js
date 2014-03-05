@@ -183,12 +183,14 @@ var View = module.exports = React.createClass({
     if (this.state.loadingFan) {
       text += 'Loading Fan: ' + this.state.numPeople + ' '
     }
+    /*
     if (this.state.loadingTodos) {
       var got = this.state.todoPeople.length
         , left = (this.state.loadedMore ? 10 : 5) - got
       text += 'Finding Tasks: ' + this.state.numMorePeople + ' searched'
       text += '; Found ' + got + ', looking for ' + left + ' more'
     }
+    */
     return text
   },
 

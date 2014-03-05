@@ -195,6 +195,7 @@ var TodoPerson = module.exports = React.createClass({
         </div>
       )
     }
+    /*
     if (!showAnyway && status === 'hard todos' && !this.props.showHard) {
       return (
         <div className='todo-person todo-person--hard-todos'>
@@ -204,6 +205,7 @@ var TodoPerson = module.exports = React.createClass({
       )
     }
           // {makeDropicon(person)}
+    */
     return (
       <div className='todo-person'>
         <div className='todo-person__top'>

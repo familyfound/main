@@ -4,10 +4,27 @@ var d = React.DOM
 
 var TodoPeople = module.exports = React.createClass({
   getInitialState: function () {
-    return {showHard: false}
+    return {}
   },
-  toggleHard: function () {
-    this.setState({showHard: !this.state.showHard})
+  loadingMessage: function () {
+    if (!this.props.loading.todos) return false
+    var got = this.props.people.length
+      , searched = this.props.loading.morepeople
+      , want = this.props.loading.more ? 10 : 5
+      , left = want - got
+      , noun = left === 1 ? 'person' : 'people'
+    if (left < 0) left = 0
+    return d.div({
+      className: 'todo-people__load-status'
+    }, 'Looking for ' + left + ' more ' + noun + '. Searched through ' + searched)
+  },
+  loadMore: function () {
+    if (this.props.loading.todos || this.props.loading.more) return
+    return d.button({
+      className: 'btn btn-default todo-people__load-more',
+      onClick: this.props.loadMoreTodos,
+      disabled: this.props.loading.todos
+    }, 'Look for more')
   },
   render: function () {
     return d.div({
@@ -16,28 +33,21 @@ var TodoPeople = module.exports = React.createClass({
     d.h2({className: 'todo-people__title'}, 'People to work on'),
     d.div(
       {className: 'todo-buttons'},
-      d.button(
-        {className: 'btn btn-default todo-people__show-hard', onClick: this.toggleHard},
-        this.state.showHard ? 'Hide hard people' : 'Show hard people'
-      ),
-      !this.props.loading.more && d.button(
-        {className: 'btn btn-default todo-people__load-more', onClick: this.props.loadMoreTodos},
-        'Keep Searching'
-      )
+      this.loadMore(),
+      this.loadingMessage()
     ),
     d.ul(
       {className: 'todo-people__list'},
       this.props.people.map(function (id) {
         return d.li({key: id},
           TodoPerson({
-          showHard: this.state.showHard,
-          overviewPerson: this.props.overviewPerson,
-          viewPerson: this.props.viewPerson,
-          manager: this.props.manager,
-          personHref: this.props.personHref(id),
-          removePerson: this.props.removePerson.bind(null, id),
-          id: id
-        }))
+            overviewPerson: this.props.overviewPerson,
+            viewPerson: this.props.viewPerson,
+            manager: this.props.manager,
+            personHref: this.props.personHref(id),
+            removePerson: this.props.removePerson.bind(null, id),
+            id: id
+          }))
       }.bind(this)),
       !this.props.people.length && d.li({className: 'todo-people__loading'}, 'Searching your tree for things to do...'))
     )
