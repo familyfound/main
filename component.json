@@ -2,13 +2,13 @@
   "name": "main",
   "repo": "familyfound/main",
   "description": "The main page",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "keywords": [],
   "dependencies": {
     "familyfound/fsauth": "*",
     "familyfound/api": "v1.2.0",
     "familyfound/fan": "1.0.0",
-    "familyfound/person-manager": "1.2.0",
+    "familyfound/person-manager": "1.3.0",
 
     "jashkenas/backbone": "*",
     "lodash/lodash": "*",
