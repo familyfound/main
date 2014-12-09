@@ -97,7 +97,7 @@ use-cdn:
 	mv web/index-cdn.html web/index.html
 
 get-tools:
-	@npm install -g component less jshint react-tools
+	@npm install -g component@0.19.9 less jshint react-tools
 
 #
 
