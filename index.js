@@ -18,8 +18,9 @@ app.use(express.cookieParser(config.secret));
 app.use(express.session());
 
 auth.addRoutes(app, {
+  redirect: config.host + '/oauth/connect',
   check_login_path: '/auth/check-login',
-  callback_path: '/auth/callback',
+  callback_path: '/oauth/connect',
   logout_redirect: '/',
   logout_path: '/logout',
   key: config.fs_key

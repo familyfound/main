@@ -23,3 +23,4 @@ test/client/*/index.html
 test/client/*/lib.js
 test/client/*/setup.js
 test/client/index.html
+dev.sh

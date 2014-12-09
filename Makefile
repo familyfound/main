@@ -5,7 +5,7 @@ COMPILED = $(PAGES) $(COMPONENTS)
 LESS = $(wildcard less/*.less)
 
 build: components index.js main.css $(COMPILED)
-	@component build --dev -n build -s main -o web
+	component build --dev -n build -s main -o web
 
 test-build: components index.js main.css $(COMPILED)
 	@component build --dev -n build -o test/client/

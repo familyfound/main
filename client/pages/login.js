@@ -7,6 +7,7 @@ var LoginPage = module.exports = React.createClass({
   getDefaultProps: function () {
     return {
       checkPath: '/auth/check-login',
+      codePath: '/auth/get-code',
       authorized: function () {}
     }
   },
@@ -22,20 +23,7 @@ var LoginPage = module.exports = React.createClass({
     this.setState({
       status: 'loading'
     })
-    fsauth(this.props.checkPath, function (err, url) {
-      if (err) {
-        this.setState({
-          status: 'error',
-          error: err
-        })
-        return
-      }
-      this.setState({
-        status: 'oauth',
-        auth_url: url,
-        error: err
-      })
-    }.bind(this), function (err, token, data) {
+    fsauth(this.props.checkPath, this.props.codePath, function (err, token, data) {
       if (err) {
         this.setState({
           status: 'error',
