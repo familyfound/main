@@ -91,13 +91,13 @@ web/react-0.9.0.js:
 
 # Heroku stuff
 
-postinstall: get-tools use-cdn build
+postinstall: get-tools use-cdn
 
 use-cdn:
 	mv web/index-cdn.html web/index.html
 
 get-tools:
-	@npm install -g component@0.19.9 less jshint react-tools
+	@npm install -g less jshint react-tools
 
 #
 

@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "make test",
-    "postinstall": "cd node_modules/api && npm install && cd ../fsauth && npm install && cd ../.. && make postinstall"
+    "postinstall": "make postinstall"
   },
   "dependencies": {
-    "api": "git+https://github.com/familyfound/api#v1.3.0",
-    "fsauth": "git+https://github.com/familyfound/fsauth#v0.2.2",
+    "api": "./fs-api",
+    "fsauth": "./fs-auth",
     "express": "~3.4.7",
     "mongodb": "~1.3.23",
     "cors": "~2.1.1",
