@@ -1,0 +1,6 @@
+[submodule "fs-auth"]
+	path = fs-auth
+	url = https://github.com/familyfound/fsauth.git
+[submodule "fs-api"]
+	path = fs-api
+	url = https://github.com/familyfound/api.git
