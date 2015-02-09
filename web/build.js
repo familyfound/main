@@ -2279,6 +2279,9 @@ var Node = module.exports = React.createClass({\n\
   },\n\
   componentDidUpdate: function () {\n\
     if (this.tip && this.props.tip) {\n\
+      ;[].forEach.call(this.tip.inner.childNodes, function (node) {\n\
+        node.parentNode.removeChild(node)\n\
+      })\n\
       this.tip.message(this.props.tip(this.state.data))\n\
     }\n\
   },\n\
@@ -19666,6 +19669,7 @@ Emitter(Tip.prototype);\n\
 \n\
 Tip.prototype.message = function(content){\n\
   if ('string' == typeof content) content = domify(content);\n\
+  this.inner.innerHTML = '';\n\
   this.inner.appendChild(content);\n\
   return this;\n\
 };\n\
